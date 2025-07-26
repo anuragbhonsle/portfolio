@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 
 export const Hero = () => {
   return (
-    <section className="h-screen flex items-center justify-center px-4 lg:px-16">
-      <div className="container max-w-7xl mx-auto max-h-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+    <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center px-4 lg:px-16">
+      <div className="container mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
         {/* Left: Text Content */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="space-y-6 overflow-hidden"
+          className="space-y-6"
         >
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -17,7 +17,7 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight"
           >
-            Hi, Anurag here 👋
+            Hi, Anurag here
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -41,9 +41,12 @@ export const Hero = () => {
           <motion.div
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
-            className="relative group cursor-pointer overflow-hidden"
+            className="relative group cursor-pointer overflow-hidden p-4 rounded-full"
           >
-            <div className="absolute inset-0 bg-gradient-primary rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+            {/* Glow behind the image */}
+            <div className="absolute inset-0 bg-gradient-primary rounded-full blur-[120px] opacity-0 group-hover:opacity-50 transition-opacity duration-300 pointer-events-none" />
+
+            {/* Actual profile image */}
             <img
               src="/anurag.png"
               alt="Anurag's profile"

@@ -15,9 +15,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
-      {/* <ThemeToggle/> */}
-
-      <main className="relative z-10">
+      {/*<ThemeToggle />*/}
+      <main className="relative z-10 overflow-hidden">
         <Hero />
         <About />
         <Experience />
