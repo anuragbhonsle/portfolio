@@ -120,9 +120,9 @@ export const Hero = () => {
               alt="Anurag's profile"
               width={384}
               height={384}
-              animate={{ rotate: [0, 5, -5, 0] }}
+              animate={{ rotate: [0, 1, -1, 0] }}
               transition={{
-                duration: 6,
+                duration: 8,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}

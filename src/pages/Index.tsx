@@ -8,6 +8,7 @@ import { Footer } from "@/components/Footer";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ParallaxBackground } from "@/components/ParallaxBackground";
+import { BackToTop } from "@/components/BackToTop";
 
 const Index = () => {
   useEffect(() => {
@@ -30,6 +31,7 @@ const Index = () => {
 
       {/* Parallax Background */}
       <ParallaxBackground />
+      <BackToTop />
     </div>
   );
 };
