@@ -60,7 +60,7 @@ export const Experience = () => {
               className="group"
             >
               <div
-                className={`bg-gradient-card rounded-2xl p-6 border border-border hover:border-primary/30 transition-all duration-500 hover:shadow-card ${exp.glowColor}`}
+                className={`backdrop-blur-md bg-white/5 dark:bg-black/5 rounded-2xl p-6 border border-white/20 dark:border-white/10 hover:border-primary/30 transition-all duration-500 hover:shadow-card ${exp.glowColor} shadow-lg`}
               >
                 <div className="flex items-start gap-4 mb-4">
                   <motion.div

@@ -142,7 +142,7 @@ export const TechStack = () => {
               className="group cursor-pointer"
             >
                              <div
-                 className={`bg-gradient-card rounded-xl p-5 border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-card text-center ${tech.hoverColor}`}
+                 className={`backdrop-blur-md bg-white/5 dark:bg-black/5 rounded-xl p-5 border border-white/20 dark:border-white/10 hover:border-primary/30 transition-all duration-300 hover:shadow-card text-center ${tech.hoverColor} shadow-lg`}
                >
                  <motion.div
                    whileHover={{ scale: 1.2, rotate: 5 }}

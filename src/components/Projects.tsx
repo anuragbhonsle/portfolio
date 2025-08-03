@@ -70,7 +70,7 @@ export const Projects = () => {
               }}
               className="group"
             >
-              <div className="bg-gradient-card rounded-2xl p-8 border border-border hover:border-primary/30 transition-all duration-500 hover:shadow-card flex flex-col relative overflow-hidden w-full">
+              <div className="backdrop-blur-md bg-white/5 dark:bg-black/5 rounded-2xl p-8 border border-white/20 dark:border-white/10 hover:border-primary/30 transition-all duration-500 hover:shadow-card flex flex-col relative overflow-hidden w-full shadow-lg">
                 <div className="relative z-10">
                   <div className="flex items-start justify-between mb-6">
                     <div className="flex-1">
