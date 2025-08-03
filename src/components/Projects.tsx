@@ -24,11 +24,19 @@ const projects: Project[] = [
   {
     title: "AnimeVerse",
     description:
-      "Animeverse is your personal anime sanctuary — built to track what you watch, discover what’s next, and dive deep into your anime world. It’s minimal, fast, and made by a fan, for fans.",
+      "Animeverse is your personal anime sanctuary — built to track what you watch, discover what's next, and dive deep into your anime world. It's minimal, fast, and made by a fan, for fans.",
     tech: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Supabase"],
     github: "https://github.com/anuragbhonsle/animeverse",
     demo: "https://anime-verse-xi.vercel.app/",
     color: "bg-accent",
+  },
+  {
+    title: "LeetScape",
+    description:
+      "LeetScape was built to blend organization, progress tracking, and just a hint of consistency. It's a space where you can master coding interviews while staying focused.",
+    tech: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Firebase"],
+    demo: "https://leetscape-app.vercel.app/",
+    color: "bg-secondary",
   },
 ];
 
@@ -47,7 +55,7 @@ export const Projects = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-3xl sm:text-4xl font-bold text-foreground mb-12"
+          className="text-3xl sm:text-4xl font-bold text-foreground mb-12 tracking-tight"
         >
           Projects
         </motion.h2>
@@ -113,13 +121,13 @@ export const Projects = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-                    {project.title}
-                  </h3>
+                                     <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors duration-300 tracking-tight">
+                     {project.title}
+                   </h3>
 
-                  <p className="text-text-dim leading-relaxed mb-4 flex-grow">
-                    {project.description}
-                  </p>
+                   <p className="text-text-dim leading-relaxed mb-6 flex-grow text-base">
+                     {project.description}
+                   </p>
 
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech) => (

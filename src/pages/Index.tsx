@@ -6,6 +6,8 @@ import { Projects } from "@/components/Projects";
 import { TechStack } from "@/components/TechStack";
 import { Footer } from "@/components/Footer";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { ParallaxBackground } from "@/components/ParallaxBackground";
 
 const Index = () => {
   useEffect(() => {
@@ -15,7 +17,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
-      {/*<ThemeToggle />*/}
+      <ScrollProgress />
+      <ThemeToggle />
       <main className="relative z-10 overflow-hidden">
         <Hero />
         <About />
@@ -25,11 +28,8 @@ const Index = () => {
         <Footer />
       </main>
 
-      {/* Background gradient effects */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
-      </div>
+      {/* Parallax Background */}
+      <ParallaxBackground />
     </div>
   );
 };

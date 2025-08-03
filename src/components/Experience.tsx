@@ -19,7 +19,7 @@ const experiences: ExperienceItem[] = [
     icon: "/yhills_logo.jpeg",
 
     description:
-      "Built a responsive blog site using HTML, CSS, and JavaScript with dynamic post rendering and mobile-friendly design. Practiced modular JS and used Git for version control.",
+      "Worked on building responsive websites and learned the ropes of frontend development. Got hands-on experience with HTML, CSS, JavaScript, and version control with Git.",
     color: "text-[#4285F4]",
     glowColor: "hover:shadow-[0_0_20px_#4285F440]",
   },
@@ -40,7 +40,7 @@ export const Experience = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-3xl sm:text-4xl font-bold text-foreground mb-12"
+          className="text-3xl sm:text-4xl font-bold text-foreground mb-12 tracking-tight"
         >
           Places I worked at
         </motion.h2>
@@ -84,19 +84,19 @@ export const Experience = () => {
 
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
-                      <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
-                        {exp.company}
-                      </h3>
-                      <span className="text-sm text-text-dim font-mono bg-secondary/50 px-2 py-1 rounded-md">
-                        {exp.period}
-                      </span>
-                    </div>
+                                           <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300 tracking-tight">
+                       {exp.company}
+                     </h3>
+                     <span className="text-sm text-text-dim font-mono bg-secondary/50 px-3 py-1 rounded-md">
+                       {exp.period}
+                     </span>
+                   </div>
 
-                    <p className="text-text-dim font-medium mb-3">{exp.role}</p>
+                   <p className="text-text-dim font-medium mb-4 text-lg">{exp.role}</p>
 
-                    <p className="text-sm text-text-dim leading-relaxed">
-                      {exp.description}
-                    </p>
+                   <p className="text-base text-text-dim leading-relaxed">
+                     {exp.description}
+                   </p>
                   </div>
                 </div>
               </div>

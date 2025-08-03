@@ -18,6 +18,7 @@ import {
   SiKubernetes,
   SiCplusplus,
 } from "react-icons/si";
+import { VscTerminal } from "react-icons/vsc";
 
 interface TechItem {
   name: string;
@@ -81,7 +82,6 @@ const techStack: TechItem[] = [
     color: "text-[#2496ED]",
     hoverColor: "hover:shadow-[0_0_20px_#2496ED40]",
   },
-
   {
     name: "Git",
     icon: SiGit,
@@ -91,8 +91,14 @@ const techStack: TechItem[] = [
   {
     name: "C++",
     icon: SiCplusplus,
-    color: "text-[#00599C]", // Official C++ blue
+    color: "text-[#00599C]",
     hoverColor: "hover:shadow-[0_0_20px_#00599C40]",
+  },
+  {
+    name: "Cursor",
+    icon: VscTerminal,
+    color: "text-[#00D4FF]",
+    hoverColor: "hover:shadow-[0_0_20px_#00D4FF40]",
   },
 ];
 
@@ -111,12 +117,12 @@ export const TechStack = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-3xl sm:text-4xl font-bold text-foreground mb-12"
+          className="text-3xl sm:text-4xl font-bold text-foreground mb-12 tracking-tight"
         >
           Tech Stack
         </motion.h2>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {techStack.map((tech, index) => (
             <motion.div
               key={tech.name}
@@ -135,22 +141,22 @@ export const TechStack = () => {
               }}
               className="group cursor-pointer"
             >
-              <div
-                className={`bg-gradient-card rounded-xl p-4 border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-card text-center ${tech.hoverColor}`}
-              >
-                <motion.div
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  className="flex items-center justify-center mb-3"
-                >
-                  <tech.icon
-                    className={`w-8 h-8 ${tech.color} transition-all duration-300`}
-                  />
-                </motion.div>
+                             <div
+                 className={`bg-gradient-card rounded-xl p-5 border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-card text-center ${tech.hoverColor}`}
+               >
+                 <motion.div
+                   whileHover={{ scale: 1.2, rotate: 5 }}
+                   className="flex items-center justify-center mb-4"
+                 >
+                   <tech.icon
+                     className={`w-10 h-10 ${tech.color} transition-all duration-300`}
+                   />
+                 </motion.div>
 
-                <h3 className="text-xs font-medium text-foreground group-hover:text-primary transition-colors duration-300">
-                  {tech.name}
-                </h3>
-              </div>
+                 <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-300 tracking-wide">
+                   {tech.name}
+                 </h3>
+               </div>
             </motion.div>
           ))}
         </div>

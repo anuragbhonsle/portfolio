@@ -17,18 +17,19 @@ export const About = () => {
           viewport={{ once: true }}
           className="space-y-8"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-8 tracking-tight">
             About
           </h2>
 
-          <div className="space-y-6 text-lg text-text-dim leading-relaxed">
+          <div className="space-y-6 text-xl text-text-dim leading-relaxed">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              Learned by building cool stuff on the internet.
+              Started coding because I wanted to build things that solve real
+              problems.
             </motion.p>
 
             <motion.p
@@ -37,7 +38,8 @@ export const About = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              I'm into tech, innovation, and making things that leave a mark.
+              I love the process of turning ideas into working code and seeing
+              people actually use what I build.
             </motion.p>
 
             <motion.p
@@ -46,8 +48,8 @@ export const About = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
               viewport={{ once: true }}
             >
-              Currently diving deep into web development and building products
-              that actually matter.
+              When I'm not coding, you'll find me exploring new tech, reading
+              about startups, or just thinking about the next thing to build.
             </motion.p>
           </div>
         </motion.div>

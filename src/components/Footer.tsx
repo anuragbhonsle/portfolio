@@ -30,10 +30,10 @@ export const Footer = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 tracking-tight">
               Let's build something amazing together
             </h2>
-            <p className="text-lg text-text-dim max-w-2xl mx-auto">
+            <p className="text-lg text-text-dim max-w-2xl mx-auto leading-relaxed">
               Always excited to work on interesting projects. Feel free to reach
               out!
             </p>
@@ -46,23 +46,23 @@ export const Footer = () => {
             viewport={{ once: true }}
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
-            <Button
-              size="lg"
-              className="bg-gradient-primary hover:shadow-glow transition-all duration-300 font-medium px-8"
-              asChild
-            >
-              <a href="mailto:hello@anurag.dev">
-                <Mail className="w-4 h-4 mr-2" />
-                Get In Touch
-              </a>
-            </Button>
+                         <Button
+               size="lg"
+               className="bg-gradient-primary hover:shadow-glow transition-all duration-300 font-medium px-8 tracking-wide"
+               asChild
+             >
+               <a href="mailto:hello@anurag.dev">
+                 <Mail className="w-4 h-4 mr-2" />
+                 Get In Touch
+               </a>
+             </Button>
 
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-border hover:border-primary hover:shadow-glow transition-all duration-300 font-medium px-8"
-              asChild
-            >
+             <Button
+               size="lg"
+               variant="outline"
+               className="border-border hover:border-primary hover:shadow-glow transition-all duration-300 font-medium px-8 tracking-wide"
+               asChild
+             >
               <a href="/resume.pdf" download>
                 <Download className="w-4 h-4 mr-2" />
                 Download Resume
@@ -78,17 +78,17 @@ export const Footer = () => {
             className="flex items-center justify-center gap-4"
           >
             {socialLinks.map((link, index) => (
-              <motion.a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-12 h-12 bg-card rounded-full border border-border hover:border-primary flex items-center justify-center hover:shadow-glow transition-all duration-300 group"
-              >
-                <link.icon className="w-5 h-5 text-text-dim group-hover:text-primary transition-colors duration-300" />
-              </motion.a>
+                             <motion.a
+                 key={link.label}
+                 href={link.href}
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 whileHover={{ scale: 1.1, y: -2 }}
+                 whileTap={{ scale: 0.95 }}
+                 className="w-14 h-14 bg-card rounded-full border border-border hover:border-primary flex items-center justify-center hover:shadow-glow transition-all duration-300 group"
+               >
+                 <link.icon className="w-6 h-6 text-text-dim group-hover:text-primary transition-colors duration-300" />
+               </motion.a>
             ))}
           </motion.div>
 
@@ -100,7 +100,7 @@ export const Footer = () => {
             className="pt-8 border-t border-border"
           >
             <p className="text-text-dim text-sm">
-              © 2024 Anurag. Built with React.
+              © 2025 Anurag. Built with React, Vite, Node.js & Tailwind CSS.
             </p>
           </motion.div>
         </div>
