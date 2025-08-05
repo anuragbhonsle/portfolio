@@ -34,6 +34,20 @@ const projects: Project[] = [
     tech: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Firebase"],
     demo: "https://leetscape-app.vercel.app/",
   },
+  {
+    title: "Starune",
+    description:
+      "Starune is a real-time stargazing forecast app that provides personalized recommendations based on weather conditions and location data. It analyzes cloud cover, visibility, humidity, and light pollution to help users determine optimal stargazing conditions for their location.",
+    tech: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Tailwind CSS",
+      "Express.js",
+      "OpenWeatherMap API",
+    ],
+    demo: "https://starune.vercel.app/",
+  },
 ];
 
 export const Projects = () => {
