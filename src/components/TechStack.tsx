@@ -17,6 +17,7 @@ import {
   SiRedis,
   SiKubernetes,
   SiCplusplus,
+  SiFirebase,
 } from "react-icons/si";
 import { VscTerminal } from "react-icons/vsc";
 
@@ -95,8 +96,8 @@ const techStack: TechItem[] = [
     hoverColor: "hover:shadow-[0_0_20px_#00599C40]",
   },
   {
-    name: "Cursor",
-    icon: VscTerminal,
+    name: "Firebase",
+    icon: SiFirebase,
     color: "text-[#00D4FF]",
     hoverColor: "hover:shadow-[0_0_20px_#00D4FF40]",
   },
@@ -141,22 +142,22 @@ export const TechStack = () => {
               }}
               className="group cursor-pointer"
             >
-                             <div
-                 className={`backdrop-blur-md bg-white/5 dark:bg-black/5 rounded-xl p-5 border border-white/20 dark:border-white/10 hover:border-primary/30 transition-all duration-300 hover:shadow-card text-center ${tech.hoverColor} shadow-lg`}
-               >
-                 <motion.div
-                   whileHover={{ scale: 1.2, rotate: 5 }}
-                   className="flex items-center justify-center mb-4"
-                 >
-                   <tech.icon
-                     className={`w-10 h-10 ${tech.color} transition-all duration-300`}
-                   />
-                 </motion.div>
+              <div
+                className={`backdrop-blur-md bg-white/5 dark:bg-black/5 rounded-xl p-5 border border-white/20 dark:border-white/10 hover:border-primary/30 transition-all duration-300 hover:shadow-card text-center ${tech.hoverColor} shadow-lg`}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  className="flex items-center justify-center mb-4"
+                >
+                  <tech.icon
+                    className={`w-10 h-10 ${tech.color} transition-all duration-300`}
+                  />
+                </motion.div>
 
-                 <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-300 tracking-wide">
-                   {tech.name}
-                 </h3>
-               </div>
+                <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-300 tracking-wide">
+                  {tech.name}
+                </h3>
+              </div>
             </motion.div>
           ))}
         </div>
