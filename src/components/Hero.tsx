@@ -23,28 +23,10 @@ export const Hero = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="inline-block"
             >
-              <motion.div
-                animate={{ scale: [1, 1.01, 1] }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                <motion.span
-                  animate={{ scale: [1, 1.005, 1] }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="text-foreground"
-                >
-                  Hi, Anurag here
-                </motion.span>
-              </motion.div>
+              <span className="text-foreground">Hi, Anurag here</span>
             </motion.span>
           </motion.h1>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -120,11 +102,12 @@ export const Hero = () => {
               alt="Anurag's profile"
               width={384}
               height={384}
-              animate={{ rotate: [0, 1, -1, 0] }}
+              animate={{ scale: [1, 1.03, 1] }} // Subtler zoom for elegance
               transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "easeInOut",
+                duration: 5, // Slower full cycle (5 seconds)
+                repeat: Infinity, // Repeat indefinitely
+                ease: [0.33, 0, 0.67, 1], // Custom cubic-bezier for smoother, more natural motion
+                times: [0, 0.5, 1], // Evenly spaced keyframes: start, peak, end
               }}
               className="relative z-10 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full object-cover shadow-card group-hover:shadow-glow transition-all duration-300"
             />
