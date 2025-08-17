@@ -28,8 +28,9 @@ export const About = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              Started coding because I wanted to build things that solve real
-              problems.
+              I’ve worked on everything from full-stack web apps to competitive
+              programming, and I love the challenge of turning ideas into clean,
+              functional code that people actually find useful.
             </motion.p>
 
             <motion.p
@@ -38,8 +39,9 @@ export const About = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              I love the process of turning ideas into working code and seeing
-              people actually use what I build.
+              I’m always curious about new tools and frameworks, and I like
+              turning that curiosity into projects that help me learn and
+              improve as a developer.
             </motion.p>
 
             <motion.p

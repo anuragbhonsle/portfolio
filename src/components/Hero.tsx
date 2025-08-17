@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import { Github, Linkedin } from "lucide-react";
 export const Hero = () => {
   return (
     <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center px-4 lg:px-16">
@@ -31,12 +31,36 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-base sm:text-lg md:text-xl text-text-dim font-light leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-foreground/70 font-light leading-relaxed"
           >
             A 22-year-old developer from Pune 🇮🇳. I build things for the web,
             solve problems with code, and love creating experiences that people
             actually want to use.
           </motion.p>
+          {/* 🔗 Social Icons */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="flex gap-5"
+          >
+            <a
+              href="https://www.linkedin.com/in/anurag-bhonsle-4b576524a/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:text-primary transition-colors"
+            >
+              <Linkedin className="w-7 h-7" />
+            </a>
+            <a
+              href="https://github.com/anuragbhonsle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:text-primary transition-colors"
+            >
+              <Github className="w-7 h-7" />
+            </a>
+          </motion.div>
         </motion.div>
 
         {/* Right: Profile Image with Glow Hover */}
