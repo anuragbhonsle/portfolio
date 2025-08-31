@@ -14,14 +14,14 @@ version (v)  - CLI version
 clear        - Clear the terminal
 gui (g)      - Switch to GUI mode`,
   about: `Hi, I'm Anurag, a web developer from Pune 🇮🇳.`,
-  skills: `React, TypeScript, Node.js, Express, Tailwind, Next.js, Python, MongoDB, PostgreSQL, Firebase`,
-  projects: `Eclipz, Animeverse, LeetScape, KanaKore`,
-  edu: `Trident Academy Of Technology - B.Tech in CS & IT (2020-2024)
-Netaji Subhas Memorial City College - Higher Secondary (2019-2021)`,
-  contact: `Email: anurag@example.com
-Phone: +91-XXXXXXXXXX`,
+  skills: `React, TypeScript, Node.js, Express, Tailwind, Next.js, Supabase, MongoDB, PostgreSQL, Firebase`,
+  projects: `Eclipz, Animeverse, LeetScape, KanaKore, Starune`,
+  edu: `Savitribai Phule Pune University - Master of Computer Applications (2023-2025)
+Savitribai Phule Pune University - Bachelor of Science in Computer Science (2020-2023)`,
+  contact: `Email: anuragkbhonsle@example.com
+Phone: +91-9373336322`,
   social: `GitHub: github.com/anuragbhonsle
-LinkedIn: linkedin.com/in/anurag-bhonsle`,
+LinkedIn: https://www.linkedin.com/in/anurag-bhonsle-4b576524a/`,
   version: "CLI Version 1.0.0",
 };
 
