@@ -1,10 +1,12 @@
-import React from "react";
+// BlogPage.tsx
+import React, { useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { blogs } from "./Blogs";
 import { useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 
 type CodeProps = {
   node: any;
@@ -17,6 +19,11 @@ const BlogPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const blog = blogs.find((b) => b.slug === slug);
 
+  // Scroll to top when blog changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [slug]);
+
   if (!blog)
     return (
       <div className="text-center mt-20 text-gray-600 dark:text-gray-300">
@@ -25,7 +32,13 @@ const BlogPage = () => {
     );
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-10 lg:px-16 pt-10 pb-20">
+    <motion.div
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -50 }}
+      transition={{ duration: 0.6 }}
+      className="max-w-3xl mx-auto px-4 sm:px-10 lg:px-16 pt-10 pb-20"
+    >
       {/* Blog Title */}
       <h1 className="text-3xl font-bold mb-2">{blog.title}</h1>
       <p className="text-sm text-text-dim mb-6">{blog.date}</p>
@@ -68,7 +81,7 @@ const BlogPage = () => {
           {blog.content}
         </ReactMarkdown>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
