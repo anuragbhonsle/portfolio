@@ -69,7 +69,7 @@ const Navbar = () => {
   if (!mounted) return null;
 
   return (
-    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center">
+    <div className=" ml-3 fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center">
       {/* Tooltip */}
       <div className="mb-2 min-h-[24px]">
         <AnimatePresence mode="wait">

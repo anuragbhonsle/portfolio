@@ -21,7 +21,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
+    <div className="ml-3 bg-transparent min-h-screen bg-background text-foreground relative overflow-x-hidden">
       <ScrollProgress />
       <Navbar /> {/* added hover-navbar */}
       <main className="relative z-10 overflow-hidden">

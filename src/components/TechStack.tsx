@@ -78,8 +78,8 @@ export const TechStack = () => {
             >
               <div
                 className={cn(
-                  "flex items-center gap-2 px-2 py-1 rounded-md bg-black text-white hover:bg-gray-800",
-                  "dark:bg-white dark:text-gray-800 dark:hover:bg-gray-200",
+                  "flex items-center gap-2 px-2 py-1 rounded-xl bg-black text-white hover:bg-gray-800",
+                  "dark:bg-white dark:text-gray-800 dark:hsover:bg-gray-200",
                   "transition-all duration-300"
                 )}
               >

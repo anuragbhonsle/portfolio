@@ -72,14 +72,13 @@ export const Hero = () => {
             <div
               className="absolute inset-0 rounded-full blur-[90px] opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-500"
               style={{
-                background: "rgba(0, 98, 255, 0.6)", // bright blue
+                background: "rgba(4, 133, 254, 1)", // bright blue
               }}
             />
 
-            {/* Pulsing border */}
             <motion.div
               animate={{
-                scale: [1, 1.03, 1],
+                scale: [1, 1.05, 1], // subtle pulse
                 borderColor: [
                   "hsl(var(--border))",
                   "hsl(var(--primary))",
