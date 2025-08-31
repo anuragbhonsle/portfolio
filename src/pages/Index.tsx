@@ -9,7 +9,7 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { ParallaxBackground } from "@/components/ParallaxBackground";
 import { BackToTop } from "@/components/BackToTop";
 import Navbar from "@/components/Navbar";
-
+import { Blogs } from "@/components/Blogs";
 import { useEffect } from "react";
 import { Element } from "react-scroll";
 
@@ -40,6 +40,9 @@ const Index = () => {
         <Element name="education">
           <Education />
         </Element>
+        <Element name="blogs">
+          <Blogs />
+        </Element>
         <Element name="techstack">
           <TechStack />
         </Element>
@@ -48,7 +51,6 @@ const Index = () => {
         </Element>
       </main>
       <ParallaxBackground />
-      <BackToTop />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { Github, Linkedin } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <section className="relative px-4 lg:px-20 pt-16 lg:pt-24 pb-8 lg:pb-12">
+    <section className="relative px-4 lg:px-20 pt-16 lg:pt-24 pb-8 lg:pb-12 bg-transparent">
       <div className="mx-auto max-w-5xl flex flex-col lg:flex-row items-center justify-center gap-12">
         {/* Left: Text Content */}
         <motion.div
@@ -27,9 +27,8 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-base sm:text-lg md:text-xl text-foreground/95 font-light leading-relaxed max-w-prose mx-auto lg:mx-0"
           >
-            A 22-year-old developer from Pune 🇮🇳. I build things for the web,
-            solve problems with code, and love creating experiences that people
-            actually want to use.
+            A developer from Pune 🇮🇳. I build web apps, solve problems with
+            code, and craft experiences people actually enjoy
           </motion.p>
 
           {/* Social Icons */}
@@ -60,17 +59,22 @@ export const Hero = () => {
 
         {/* Right: Profile Image with Glow + Hover */}
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
+          initial={{ opacity: 10, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           className="flex justify-center lg:justify-end mb-4"
         >
           <motion.div className="relative group cursor-pointer overflow-hidden p-3 rounded-full">
             {/* Always-on subtle glow */}
-            <div className="absolute inset-0 bg-gradient-primary rounded-full blur-[90px] opacity-20 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-primary rounded-full blur-[90px] opacity-10 pointer-events-none" />
 
             {/* Extra glow on hover */}
-            <div className="absolute inset-0 bg-gradient-primary rounded-full blur-[90px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <div
+              className="absolute inset-0 rounded-full blur-[90px] opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-500"
+              style={{
+                background: "rgba(0, 98, 255, 0.6)", // bright blue
+              }}
+            />
 
             {/* Pulsing border */}
             <motion.div
