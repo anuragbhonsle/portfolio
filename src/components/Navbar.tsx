@@ -42,21 +42,31 @@ const Navbar = () => {
     document.documentElement.classList.remove("light", "dark");
     document.documentElement.classList.add(theme);
     localStorage.setItem("theme", theme);
+    console.log(
+      `Theme set to: ${theme}, document classes: ${document.documentElement.className}`
+    );
   }, [theme]);
 
-  // Optional: sync with system theme if no preference
+  // Sync with system theme if no preference
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleChange = (e: MediaQueryListEvent) => {
-      if (!localStorage.getItem("theme"))
+      if (!localStorage.getItem("theme")) {
         setTheme(e.matches ? "dark" : "light");
+      }
     };
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
-  const toggleTheme = () =>
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  const toggleTheme = () => {
+    setTheme((prev) => {
+      const newTheme = prev === "light" ? "dark" : "light";
+      console.log(`Toggling theme to: ${newTheme}`);
+      return newTheme;
+    });
+  };
+
   const handleHomeClick = () => navigate("/");
 
   const visibleNavItems = onBlogPage
@@ -74,11 +84,7 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 6 }}
               transition={{ duration: 0.2 }}
-              className={`px-3 py-1 rounded-full text-xs font-medium shadow-lg backdrop-blur-sm ${
-                theme === "light"
-                  ? "bg-gray-200/80 text-black"
-                  : "bg-gradient-to-r from-blue-600/80 to-indigo-600/80 text-white"
-              }`}
+              className="px-3 py-1 rounded-full text-xs font-medium shadow-lg backdrop-blur-sm bg-white/80 dark:bg-black/80 text-black dark:text-white"
             >
               {hovered === visibleNavItems.length
                 ? "Theme"
@@ -89,13 +95,7 @@ const Navbar = () => {
       </div>
 
       {/* Dock */}
-      <div
-        className={`flex items-center justify-center space-x-2 px-4 py-2 rounded-full shadow-lg border transition-colors backdrop-blur-sm ${
-          theme === "light"
-            ? "bg-white/70 text-black border-gray-200"
-            : "bg-black/70 text-white border-gray-800"
-        }`}
-      >
+      <div className="flex items-center justify-center space-x-2 px-4 py-2 rounded-full shadow-lg border transition-colors backdrop-blur-sm bg-white/70 dark:bg-black/70 text-black dark:text-white border-gray-200 dark:border-gray-800">
         {visibleNavItems.map((item, index) =>
           item.href ? (
             <a
@@ -119,9 +119,7 @@ const Navbar = () => {
                   className={`w-5 h-5 ${
                     hovered === index
                       ? "text-blue-500 dark:text-blue-400"
-                      : theme === "light"
-                      ? "text-black"
-                      : "text-white"
+                      : "text-black dark:text-white"
                   }`}
                 />
               </motion.div>
@@ -146,9 +144,7 @@ const Navbar = () => {
                   className={`w-5 h-5 ${
                     hovered === index
                       ? "text-blue-500 dark:text-blue-400"
-                      : theme === "light"
-                      ? "text-black"
-                      : "text-white"
+                      : "text-black dark:text-white"
                   }`}
                 />
               </motion.div>
@@ -176,9 +172,7 @@ const Navbar = () => {
                   className={`w-5 h-5 ${
                     hovered === index
                       ? "text-blue-500 dark:text-blue-400"
-                      : theme === "light"
-                      ? "text-black"
-                      : "text-white"
+                      : "text-black dark:text-white"
                   }`}
                 />
               </motion.div>
@@ -194,9 +188,9 @@ const Navbar = () => {
           className="flex items-center justify-center w-10 h-10 rounded-full cursor-pointer bg-transparent hover:bg-blue-500/20 dark:hover:bg-blue-400/20 transition-colors"
         >
           {theme === "light" ? (
-            <Moon className="w-5 h-5 text-black" />
+            <Moon className="w-5 h-5 text-black dark:text-white" />
           ) : (
-            <Sun className="w-5 h-5 text-white" />
+            <Sun className="w-5 h-5 text-black dark:text-white" />
           )}
         </motion.button>
       </div>
