@@ -68,3 +68,6 @@
     background-position: 0% 50%;
   }
 }
+.section-center {
+  @apply flex flex-col items-center justify-center text-center mx-auto max-w-5xl px-4;
+}

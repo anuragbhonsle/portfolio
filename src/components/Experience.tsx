@@ -23,7 +23,7 @@ export const Experience = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="px-4 lg:px-20 pt-1 lg:pt-2 pb-4 lg:pb-6"
+      className="px-8 lg:px-20 pt-1 lg:pt-2 pb-4 lg:pb-6"
     >
       <div className="mx-auto max-w-3xl flex flex-col gap-4">
         <motion.h2

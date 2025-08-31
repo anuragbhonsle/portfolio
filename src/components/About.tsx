@@ -17,19 +17,19 @@ export const About = () => {
           viewport={{ once: true }}
           className="space-y-4"
         >
-          <h2 className="text-l sm:text-2xl font-bold text-foreground mb-2 tracking-tight">
+          <h2 className="text-l sm:text-2xl font-bold text-foreground mb-7 tracking-tight">
             About
           </h2>
 
-          <div className="space-y-3 text-sm sm:text-base text-foreground/70 leading-normal">
+          <div className="space-y-5 text-sm sm:text-base text-foreground/95 leading-normal">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              I turn ideas into clean, functional web apps that not only work
-              but feel great to use.
+              I turn ideas into clean, functional web apps that not only work,
+              but feel intuitive and enjoyable to use.
             </motion.p>
 
             <motion.p

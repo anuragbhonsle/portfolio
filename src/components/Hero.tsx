@@ -3,8 +3,8 @@ import { Github, Linkedin } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <section className="relative w-full flex items-center justify-center px-6 sm:px-8 lg:px-12 pt-16 lg:pt-24 pb-8 lg:pb-12">
-      <div className="mx-auto max-w-3xl flex flex-col lg:flex-row items-center justify-center gap-12">
+    <section className="relative px-4 lg:px-20 pt-16 lg:pt-24 pb-8 lg:pb-12">
+      <div className="mx-auto max-w-5xl flex flex-col lg:flex-row items-center justify-center gap-12">
         {/* Left: Text Content */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -25,7 +25,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-base sm:text-lg md:text-xl text-foreground/90 font-light leading-relaxed max-w-prose mx-auto lg:mx-0"
+            className="text-base sm:text-lg md:text-xl text-foreground/95 font-light leading-relaxed max-w-prose mx-auto lg:mx-0"
           >
             A 22-year-old developer from Pune 🇮🇳. I build things for the web,
             solve problems with code, and love creating experiences that people
