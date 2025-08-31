@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { Home, Sun, Moon, User, FileText, Briefcase } from "lucide-react";
 
+// Nav items
 const navItems = [
   { icon: Home, section: "hero", label: "Home" },
   { icon: User, section: "about", label: "About" },
@@ -14,31 +15,50 @@ const navItems = [
     section: "resume",
     label: "View Resume",
     href: "/resume.pdf",
-  }, // new button
+  },
 ];
 
 const Navbar = () => {
   const [hovered, setHovered] = useState<number | null>(null);
-  const [theme, setTheme] = useState<"light" | "dark">(
-    () => (localStorage.getItem("theme") as "light" | "dark") || "dark"
-  );
+
+  // Initialize theme from localStorage or system preference
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("theme") as "light" | "dark" | null;
+      if (saved) return saved;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    }
+    return "light";
+  });
 
   const location = useLocation();
   const navigate = useNavigate();
   const onBlogPage = location.pathname.startsWith("/blogs");
 
+  // Apply theme class to html element
   useEffect(() => {
     document.documentElement.classList.remove("light", "dark");
     document.documentElement.classList.add(theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
 
+  // Optional: sync with system theme if no preference
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = (e: MediaQueryListEvent) => {
+      if (!localStorage.getItem("theme"))
+        setTheme(e.matches ? "dark" : "light");
+    };
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
+
   const toggleTheme = () =>
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
-
   const handleHomeClick = () => navigate("/");
 
-  // Show only Home + Theme on blog page
   const visibleNavItems = onBlogPage
     ? [{ icon: Home, label: "Home", section: "hero", onClick: handleHomeClick }]
     : navItems;
@@ -54,7 +74,11 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 6 }}
               transition={{ duration: 0.2 }}
-              className="px-3 py-1 rounded-full bg-gradient-to-r from-blue-600/80 to-indigo-600/80 text-white text-xs font-medium shadow-lg backdrop-blur-sm"
+              className={`px-3 py-1 rounded-full text-xs font-medium shadow-lg backdrop-blur-sm ${
+                theme === "light"
+                  ? "bg-gray-200/80 text-black"
+                  : "bg-gradient-to-r from-blue-600/80 to-indigo-600/80 text-white"
+              }`}
             >
               {hovered === visibleNavItems.length
                 ? "Theme"
@@ -65,10 +89,15 @@ const Navbar = () => {
       </div>
 
       {/* Dock */}
-      <div className="flex items-center justify-center space-x-2 px-4 py-2 rounded-full shadow-lg border transition-colors bg-white text-black border-gray-200 dark:bg-black dark:text-white dark:border-gray-800">
+      <div
+        className={`flex items-center justify-center space-x-2 px-4 py-2 rounded-full shadow-lg border transition-colors backdrop-blur-sm ${
+          theme === "light"
+            ? "bg-white/70 text-black border-gray-200"
+            : "bg-black/70 text-white border-gray-800"
+        }`}
+      >
         {visibleNavItems.map((item, index) =>
           item.href ? (
-            // For "View Resume" link
             <a
               key={index}
               href={item.href}
@@ -89,7 +118,7 @@ const Navbar = () => {
                 <item.icon
                   className={`w-5 h-5 ${
                     hovered === index
-                      ? "text-blue-500"
+                      ? "text-blue-500 dark:text-blue-400"
                       : theme === "light"
                       ? "text-black"
                       : "text-white"
@@ -101,9 +130,9 @@ const Navbar = () => {
             <div
               key={index}
               onClick={item.onClick}
-              className="cursor-pointer"
               onMouseEnter={() => setHovered(index)}
               onMouseLeave={() => setHovered(null)}
+              className="flex items-center justify-center w-10 h-10 rounded-full cursor-pointer bg-transparent hover:bg-blue-500/20 dark:hover:bg-blue-400/20 transition-colors"
             >
               <motion.div
                 animate={{
@@ -111,12 +140,12 @@ const Navbar = () => {
                   y: hovered === index ? -6 : 0,
                 }}
                 transition={{ type: "spring", stiffness: 250, damping: 20 }}
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-transparent hover:bg-blue-500/20 dark:hover:bg-blue-400/20 transition-colors"
+                className="flex items-center justify-center w-full h-full"
               >
                 <item.icon
                   className={`w-5 h-5 ${
                     hovered === index
-                      ? "text-blue-500"
+                      ? "text-blue-500 dark:text-blue-400"
                       : theme === "light"
                       ? "text-black"
                       : "text-white"
@@ -128,12 +157,12 @@ const Navbar = () => {
             <ScrollLink
               key={index}
               to={item.section}
-              smooth={true}
+              smooth
               duration={500}
               offset={-50}
-              className="cursor-pointer"
               onMouseEnter={() => setHovered(index)}
               onMouseLeave={() => setHovered(null)}
+              className="cursor-pointer"
             >
               <motion.div
                 animate={{
@@ -146,7 +175,7 @@ const Navbar = () => {
                 <item.icon
                   className={`w-5 h-5 ${
                     hovered === index
-                      ? "text-blue-500"
+                      ? "text-blue-500 dark:text-blue-400"
                       : theme === "light"
                       ? "text-black"
                       : "text-white"

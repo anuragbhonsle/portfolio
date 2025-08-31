@@ -9,57 +9,97 @@ export type BlogItem = {
   slug: string;
 };
 
-// ✅ Add your blogs here
+// Blogs array (unchanged)
 export const blogs: BlogItem[] = [
   {
-    title: "Creating a Stunning Meteor Shower Animation in React",
-    excerpt: "Step-by-step guide to creating a meteor shower canvas animation.",
-    content: `In this tutorial, we build a meteor shower animation using HTML5 canvas and React.
-We'll use requestAnimationFrame, trigonometry for angles, and Framer Motion for smooth UI effects.
-By the end, you'll have a visually stunning meteor shower component ready for your homepage.
+    title: "Creating a Meteor Shower Animation in React",
+    excerpt:
+      "Guide to building a meteor shower animation using React and HTML5 canvas.",
+    content: `This tutorial explains how to create a meteor shower animation in React using HTML5 canvas. The animation uses requestAnimationFrame for smooth rendering, trigonometry for meteor movement, and supports light and dark modes. The result is a background animation suitable for a webpage.
+
+1. Set Up the Canvas  
+   Create a canvas element that spans the full window. Use a React ref to access it and set its width and height to match the window dimensions. Update these on window resize.
+
+2. Define Meteor Properties  
+   Each meteor has properties:  
+   1. Position (x, y coordinates)  
+   2. Length (size of the meteor trail)  
+   3. Speed (movement rate)  
+   4. Angle (direction of movement)  
+   5. Opacity (visual depth)  
+   Initialize 50 meteors with random values for natural variation.
+
+3. Animate Meteors  
+   Use requestAnimationFrame to draw and update meteors. Clear the canvas each frame, draw each meteor as a line with a shadow effect, and update its position based on speed and angle. Reset meteors that move off-screen to maintain continuous animation.
+
+4. Support Light and Dark Modes  
+   Check the document's classList for a dark class to set meteor colors. Use white with opacity in dark mode and black with opacity in light mode for visibility.
+
+Here is an example of a meteor initialization function:
 
 \`\`\`ts
-// Example of a falling star function
-function createStar() {
-  return { x: Math.random() * canvas.width, y: 0, speed: Math.random() * 5 + 2 };
+// Example: initialize a meteor
+function createMeteor() {
+  return {
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * -window.innerHeight,
+    length: Math.random() * 80 + 10,
+    speed: Math.random() * 2 + 0.5,
+    angle: Math.PI / 4,
+    opacity: Math.random() * 0.5 + 0.5
+  };
 }
 \`\`\`
 
-Enjoy creating cool effects!`,
+This creates a dynamic background animation for web applications. Adjust meteor count, speed, or angle for different effects.`,
     date: "Aug 20, 2025",
     slug: "meteor-shower-react",
   },
   {
-    title: "Your First Codeforces Milestone: Become a Pupil Fast",
-    excerpt:
-      "Step-by-step guide to reaching the Pupil rating on Codeforces efficiently.",
-    content: `If you’re aiming to become a Pupil (rating 1200–1399) on Codeforces, here’s a roadmap to get there efficiently:
+    title: "Reaching the Pupil Rating on Codeforces",
+    excerpt: "Guide to reaching the Pupil rating on Codeforces.",
+    content: `To reach the Pupil rating of 1200 to 1399 on Codeforces, follow this roadmap. It is designed for beginners and those in the Newbie rank to build skills and improve performance in contests.
 
-1. **Start with Easy Problems**  
-   Solve problems labeled **A and B** from Div. 2 contests. Focus on **accuracy over speed**.  
+1. Solve Easy Problems  
+   Begin with problems labeled A and B in Div. 2 contests. These test basic programming skills. Focus on accuracy by reading problem statements carefully to avoid errors in constraints or edge cases. Aim to solve 10 to 15 problems per week to build familiarity.
 
-2. **Learn Core Concepts**  
-   Make sure you understand:
-   - Loops, conditionals, arrays, strings  
-   - Sorting, searching  
-   - Simple data structures like sets, maps
+2. Learn Core Concepts  
+   Understand these topics:  
+   1. Loops, conditionals, arrays, strings  
+   2. Sorting, searching (e.g., binary search, built-in sort functions)  
+   3. Basic data structures like sets, maps, and vectors  
+   4. Time complexity (e.g., O(n), O(log n))  
+   5. Basic number theory (e.g., divisibility, modular arithmetic)  
+   Practice these through tutorials on platforms like GeeksforGeeks or Codeforces’ educational materials.
 
-3. **Practice Daily**  
-   - Solve **1–2 problems daily** consistently.  
-   - Try to simulate contest environment sometimes to practice time management.  
+3. Practice Daily  
+   Solve 1 to 2 problems daily to maintain consistency. Spend 30 to 60 minutes reviewing solutions or learning new concepts. Occasionally simulate a contest by solving A and B problems from a past Div. 2 contest within 1 hour to improve time management.
 
-4. **Analyze Mistakes**  
-   - Always read editorial after failing a problem.  
-   - Understand why your solution failed and how the correct solution works.  
+4. Analyze Mistakes  
+   After failing a problem, read the editorial on Codeforces. Identify why the solution failed, such as incorrect logic, missed edge cases, or coding errors. Rewrite the correct solution to reinforce understanding. Keep a record of mistakes in a notebook or digital tool to track patterns.
 
-5. **Use Tags Smartly**  
-   - Pick problems by tags you are weak in and gradually improve.  
+5. Use Tags Effectively  
+   Select problems by tags for weak areas, such as greedy algorithms or math. Start with easier problems (rated 800 to 1000) and progress to harder ones (rated 1100 to 1300). Use the Codeforces problemset filter to find relevant problems.
 
-6. **Gradually Increase Difficulty**  
-   - After mastering A & B, start attempting **C problems** in Div. 2 contests.  
+6. Increase Difficulty  
+   After solving A and B problems consistently, attempt C problems in Div. 2 contests. These require combining multiple concepts, such as sorting with greedy logic. Solve 5 to 10 C problems before contests to prepare for their complexity.
+
+7. Participate in Contests  
+   Join every Div. 2 contest to gain experience under time pressure. Use virtual contests on Codeforces to practice past contests at your own pace. Aim to solve at least A and B problems during live contests to boost your rating.
+
+8. Choose a Programming Language  
+   Select a language you are comfortable with, such as C++, Python, or Java. C++ is popular for its speed and standard library. Learn its basics, like vectors and sets, to handle common problem requirements efficiently.
+
+9. Use Additional Resources  
+   Supplement practice with:  
+   1. Codeforces blog posts and tutorials for advanced explanations  
+   2. Books like "Competitive Programming" by Steven Halim  
+   3. YouTube channels or online courses for visual explanations of algorithms  
+
+Here is an example of a common task, summing an array in C++:
 
 \`\`\`cpp
-// Example: simple sum of array in C++
+// Example: sum of array in C++
 int sumArray(vector<int> &arr) {
     int sum = 0;
     for(int x : arr) sum += x;
@@ -67,9 +107,20 @@ int sumArray(vector<int> &arr) {
 }
 \`\`\`
 
-With **consistent practice** and **smart problem selection**, you’ll reach Pupil rating in a few weeks!  
-Keep track of your progress and never skip analyzing mistakes.
-`,
+Another example is checking if a number is prime, often used in number theory problems:
+
+\`\`\`cpp
+// Example: check if a number is prime in C++
+bool isPrime(int n) {
+    if (n < 2) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+\`\`\`
+
+With consistent practice, targeted problem selection, and regular contest participation, the Pupil rating can be achieved in 4 to 8 weeks. Track progress using the Codeforces rating graph and review mistakes to improve steadily.`,
     date: "Aug 31, 2025",
     slug: "codeforces-pupil-guide",
   },
