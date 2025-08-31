@@ -8,9 +8,11 @@ import ThemeToggle from "@/components/ThemeToggle";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ParallaxBackground } from "@/components/ParallaxBackground";
 import { BackToTop } from "@/components/BackToTop";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/Navbar";
+
 import { useEffect } from "react";
 import { Element } from "react-scroll";
+
 import { Education } from "@/components/Education";
 
 const Index = () => {
