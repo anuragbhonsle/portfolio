@@ -1,109 +1,69 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Download, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Twitter } from "lucide-react";
 
 export const Footer = () => {
-  const socialLinks = [
-    { icon: Github, href: "https://github.com/anuragbhonsle", label: "GitHub" },
-    {
-      icon: Linkedin,
-      href: "https://www.linkedin.com/in/anurag-bhonsle-4b576524a/",
-      label: "LinkedIn",
-    },
-    { icon: Twitter, href: "https://x.com/Anuraaaag7", label: "Twitter" },
-    { icon: Mail, href: "mailto:anuragkbhonsle@gmail.com", label: "Email" },
-  ];
-
   return (
     <motion.footer
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="py-20 px-6 lg:px-20 border-t border-border"
+      className="py-12 px-4 lg:px-20 bg-transparent" // <- transparent now
     >
-      <div className="container max-w-6xl mx-auto">
-        <div className="text-center space-y-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 tracking-tight">
-              Let's build something amazing together
-            </h2>
-            <p className="text-lg text-text-dim max-w-2xl mx-auto leading-relaxed">
-              Always excited to work on interesting projects. Feel free to reach
-              out!
-            </p>
-          </motion.div>
+      {/* Match the max-width with TechStack */}
+      <div className="mx-auto max-w-3xl text-center space-y-6">
+        <motion.h2
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-l sm:text-2xl font-bold text-foreground mb-2 tracking-tight text-left"
+        >
+          Contact
+        </motion.h2>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6"
-          >
-                         <Button
-               size="lg"
-               className="bg-gradient-primary hover:shadow-glow transition-all duration-300 font-medium px-8 tracking-wide"
-               asChild
-             >
-               <a href="mailto:hello@anurag.dev">
-                 <Mail className="w-4 h-4 mr-2" />
-                 Get In Touch
-               </a>
-             </Button>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="text-text-dim text-lg leading-relaxed text-left"
+        >
+          Always open to discussing new projects, creative ideas, or
+          opportunities to be part of your visions. Feel free to reach out!
+        </motion.p>
 
-             <Button
-               size="lg"
-               variant="outline"
-               className="border-border hover:border-primary hover:shadow-glow transition-all duration-300 font-medium px-8 tracking-wide"
-               asChild
-             >
-              <a href="/resume.pdf" download>
-                <Download className="w-4 h-4 mr-2" />
-                Download Resume
-              </a>
-            </Button>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            viewport={{ once: true }}
-            className="flex items-center justify-center gap-4"
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="text-left"
+        >
+          <Button
+            size="lg"
+            className="bg-blue-500 text-white hover:bg-blue-600 transition-all duration-300 font-medium px-8 tracking-wide flex items-center justify-center gap-2"
+            asChild
           >
-            {socialLinks.map((link, index) => (
-                             <motion.a
-                 key={link.label}
-                 href={link.href}
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 whileHover={{ scale: 1.1, y: -2 }}
-                 whileTap={{ scale: 0.95 }}
-                 className="w-14 h-14 bg-card rounded-full border border-border hover:border-primary flex items-center justify-center hover:shadow-glow transition-all duration-300 group"
-               >
-                 <link.icon className="w-6 h-6 text-text-dim group-hover:text-primary transition-colors duration-300" />
-               </motion.a>
-            ))}
-          </motion.div>
+            <a
+              href="https://x.com/Anuraaaag7"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Twitter className="w-5 h-5" />
+              Connect on X
+            </a>
+          </Button>
+        </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            viewport={{ once: true }}
-            className="pt-8 border-t border-border"
-          >
-            <p className="text-text-dim text-sm">
-              © 2025 Anurag. Built with React, Vite, Node.js & Tailwind CSS.
-            </p>
-          </motion.div>
-        </div>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          viewport={{ once: true }}
+          className="text-text-dim text-sm pt-4 mt-4"
+        ></motion.p>
       </div>
     </motion.footer>
   );

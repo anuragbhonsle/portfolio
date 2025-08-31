@@ -7,30 +7,29 @@ export const About = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="py-20 px-6 lg:px-20"
+      className="px-4 lg:px-20 pt-1 lg:pt-2 pb-4 lg:pb-6"
     >
-      <div className="container max-w-4xl mx-auto">
+      <div className="mx-auto max-w-3xl flex flex-col gap-4">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="space-y-8"
+          className="space-y-4"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-8 tracking-tight">
+          <h2 className="text-l sm:text-2xl font-bold text-foreground mb-2 tracking-tight">
             About
           </h2>
 
-          <div className="space-y-6 text-xl text-text-dim leading-relaxed">
+          <div className="space-y-3 text-sm sm:text-base text-foreground/70 leading-normal">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              I’ve worked on everything from full-stack web apps to competitive
-              programming, and I love the challenge of turning ideas into clean,
-              functional code that people actually find useful.
+              I turn ideas into clean, functional web apps that not only work
+              but feel great to use.
             </motion.p>
 
             <motion.p
@@ -39,9 +38,8 @@ export const About = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              I’m always curious about new tools and frameworks, and I like
-              turning that curiosity into projects that help me learn and
-              improve as a developer.
+              Always curious about new tools, I learn by building and break
+              things just enough to figure them out.
             </motion.p>
 
             <motion.p
@@ -50,8 +48,8 @@ export const About = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
               viewport={{ once: true }}
             >
-              When I'm not coding, you'll find me exploring new tech, reading
-              about startups, or just thinking about the next thing to build.
+              When I’m not coding, I’m diving into startups, tech trends, or
+              sketching my next side project.
             </motion.p>
           </div>
         </motion.div>

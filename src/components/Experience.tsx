@@ -1,27 +1,18 @@
 import { motion } from "framer-motion";
-import { SiGoogle, SiMeta, SiNetflix, SiGithub } from "react-icons/si";
 
 type ExperienceItem = {
   company: string;
   role: string;
   period: string;
-  icon: string | React.ComponentType<{ className?: string }>;
-  description: string;
-  color: string;
-  glowColor: string;
+  icon: string;
 };
 
 const experiences: ExperienceItem[] = [
   {
     company: "Yhills",
     role: "Frontend Developer Intern",
-    period: "Mar 2024 - May 2024",
+    period: "March 2024 – May 2024",
     icon: "/yhills_logo.jpeg",
-
-    description:
-      "Worked on building responsive websites and learned the ropes of frontend development. Got hands-on experience with HTML, CSS, JavaScript, and version control with Git.",
-    color: "text-[#4285F4]",
-    glowColor: "hover:shadow-[0_0_20px_#4285F440]",
   },
 ];
 
@@ -32,74 +23,48 @@ export const Experience = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="py-20 px-6 lg:px-20"
+      className="px-4 lg:px-20 pt-1 lg:pt-2 pb-4 lg:pb-6"
     >
-      <div className="container max-w-6xl mx-auto">
+      <div className="mx-auto max-w-3xl flex flex-col gap-4">
         <motion.h2
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-3xl sm:text-4xl font-bold text-foreground mb-12 tracking-tight"
+          className="text-l sm:text-2xl font-bold text-foreground mb-2 tracking-tight"
         >
-          Places I worked at
+          Cool places I worked at
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="flex flex-col gap-6">
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.company}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{
-                scale: 1.02,
-                y: -8,
-              }}
-              className="group"
+              className="flex items-center justify-between"
             >
-              <div
-                className={`backdrop-blur-md bg-white/5 dark:bg-black/5 rounded-2xl p-6 border border-white/20 dark:border-white/10 hover:border-primary/30 transition-all duration-500 hover:shadow-card ${exp.glowColor} shadow-lg`}
-              >
-                <div className="flex items-start gap-4 mb-4">
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="flex-shrink-0"
-                  >
-                    <div className="w-12 h-12 bg-card rounded-xl border border-border flex items-center justify-center group-hover:border-primary/30 transition-all duration-300">
-                      {typeof exp.icon === "string" ? (
-                        <img
-                          src={exp.icon}
-                          alt={exp.company}
-                          className="w-6 h-6 object-contain"
-                        />
-                      ) : (
-                        <exp.icon
-                          className={`w-6 h-6 ${exp.color} transition-all duration-300`}
-                        />
-                      )}
-                    </div>
-                  </motion.div>
-
-                  <div className="flex-1 min-w-0">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
-                                           <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300 tracking-tight">
-                       {exp.company}
-                     </h3>
-                     <span className="text-sm text-text-dim font-mono bg-secondary/50 px-3 py-1 rounded-md">
-                       {exp.period}
-                     </span>
-                   </div>
-
-                   <p className="text-text-dim font-medium mb-4 text-lg">{exp.role}</p>
-
-                   <p className="text-base text-text-dim leading-relaxed">
-                     {exp.description}
-                   </p>
-                  </div>
+              {/* Left: Icon + Info */}
+              <div className="flex items-center gap-4">
+                <img
+                  src={exp.icon}
+                  alt={exp.company}
+                  className="w-12 h-12 rounded-full object-contain border border-border"
+                />
+                <div>
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {exp.company}
+                  </h3>
+                  <p className="text-sm text-text-dim">{exp.role}</p>
                 </div>
               </div>
+
+              {/* Right: Period */}
+              <span className="text-sm text-text-dim font-mono">
+                {exp.period}
+              </span>
             </motion.div>
           ))}
         </div>

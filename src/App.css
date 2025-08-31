@@ -40,3 +40,31 @@
 .read-the-docs {
   color: #888;
 }
+.aurora-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 250px; /* height of the effect */
+  background: linear-gradient(270deg, #7dd3fc, #a78bfa, #f472b6, #34d399);
+  background-size: 800% 800%;
+  animation: auroraAnimation 18s ease infinite;
+  opacity: 0.7; /* so it feels soft, not overpowering */
+  filter: blur(40px); /* makes it dreamy */
+  z-index: -1; /* stays behind content */
+  pointer-events: none; /* no blocking clicks */
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+}
+
+@keyframes auroraAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

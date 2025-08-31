@@ -3,91 +3,76 @@ import { Github, Linkedin } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center px-4 lg:px-16">
-      <div className="container mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
+    <section className="relative w-full flex items-center justify-center px-6 sm:px-8 lg:px-12 pt-16 lg:pt-24 pb-8 lg:pb-12">
+      <div className="mx-auto max-w-3xl flex flex-col lg:flex-row items-center justify-center gap-12">
         {/* Left: Text Content */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="space-y-6"
+          className="text-center lg:text-left space-y-5"
         >
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-tight tracking-tight"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight inline-block"
           >
-            <motion.span
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="inline-block"
-            >
-              <span className="text-foreground">Hi, Anurag here</span>
-            </motion.span>
+            Hi, I'm <span className="">Anurag</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-base sm:text-lg md:text-xl text-foreground/70 font-light leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-foreground/90 font-light leading-relaxed max-w-prose mx-auto lg:mx-0"
           >
             A 22-year-old developer from Pune 🇮🇳. I build things for the web,
             solve problems with code, and love creating experiences that people
             actually want to use.
           </motion.p>
 
-          {/* 🔗 Social Icons (springy bounce) */}
+          {/* Social Icons */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex gap-5"
+            className="flex justify-center lg:justify-start gap-6"
           >
-            <motion.a
+            <a
               href="https://www.linkedin.com/in/anurag-bhonsle-4b576524a/"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.15 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 300 }}
               className="text-foreground hover:text-primary transition-colors"
-              aria-label="LinkedIn"
             >
-              <Linkedin className="w-7 h-7" />
-            </motion.a>
-            <motion.a
+              <Linkedin className="w-6 h-6" />
+            </a>
+            <a
               href="https://github.com/anuragbhonsle"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.15 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 300 }}
               className="text-foreground hover:text-primary transition-colors"
-              aria-label="GitHub"
             >
-              <Github className="w-7 h-7" />
-            </motion.a>
+              <Github className="w-6 h-6" />
+            </a>
           </motion.div>
         </motion.div>
 
-        {/* Right: Profile Image with Glow */}
+        {/* Right: Profile Image with Glow + Hover */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex justify-center lg:justify-end"
+          className="flex justify-center lg:justify-end mb-4"
         >
-          <motion.div className="relative group cursor-pointer overflow-hidden p-4 rounded-full">
-            {/* Subtle glow behind the image (always on) */}
-            <div className="absolute inset-0 bg-gradient-primary rounded-full blur-[120px] opacity-20 transition-opacity duration-500 pointer-events-none" />
+          <motion.div className="relative group cursor-pointer overflow-hidden p-3 rounded-full">
+            {/* Always-on subtle glow */}
+            <div className="absolute inset-0 bg-gradient-primary rounded-full blur-[90px] opacity-20 pointer-events-none" />
 
-            {/* Enhanced glow on hover (softer & smoother) */}
-            <div className="absolute inset-0 bg-gradient-primary rounded-full blur-[120px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            {/* Extra glow on hover */}
+            <div className="absolute inset-0 bg-gradient-primary rounded-full blur-[90px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-            {/* Calm pulsing border */}
+            {/* Pulsing border */}
             <motion.div
               animate={{
                 scale: [1, 1.03, 1],
@@ -98,26 +83,24 @@ export const Hero = () => {
                 ],
               }}
               transition={{
-                duration: 6, // slower for premium feel
+                duration: 6,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="absolute inset-0 rounded-full border-4 border-border"
+              className="absolute inset-0 rounded-full border-2 border-border"
             />
 
-            {/* Actual profile image with subtle breathing */}
+            {/* Profile image with breathing effect */}
             <motion.img
               src="/anurag.png"
               alt="Anurag's profile"
-              width={384}
-              height={384}
-              animate={{ scale: [1, 1.015, 1] }} // subtle but visible
+              animate={{ scale: [1, 1.015, 1] }}
               transition={{
                 duration: 6,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="relative z-10 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full object-cover shadow-card group-hover:shadow-glow transition-all duration-300"
+              className="relative z-10 w-40 sm:w-48 lg:w-56 rounded-full object-cover shadow-card group-hover:shadow-glow transition-all duration-300"
             />
           </motion.div>
         </motion.div>

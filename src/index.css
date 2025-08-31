@@ -34,8 +34,8 @@
 
     --gradient-primary: linear-gradient(
       135deg,
-      hsl(var(--primary)) 0%,
-      hsl(var(--accent)) 100%
+      hsl(var(--primary)) 2%,
+      hsl(var(--accent)) 98%
     );
     --gradient-card: linear-gradient(
       135deg,
@@ -75,8 +75,8 @@
 
     --gradient-primary: linear-gradient(
       135deg,
-      hsl(var(--primary)) 0%,
-      hsl(var(--accent)) 100%
+      hsl(var(--primary)) 2%,
+      hsl(var(--accent)) 98%
     );
     --gradient-card: linear-gradient(
       135deg,
@@ -120,4 +120,72 @@
 html,
 body {
   overflow-x: hidden;
+}
+
+/* Border Animation */
+@layer utilities {
+  @keyframes border-rotate {
+    0% {
+      border-image: linear-gradient(
+          0deg,
+          hsl(var(--primary)) 2%,
+          hsl(var(--accent)) 98%
+        )
+        1;
+    }
+    25% {
+      border-image: linear-gradient(
+          90deg,
+          hsl(var(--primary)) 2%,
+          hsl(var(--accent)) 98%
+        )
+        1;
+    }
+    50% {
+      border-image: linear-gradient(
+          180deg,
+          hsl(var(--primary)) 2%,
+          hsl(var(--accent)) 98%
+        )
+        1;
+    }
+    75% {
+      border-image: linear-gradient(
+          270deg,
+          hsl(var(--primary)) 2%,
+          hsl(var(--accent)) 98%
+        )
+        1;
+    }
+    100% {
+      border-image: linear-gradient(
+          360deg,
+          hsl(var(--primary)) 2%,
+          hsl(var(--accent)) 98%
+        )
+        1;
+    }
+  }
+
+  .animate-border-rotate {
+    border: 1.5px solid transparent;
+    border-image-slice: 1;
+    border-radius: 0.5rem; /* Subtle border radius for animating border */
+    animation: border-rotate 4s linear infinite;
+    transition: var(--transition-smooth);
+    background: hsl(var(--card)); /* Solid background */
+    background-clip: padding-box; /* Prevent gradient bleed */
+    box-shadow: 0 0 8px hsl(var(--primary) / 0.5); /* Subtle glow */
+  }
+
+  .animate-border-rotate:hover {
+    animation: border-rotate 2s linear infinite;
+    box-shadow: 0 0 12px hsl(var(--primary) / 0.6); /* Stronger glow on hover */
+  }
+
+  /* Ensure content is above background */
+  .animate-border-rotate > * {
+    position: relative;
+    z-index: 1;
+  }
 }
