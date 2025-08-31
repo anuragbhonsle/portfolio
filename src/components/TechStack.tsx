@@ -14,6 +14,8 @@ import {
   SiCplusplus,
   SiFirebase,
   SiJavascript,
+  SiExpress,
+  SiSupabase,
 } from "react-icons/si";
 
 interface TechItem {
@@ -26,6 +28,8 @@ const techStack: TechItem[] = [
   { name: "React", icon: SiReact, color: "text-[#61DAFB]" },
   { name: "TypeScript", icon: SiTypescript, color: "text-[#3178C6]" },
   { name: "Node.js", icon: SiNodedotjs, color: "text-[#339933]" },
+  { name: "Express", icon: SiExpress, color: "text-[#000000]" },
+  { name: "Supabase", icon: SiSupabase, color: "text-[#3ECF8E]" },
   { name: "Python", icon: SiPython, color: "text-[#3776AB]" },
   { name: "JavaScript", icon: SiJavascript, color: "text-[#F7DF1E]" },
   { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-[#06B6D4]" },
@@ -46,7 +50,6 @@ export const TechStack = () => {
       viewport={{ once: true }}
       className="px-4 lg:px-20 pt-2 lg:pt-4 pb-6 lg:pb-8"
     >
-      {/* Centered wrapper includes both header and skills */}
       <div className="mx-auto max-w-3xl">
         <motion.h2
           initial={{ opacity: 0, x: -30 }}
