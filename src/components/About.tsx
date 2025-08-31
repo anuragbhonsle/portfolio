@@ -17,7 +17,7 @@ export const About = () => {
           viewport={{ once: true }}
           className="space-y-4"
         >
-          <h2 className="text-l sm:text-2xl font-bold text-foreground mb-7 tracking-tight">
+          <h2 className="text-l sm:text-2xl font-bold text-foreground mb-5 tracking-tight">
             About
           </h2>
 

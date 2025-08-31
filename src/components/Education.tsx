@@ -41,7 +41,7 @@ export const Education = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-l sm:text-2xl font-bold text-foreground mb-2 tracking-tight"
+          className="text-l sm:text-2xl font-bold text-foreground mb-5 tracking-tight"
         >
           My Education
         </motion.h2>
