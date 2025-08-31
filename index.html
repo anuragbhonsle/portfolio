@@ -8,7 +8,6 @@
     <meta name="description" content="Explore the portfolio of Anurag" />
     <meta name="author" content="Anurag Bhonsle" />
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Anurag Bhonsle | Portfolio" />
     <meta
@@ -17,7 +16,6 @@
     />
     <meta property="og:image" content="https://yourdomain.com/og-image.png" />
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Anurag Bhonsle | Portfolio" />
     <meta
@@ -26,27 +24,21 @@
     />
     <meta name="twitter:image" content="https://yourdomain.com/og-image.png" />
 
-    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Fonts (Optional) -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Apply theme immediately to prevent flash -->
     <script>
       (function () {
         const saved = localStorage.getItem("theme");
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
-
-        if (saved === "dark" || (!saved && prefersDark)) {
+        // This is the core change. It checks for a saved theme and defaults to light mode otherwise.
+        if (saved === "dark") {
           document.documentElement.classList.add("dark");
         } else {
           document.documentElement.classList.add("light");

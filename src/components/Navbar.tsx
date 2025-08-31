@@ -21,14 +21,17 @@ const navItems = [
 const Navbar = () => {
   const [hovered, setHovered] = useState<number | null>(null);
 
-  // Initialize theme from localStorage or system preference
+  // Track client mount to prevent flicker
+  const [mounted, setMounted] = useState(false);
+
+  // Initialize theme from localStorage or default to light
   const [theme, setTheme] = useState<"light" | "dark">(() => {
     if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("theme") as "light" | "dark" | null;
-      if (saved) return saved;
-      return window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
+      const saved = localStorage.getItem("theme");
+      if (saved === "light" || saved === "dark") {
+        return saved;
+      }
+      return "light";
     }
     return "light";
   });
@@ -37,41 +40,33 @@ const Navbar = () => {
   const navigate = useNavigate();
   const onBlogPage = location.pathname.startsWith("/blogs");
 
-  // Apply theme class to html element
+  // Apply theme class to html element and save to localStorage
   useEffect(() => {
-    document.documentElement.classList.remove("light", "dark");
-    document.documentElement.classList.add(theme);
-    localStorage.setItem("theme", theme);
-    console.log(
-      `Theme set to: ${theme}, document classes: ${document.documentElement.className}`
-    );
-  }, [theme]);
-
-  // Sync with system theme if no preference
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = (e: MediaQueryListEvent) => {
-      if (!localStorage.getItem("theme")) {
-        setTheme(e.matches ? "dark" : "light");
-      }
-    };
-    mediaQuery.addEventListener("change", handleChange);
-    return () => mediaQuery.removeEventListener("change", handleChange);
+    setMounted(true); // mark as mounted
   }, []);
 
-  const toggleTheme = () => {
-    setTheme((prev) => {
-      const newTheme = prev === "light" ? "dark" : "light";
-      console.log(`Toggling theme to: ${newTheme}`);
-      return newTheme;
-    });
-  };
+  useEffect(() => {
+    if (!mounted) return; // skip until client mounts
 
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(theme);
+    try {
+      localStorage.setItem("theme", theme);
+    } catch (error) {
+      console.error("Failed to save theme to localStorage:", error);
+    }
+  }, [theme, mounted]);
+
+  const toggleTheme = () =>
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
   const handleHomeClick = () => navigate("/");
 
   const visibleNavItems = onBlogPage
     ? [{ icon: Home, label: "Home", section: "hero", onClick: handleHomeClick }]
     : navItems;
+
+  // Don't render until mounted to prevent flicker
+  if (!mounted) return null;
 
   return (
     <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center">
