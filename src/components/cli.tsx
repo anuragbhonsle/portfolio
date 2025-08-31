@@ -18,7 +18,7 @@ gui (g)      - Switch to GUI mode`,
   projects: `Eclipz, Animeverse, LeetScape, KanaKore, Starune`,
   edu: `Savitribai Phule Pune University - Master of Computer Applications (2023-2025)
 Savitribai Phule Pune University - Bachelor of Science in Computer Science (2020-2023)`,
-  contact: `Email: anuragkbhonsle@example.com
+  contact: `Email: anuragkbhonsle@gmail.com
 Phone: +91-9373336322`,
   social: `GitHub: github.com/anuragbhonsle
 LinkedIn: https://www.linkedin.com/in/anurag-bhonsle-4b576524a/`,
