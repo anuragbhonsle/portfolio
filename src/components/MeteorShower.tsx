@@ -50,8 +50,8 @@ export const MeteorShower = () => {
       meteors.forEach((m) => {
         // Opacity range based on mode
         const opacity = isDark
-          ? Math.random() * 0.4 + 0.1 // subtle in dark
-          : Math.random() * 0.5 + 0.1; // visible in light
+          ? Math.random() * 0.2 + 0.1 // subtle in dark
+          : Math.random() * 0.2 + 0.1; // visible in light
 
         m.opacity = opacity;
 

@@ -72,7 +72,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="ml-2 fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center">
+      <div className="ml-2.5 w-full max-w-5xl px-4 md:px-8 fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center">
         {/* Tooltip */}
         <div className="mb-2 min-h-[24px]">
           <AnimatePresence mode="wait">

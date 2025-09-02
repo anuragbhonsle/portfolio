@@ -21,34 +21,36 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="ml-4 bg-transparent min-h-screen bg-background text-foreground relative overflow-x-hidden">
+    <div className="pl-5 bg-transparent min-h-screen bg-background text-foreground relative overflow-x-hidden">
       <ScrollProgress />
       <Navbar /> {/* added hover-navbar */}
       <main className="relative z-10 overflow-hidden">
-        <Element name="hero">
-          <Hero />
-        </Element>
-        <Element name="about">
-          <About />
-        </Element>
-        <Element name="experience">
-          <Experience />
-        </Element>
-        <Element name="projects">
-          <Projects />
-        </Element>
-        <Element name="education">
-          <Education />
-        </Element>
-        <Element name="blogs">
-          <Blogs />
-        </Element>
-        <Element name="techstack">
-          <TechStack />
-        </Element>
-        <Element name="footer">
-          <Footer />
-        </Element>
+        <div className="mx-auto w-full max-w-5xl px-4 md:px-8">
+          <Element name="hero">
+            <Hero />
+          </Element>
+          <Element name="about">
+            <About />
+          </Element>
+          <Element name="experience">
+            <Experience />
+          </Element>
+          <Element name="projects">
+            <Projects />
+          </Element>
+          <Element name="education">
+            <Education />
+          </Element>
+          <Element name="blogs">
+            <Blogs />
+          </Element>
+          <Element name="techstack">
+            <TechStack />
+          </Element>
+          <Element name="footer">
+            <Footer />
+          </Element>
+        </div>
       </main>
       <ParallaxBackground />
     </div>

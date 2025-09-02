@@ -60,8 +60,8 @@ export const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
+              Connect on
               <Twitter className="w-5 h-5 text-foreground" />
-              Connect on X
             </a>
           </Button>
         </motion.div>

@@ -61,7 +61,7 @@ export const TechStack = () => {
           Skills
         </motion.h2>
 
-        <div className="flex flex-wrap gap-3 justify-start">
+        <div className="flex flex-wrap gap-2 justify-start">
           {techStack.map((tech, index) => (
             <motion.div
               key={tech.name}
@@ -83,7 +83,7 @@ export const TechStack = () => {
                   "transition-all duration-300"
                 )}
               >
-                <tech.icon className={cn("w-5 h-5", tech.color)} />
+                <tech.icon className={cn("w-4 h-4", tech.color)} />
                 <h3 className="text-xs font-medium">{tech.name}</h3>
               </div>
             </motion.div>

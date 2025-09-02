@@ -28,8 +28,8 @@ export const About = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              I turn ideas into clean, functional web apps that not only work,
-              but feel intuitive and enjoyable to use.
+              I turn ideas into clean web apps that not only work, but feel
+              intuitive and enjoyable to use.
             </motion.p>
 
             <motion.p
@@ -38,8 +38,8 @@ export const About = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              Always curious about new tools, I learn by building and break
-              things just enough to figure them out.
+              Always curious about new tools, I learn by building and
+              experimenting to understand them.
             </motion.p>
 
             <motion.p
@@ -48,8 +48,8 @@ export const About = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
               viewport={{ once: true }}
             >
-              When I’m not coding, I’m diving into startups, tech trends, or
-              sketching my next side project.
+              you’ll find me tackling competitive programming challenges or
+              planning my next project.
             </motion.p>
           </div>
         </motion.div>

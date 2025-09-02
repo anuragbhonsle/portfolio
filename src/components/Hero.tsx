@@ -3,7 +3,7 @@ import { Github, Linkedin } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <section className="relative px-4 lg:px-20 pt-16 lg:pt-24 pb-8 lg:pb-12 bg-transparent">
+    <section className="relative px-4 lg:px-20 pt-8 lg:pt-16 pb-8 lg:pb-12 bg-transparent">
       <div className="mx-auto max-w-5xl flex flex-col lg:flex-row items-center justify-center gap-12">
         {/* Left: Text Content */}
         <motion.div
@@ -27,8 +27,8 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-base sm:text-lg md:text-xl text-foreground/95 font-light leading-relaxed max-w-prose mx-auto lg:mx-0"
           >
-            A developer from Pune 🇮🇳. I build web apps, solve problems with
-            code, and craft experiences people actually enjoy
+            A developer from Pune 🇮🇳. I build web apps, solve problems, and
+            create experiences people love.
           </motion.p>
 
           {/* Social Icons */}
@@ -78,7 +78,7 @@ export const Hero = () => {
 
             <motion.div
               animate={{
-                scale: [1, 1.05, 1], // subtle pulse
+                scale: [1, 1.05, 1],
                 borderColor: [
                   "hsl(var(--border))",
                   "hsl(var(--primary))",
