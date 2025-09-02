@@ -9,15 +9,16 @@ import {
   User,
   FileText,
   Briefcase,
+  Clipboard,
   Terminal,
 } from "lucide-react";
 import CLI from "./cli";
 
-// Nav items
+// Nav items with distinct icons
 const navItems = [
   { icon: Home, section: "hero", label: "Home" },
   { icon: User, section: "about", label: "About" },
-  { icon: FileText, section: "experience", label: "Experience" },
+  { icon: Clipboard, section: "experience", label: "Experience" },
   { icon: Briefcase, section: "projects", label: "Projects" },
   {
     icon: FileText,
@@ -33,31 +34,22 @@ const Navbar = () => {
   const [theme, setTheme] = useState<"light" | "dark">(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("theme");
-      if (saved === "light" || saved === "dark") return saved;
-      return "light";
+      return saved === "light" || saved === "dark" ? saved : "light";
     }
     return "light";
   });
 
   const [cliOpen, setCliOpen] = useState(false);
-
   const location = useLocation();
   const navigate = useNavigate();
   const onBlogPage = location.pathname.startsWith("/blogs");
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
+  useEffect(() => setMounted(true), []);
   useEffect(() => {
     if (!mounted) return;
     document.documentElement.classList.remove("light", "dark");
     document.documentElement.classList.add(theme);
-    try {
-      localStorage.setItem("theme", theme);
-    } catch (error) {
-      console.error("Failed to save theme:", error);
-    }
+    localStorage.setItem("theme", theme);
   }, [theme, mounted]);
 
   const toggleTheme = () =>
