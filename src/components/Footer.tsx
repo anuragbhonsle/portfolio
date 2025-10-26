@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Twitter } from "lucide-react";
+import { FaXTwitter } from "react-icons/fa6";
 
 export const Footer = () => {
   // Debugging: Log the current theme
@@ -61,7 +62,7 @@ export const Footer = () => {
               rel="noopener noreferrer"
             >
               Connect on
-              <Twitter className="w-5 h-5 text-foreground" />
+              <FaXTwitter className="w-5 h-5 text-foreground" />
             </a>
           </Button>
         </motion.div>
