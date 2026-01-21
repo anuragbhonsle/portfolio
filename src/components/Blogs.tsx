@@ -241,7 +241,7 @@ export const Blogs = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-l sm:text-2xl font-bold text-foreground mb-5 tracking-tight"
+          className="text-lg sm:text-2xl font-bold text-foreground mb-5 tracking-tight"
         >
           Recent Blog Posts
         </motion.h2>
@@ -260,11 +260,11 @@ export const Blogs = () => {
               {/* Left: Title + Excerpt */}
               <div className="flex-1">
                 <Link to={`/blogs/${blog.slug}`}>
-                  <h3 className="lg:text-lg sm:text-xs font-semibold text-foreground hover:text-blue-500 transition-colors">
+                  <h3 className="text-sm lg:text-lg sm:text-xs font-semibold text-foreground hover:text-blue-500 transition-colors">
                     {blog.title}
                   </h3>
                 </Link>
-                <p className="text-sm text-text-dim mt-1">{blog.excerpt}</p>
+                <p className="text-xs text-text-dim mt-1">{blog.excerpt}</p>
               </div>
 
               {/* Right: Date */}

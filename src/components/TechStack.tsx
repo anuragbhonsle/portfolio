@@ -56,7 +56,7 @@ export const TechStack = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-l sm:text-2xl font-bold text-foreground mb-5 tracking-tight"
+          className="text-lg sm:text-2xl font-bold text-foreground mb-5 tracking-tight"
         >
           Skills
         </motion.h2>
@@ -78,7 +78,7 @@ export const TechStack = () => {
             >
               <div
                 className={cn(
-                  "flex items-center gap-1 px-2 py-1 rounded-full text-base", // default mobile/tablet
+                  "flex items-center gap-1 px-1 py-0.5 rounded-full text-sm", // default mobile/tablet
                   "bg-black text-white hover:bg-gray-800",
                   "dark:bg-white dark:text-gray-800 dark:hover:bg-gray-200",
                   "transition-colors duration-300",

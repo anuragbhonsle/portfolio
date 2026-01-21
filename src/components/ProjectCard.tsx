@@ -38,8 +38,9 @@ export function ProjectCard({
   return (
     <Card
       className={cn(
-        "flex flex-col overflow-hidden rounded-2xl bg-card border border-border hover:shadow-xl transition-all duration-300 ease-out h-full relative group",
-        className
+        // Keep large screens intact, only adjust for small screens
+        "w-full flex flex-col overflow-hidden rounded-2xl bg-card border border-border hover:shadow-xl transition-all duration-300 ease-out h-full relative group",
+        className,
       )}
     >
       <a
@@ -72,21 +73,27 @@ export function ProjectCard({
         </div>
       </a>
 
-      <CardHeader className="px-3 pt-3">
-        <CardTitle className="text-base font-semibold">{title}</CardTitle>
-        <time className="font-sans text-xs text-muted-foreground">{dates}</time>
-        <p className="text-xs text-muted-foreground mt-1 line-clamp-3">
+      {/* Header */}
+      <CardHeader className="px-3 sm:px-4 pt-2 sm:pt-3">
+        <CardTitle className="text-sm sm:text-base font-semibold line-clamp-2">
+          {title}
+        </CardTitle>
+        <time className="font-sans text-[10px] sm:text-xs text-muted-foreground">
+          {dates}
+        </time>
+        <p className="text-[10px] sm:text-xs text-muted-foreground mt-1 line-clamp-3">
           {description}
         </p>
       </CardHeader>
 
+      {/* Tags */}
       {tags && tags.length > 0 && (
         <CardContent className="px-3 mt-1">
           <div className="flex flex-wrap gap-1">
             {tags.map((tag) => (
               <Badge
                 key={tag}
-                className="px-2 py-0.5 text-[10px] rounded-full"
+                className="px-2 py-0.5 text-[9px] sm:text-[10px] rounded-full"
                 variant="secondary"
               >
                 {tag}
@@ -96,8 +103,9 @@ export function ProjectCard({
         </CardContent>
       )}
 
+      {/* Links */}
       {links && links.length > 0 && (
-        <CardFooter className="px-3 pb-3 flex flex-wrap gap-2">
+        <CardFooter className="px-3 pb-3 flex flex-wrap gap-1 sm:gap-2">
           {links.map((link, idx) => (
             <a
               key={idx}
@@ -107,9 +115,9 @@ export function ProjectCard({
             >
               <Badge
                 className={cn(
-                  "flex gap-1 px-3 py-1 text-[11px] font-medium rounded-full transition-colors",
+                  "flex gap-1 px-2 sm:px-3 py-1 text-[9px] sm:text-[11px] font-medium rounded-full transition-colors",
                   "bg-white text-gray-800 hover:bg-gray-200",
-                  "dark:bg-black dark:text-white dark:hover:bg-gray-800"
+                  "dark:bg-black dark:text-white dark:hover:bg-gray-800",
                 )}
               >
                 {link.icon}

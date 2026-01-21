@@ -66,7 +66,8 @@ const projects: Project[] = [
   },
   {
     title: "ReactQuiz",
-    tagline: "Test your React knowledge and have fun!",
+    tagline:
+      "Test your React knowledge with multiple choice questions and have fun!",
     description:
       "A simple, clean, and interactive Quiz Application built with React to practice core React concepts like state, props, hooks, and component-driven UI.",
     tech: ["React", "Node.js", "Tailwind CSS", "Vite"],
@@ -83,23 +84,26 @@ export const Projects = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="px-4 lg:px-20 pt-2 lg:pt-4 pb-6 lg:pb-8"
+      className="px-2 sm:px-4 lg:px-20 pt-4 sm:pt-6 lg:pt-8 pb-6 sm:pb-8 lg:pb-12"
     >
-      <div className="mx-auto max-w-3xl flex flex-col gap-6">
+      <div className="w-full sm:max-w-5xl mx-auto flex flex-col gap-6">
+        {/* Section title */}
         <motion.h2
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-l sm:text-2xl font-bold text-foreground mb-7 tracking-tight"
+          className="text-lg sm:text-2xl font-bold text-foreground mb-5 sm:mb-7 tracking-tight text-left"
         >
           Featured Projects
         </motion.h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {/* Projects grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
+              className="w-full"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -113,10 +117,11 @@ export const Projects = () => {
                 tags={project.tech}
                 image={project.image}
                 video={project.video}
+                className="w-full" // ensures full width on mobile
                 links={[
                   {
                     icon: <ExternalLink className="w-4 h-4" />,
-                    type: "Website", // Changed from "Demo" to "Website"
+                    type: "Website",
                     href: project.demo || "#",
                   },
                   {

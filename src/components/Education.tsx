@@ -5,7 +5,7 @@ type EducationItem = {
   institution: string;
   period: string;
   icon: string;
-  cgpa?: string; // optional field
+  cgpa?: string;
 };
 
 const education: EducationItem[] = [
@@ -14,9 +14,8 @@ const education: EducationItem[] = [
     institution: "Savitribai Phule Pune University",
     period: "2023 – 2025",
     icon: "/sppu.jpg",
-    cgpa: "7.62 CGPA", // add it here
+    cgpa: "7.62 CGPA",
   },
-
   {
     degree: "Bachelor of Science in Computer Science",
     institution: "Savitribai Phule Pune University",
@@ -29,47 +28,49 @@ const education: EducationItem[] = [
 export const Education = () => {
   return (
     <motion.section
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.7 }}
       viewport={{ once: true }}
-      className="px-4 lg:px-20 pt-1 lg:pt-2 pb-4 lg:pb-6"
+      className="w-full px-2 sm:px-4 lg:px-20 pt-2 lg:pt-4 pb-4 lg:pb-6"
     >
-      <div className="mx-auto max-w-3xl flex flex-col gap-4">
+      <div className="w-full max-w-full sm:max-w-5xl mx-auto flex flex-col gap-4">
         <motion.h2
-          initial={{ opacity: 0, x: -30 }}
+          initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
           viewport={{ once: true }}
-          className="text-l sm:text-2xl font-bold text-foreground mb-5 tracking-tight"
+          className="text-lg sm:text-2xl font-bold text-foreground mb-3 tracking-tight"
         >
           My Education
         </motion.h2>
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4 w-full">
           {education.map((edu, index) => (
             <motion.div
               key={edu.degree}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="flex items-center justify-between"
+              className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0 w-full"
             >
               {/* Left: Icon + Info */}
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 sm:gap-4 w-full sm:w-auto">
                 <img
                   src={edu.icon}
                   alt={edu.institution}
-                  className="w-12 h-12 rounded-full object-contain border border-border"
+                  className="w-8 h-8 xs:w-9 xs:h-9 sm:w-12 sm:h-12 rounded-full object-contain border border-border"
                 />
-                <div>
-                  <h3 className="lg:text-lg sm:text-xs font-semibold text-foreground">
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-xs xs:text-sm sm:text-base font-semibold text-foreground truncate">
                     {edu.degree}
                   </h3>
-                  <p className="text-sm text-text-dim">{edu.institution}</p>
+                  <p className="text-[0.6rem] xs:text-xs sm:text-sm text-text-dim truncate">
+                    {edu.institution}
+                  </p>
                   {edu.cgpa && (
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-[0.6rem] xs:text-xs sm:text-sm text-muted-foreground truncate">
                       CGPA: {edu.cgpa}
                     </p>
                   )}
@@ -77,7 +78,7 @@ export const Education = () => {
               </div>
 
               {/* Right: Period */}
-              <span className="text-sm text-text-dim font-mono">
+              <span className="text-[0.6rem] xs:text-xs sm:text-sm text-text-dim font-mono mt-1 sm:mt-0">
                 {edu.period}
               </span>
             </motion.div>

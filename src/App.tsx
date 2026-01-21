@@ -10,6 +10,8 @@ import { MeteorShower } from "@/components/MeteorShower";
 import BlogPage from "./components/BlogPage";
 
 const queryClient = new QueryClient();
+const pageWrapperClasses =
+  "relative z-10 w-full max-w-full sm:max-w-5xl mx-auto px-4 sm:px-6 lg:px-16 py-0 sm:py-6 flex flex-col items-center"; // <-- items-center instead of items-start
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -23,7 +25,7 @@ const App = () => (
           <Route
             path="/"
             element={
-              <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-10 lg:px-16 py-0 sm:py-6 flex flex-col items-center justify-center min-h-screen">
+              <div className="relative z-10 w-full sm:max-w-5xl mx-auto px-4 sm:px-6 lg:px-16 py-0 sm:py-6 flex flex-col items-center justify-center">
                 <Index />
               </div>
             }
@@ -31,7 +33,7 @@ const App = () => (
           <Route
             path="/blogs/:slug"
             element={
-              <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-10 lg:px-16 pt-10 pb-20 flex flex-col items-start">
+              <div className="relative z-10 w-full sm:max-w-5xl mx-auto px-4 sm:px-6 lg:px-16 pt-5 sm:pt-10 pb-14 sm:pb-20 flex flex-col items-center justify-center">
                 <BlogPage />
               </div>
             }
@@ -39,7 +41,7 @@ const App = () => (
           <Route
             path="*"
             element={
-              <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-10 lg:px-16 pt-10 pb-20 flex flex-col items-start">
+              <div className="relative z-10 w-full sm:max-w-5xl mx-auto px-4 sm:px-6 lg:px-16 pt-5 sm:pt-10 pb-14 sm:pb-20 flex flex-col items-center justify-center">
                 <NotFound />
               </div>
             }
