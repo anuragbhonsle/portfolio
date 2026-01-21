@@ -78,9 +78,11 @@ export const TechStack = () => {
             >
               <div
                 className={cn(
-                  "flex items-center gap-2 px-2 py-1 rounded-xl bg-black text-white hover:bg-gray-800",
-                  "dark:bg-white dark:text-gray-800 dark:hsover:bg-gray-200",
-                  "transition-all duration-300"
+                  "flex items-center gap-1 px-2 py-1 rounded-full text-base", // default mobile/tablet
+                  "bg-black text-white hover:bg-gray-800",
+                  "dark:bg-white dark:text-gray-800 dark:hover:bg-gray-200",
+                  "transition-colors duration-300",
+                  "lg:gap-1 lg:px-2 lg:py-1.5 lg:text-sm", // smaller on laptops/desktops
                 )}
               >
                 <tech.icon className={cn("w-4 h-4", tech.color)} />

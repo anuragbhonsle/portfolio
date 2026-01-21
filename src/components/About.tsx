@@ -21,7 +21,7 @@ export const About = () => {
             About
           </h2>
 
-          <div className="space-y-5 text-sm sm:text-base text-foreground/95 leading-normal">
+          <div className="space-y-5 text-xs lg:text-[0.95rem] sm:text-sm text-foreground/95 leading-normal">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

@@ -54,6 +54,26 @@ const projects: Project[] = [
     demo: "https://starune.vercel.app/",
     video: "starunevideo.mp4",
   },
+  {
+    title: "Taskly",
+    tagline: "Keep your projects in check and crush your tasks daily.",
+    description:
+      "A React + Supabase project manager app to organize your projects and tasks. Supports user authentication, project/task management, and user-specific data.",
+    tech: ["React", "Node.js", "Tailwind CSS", "Supabase"],
+    github: "https://github.com/anuragbhonsle/Taskly",
+    demo: "https://tasklycloud.vercel.app/",
+    video: "taskly.mp4",
+  },
+  {
+    title: "ReactQuiz",
+    tagline: "Test your React knowledge and have fun!",
+    description:
+      "A simple, clean, and interactive Quiz Application built with React to practice core React concepts like state, props, hooks, and component-driven UI.",
+    tech: ["React", "Node.js", "Tailwind CSS", "Vite"],
+    github: "https://github.com/anuragbhonsle/Quiz",
+    demo: "https://reactjsquizapp.vercel.app/",
+    video: "quiz.mp4",
+  },
 ];
 
 export const Projects = () => {

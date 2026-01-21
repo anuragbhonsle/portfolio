@@ -9,7 +9,7 @@ export const Footer = () => {
     console.log(
       `Footer rendered with theme: ${
         document.documentElement.classList.contains("dark") ? "dark" : "light"
-      }`
+      }`,
     );
   }
 
@@ -38,7 +38,7 @@ export const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-text-dim text-lg leading-relaxed text-left"
+          className="text-text-dim lg:text-lg sm:text-sm leading-relaxed text-left"
         >
           Always open to discussing new projects, creative ideas, or
           opportunities to be part of your visions. Feel free to reach out.

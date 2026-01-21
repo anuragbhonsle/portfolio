@@ -64,7 +64,7 @@ export const Education = () => {
                   className="w-12 h-12 rounded-full object-contain border border-border"
                 />
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground">
+                  <h3 className="lg:text-lg sm:text-xs font-semibold text-foreground">
                     {edu.degree}
                   </h3>
                   <p className="text-sm text-text-dim">{edu.institution}</p>

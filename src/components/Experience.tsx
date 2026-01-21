@@ -23,7 +23,7 @@ export const Experience = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="px-8 lg:px-20 pt-1 lg:pt-2 pb-4 lg:pb-6"
+      className="px-4 lg:px-20 pt-1 lg:pt-2 pb-4 lg:pb-6"
     >
       <div className="mx-auto max-w-3xl flex flex-col gap-4">
         <motion.h2
@@ -54,7 +54,7 @@ export const Experience = () => {
                   className="w-12 h-12 rounded-full object-contain border border-border"
                 />
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground">
+                  <h3 className="lg:text-lg sm:text-sm font-semibold text-foreground">
                     {exp.company}
                   </h3>
                   <p className="text-sm text-text-dim">{exp.role}</p>

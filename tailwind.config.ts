@@ -23,6 +23,7 @@ export default {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
+
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -52,12 +53,18 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+
         // Custom portfolio colors
         "text-dim": "hsl(var(--text-dim))",
         glow: "hsl(var(--glow))",
         purple: "hsl(var(--purple))",
         blue: "hsl(var(--blue))",
         orange: "hsl(var(--orange))",
+      },
+      fontFamily: {
+        sans: ["Plus Jakarta Sans", "Inter", "system-ui"],
+        heading: ["Space Grotesk", "Inter", "system-ui"],
+        code: ["Space Mono", "ui-monospace", "monospace"],
       },
       backgroundImage: {
         "gradient-primary": "var(--gradient-primary)",
