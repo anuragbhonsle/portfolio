@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ProjectCard } from "./ProjectCard"; // Ensure correct path
 import { Github, ExternalLink } from "lucide-react";
+import { useState } from "react";
 
 interface Project {
   title: string;
@@ -42,7 +43,7 @@ const projects: Project[] = [
     tech: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Firebase"],
     github: "https://github.com/anuragbhonsle/leetscape",
     demo: "https://leetscape-app.vercel.app/",
-    video: "leetscapevideo.mp4",
+    video: "leetscape.mp4",
   },
   {
     title: "Starune",
@@ -75,9 +76,23 @@ const projects: Project[] = [
     demo: "https://reactjsquizapp.vercel.app/",
     video: "quiz.mp4",
   },
+  {
+    title: "Countdown Game",
+    tagline:
+      "A timing-based reflex game where you have to stop the timer at a set time",
+    description:
+      "A fast-paced timing game built with React where precision matters. Players must rely on intuition and focus to stop the timer as close as possible to the target time, making it a fun way to practice state management, hooks, and component-driven UI architecture.",
+    tech: ["React", "Node.js", "Tailwind CSS", "Vite"],
+    github: "https://github.com/anuragbhonsle/countdown_game",
+    demo: "https://countdown-gamee.vercel.app/",
+    video: "countdown.mp4",
+  },
 ];
 
 export const Projects = () => {
+  const [showAll, setShowAll] = useState(false);
+
+  const visibleProjects = showAll ? projects : projects.slice(0, 6);
   return (
     <motion.section
       initial={{ opacity: 0, y: 50 }}
@@ -100,7 +115,7 @@ export const Projects = () => {
 
         {/* Projects grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-          {projects.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <motion.div
               key={project.title}
               className="w-full"
@@ -134,6 +149,22 @@ export const Projects = () => {
             </motion.div>
           ))}
         </div>
+        {projects.length > 2 && (
+          <motion.button
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            onClick={() => setShowAll((prev) => !prev)}
+            className="mx-auto mt-4 flex items-center gap-2 text-sm font-medium text-blue-500 hover:text-blue-600 transition-colors"
+          >
+            {showAll ? "Show less" : "Show more projects"}
+            <span
+              className={`transition-transform ${showAll ? "rotate-180" : ""}`}
+            >
+              ▼
+            </span>
+          </motion.button>
+        )}
       </div>
     </motion.section>
   );

@@ -1,7 +1,6 @@
-"use client";
-
 import { Terminal } from "lucide-react";
-import { DockIcon } from "./magicui/dock";
+import { Dock, DockIcon } from "./ui/dock";
+
 import {
   Tooltip,
   TooltipContent,
@@ -9,7 +8,7 @@ import {
 } from "@/components/ui/tooltip";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 export function CliButton({
   mousex,
@@ -22,7 +21,7 @@ export function CliButton({
 }) {
   return (
     <DockIcon
-      mousex={mousex}
+      mouseX={mousex}
       magnification={magnification}
       distance={distance}
       className="group flex h-full w-full items-center justify-center"
@@ -30,10 +29,10 @@ export function CliButton({
       <Tooltip>
         <TooltipTrigger asChild>
           <Link
-            href="/cli"
+            to="/cli"
             className={cn(
               buttonVariants({ variant: "ghost", size: "icon" }),
-              "size-12"
+              "size-12",
             )}
           >
             <Terminal className="size-4" />
