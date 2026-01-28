@@ -96,7 +96,7 @@ const projects: Project[] = [
     tech: ["React", "Node.js", "Tailwind CSS", "Vite"],
     github: "https://github.com/anuragbhonsle/InvestMate",
     demo: "https://invest-matee.vercel.app/",
-    video: "invest.mp4",
+    video: "invest2.mp4",
   },
 ];
 
