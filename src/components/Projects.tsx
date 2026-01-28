@@ -87,6 +87,17 @@ const projects: Project[] = [
     demo: "https://countdown-gamee.vercel.app/",
     video: "countdown.mp4",
   },
+  {
+    title: "InvestMate",
+    tagline:
+      "Visualize your money growth with compound interest and smart planning",
+    description:
+      "InvestMate is an interactive investment calculator built with React that helps users track how their initial and yearly contributions can grow over time. With customizable presets, detailed results, and a sleek UI, it makes financial planning simple and visually engaging.",
+    tech: ["React", "Node.js", "Tailwind CSS", "Vite"],
+    github: "https://github.com/anuragbhonsle/InvestMate",
+    demo: "https://invest-matee.vercel.app/",
+    video: "invest.mp4",
+  },
 ];
 
 export const Projects = () => {
