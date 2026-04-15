@@ -11,6 +11,7 @@ import {
   Briefcase,
   Clipboard,
   Terminal,
+  BookOpen,
 } from "lucide-react";
 import CLI from "./cli";
 
@@ -20,14 +21,14 @@ const navItems = [
   { icon: User, section: "about", label: "About" },
   { icon: Clipboard, section: "experience", label: "Experience" },
   { icon: Briefcase, section: "projects", label: "Projects" },
+  { icon: BookOpen, section: "blogs", label: "Blogs" },
   {
     icon: FileText,
     section: "resume",
     label: "View Resume",
-    href: "/resume.pdf",
+    href: "/AnuragResume.pdf",
   },
 ];
-
 const Navbar = () => {
   const [hovered, setHovered] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
