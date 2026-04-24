@@ -39,7 +39,7 @@ export const Hero = () => {
             className="flex gap-4 mt-2"
           >
             <a
-              href="https://www.linkedin.com/in/anurag-bhonsle-4b576524a/"
+              href="https://www.linkedin.com/in/anurag-bhonsle/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground hover:text-primary transition-colors"

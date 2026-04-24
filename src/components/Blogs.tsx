@@ -10,7 +10,7 @@ export type BlogItem = {
   slug: string;
 };
 
-// Blogs array (unchanged)
+// Blogs array
 export const blogs: BlogItem[] = [
   {
     title: "Why I Chose Supabase for My React Projects",
