@@ -38,18 +38,18 @@ export function ProjectCard({
   return (
     <Card
       className={cn(
-        // Keep large screens intact, only adjust for small screens
         "w-full flex flex-col overflow-hidden rounded-2xl bg-card border border-border hover:shadow-xl transition-all duration-300 ease-out h-full relative group",
         className,
       )}
     >
+      {/* Media Section */}
       <a
         href={href || "#"}
         target="_blank"
         rel="noopener noreferrer"
-        className="block cursor-pointer"
+        className="block cursor-pointer shrink-0"
       >
-        <div className="w-full aspect-[16/9] overflow-hidden rounded-t-2xl">
+        <div className="w-full aspect-[16/9] overflow-hidden rounded-t-2xl bg-muted">
           {video ? (
             <video
               src={video}
@@ -66,62 +66,68 @@ export function ProjectCard({
               className="w-full h-full object-cover rounded-t-2xl group-hover:scale-105 transition-transform duration-300"
             />
           ) : (
-            <div className="w-full h-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
-              <span className="text-gray-500 text-sm">No Media</span>
+            <div className="w-full h-full flex items-center justify-center">
+              <span className="text-muted-foreground text-xs font-medium">
+                No Media
+              </span>
             </div>
           )}
         </div>
       </a>
 
-      {/* Header */}
-      <CardHeader className="px-3 sm:px-4 pt-2 sm:pt-3">
-        <CardTitle className="text-sm sm:text-base font-semibold line-clamp-2">
+      {/* Header Area - flex-grow pushes everything below it down evenly */}
+      <CardHeader className="px-4 pt-3 pb-2 flex-grow flex flex-col gap-1.5">
+        <CardTitle className="text-sm sm:text-base font-semibold line-clamp-2 tracking-tight">
           {title}
         </CardTitle>
-        <time className="font-sans text-[10px] sm:text-xs text-muted-foreground">
+        <time className="font-sans text-[10px] sm:text-xs text-muted-foreground block">
           {dates}
         </time>
-        <p className="text-[10px] sm:text-xs text-muted-foreground mt-1 line-clamp-3">
+        <p className="text-[11px] sm:text-xs text-muted-foreground/90 line-clamp-3 mt-0.5 leading-relaxed">
           {description}
         </p>
       </CardHeader>
 
-      {/* Tags */}
-      {tags && tags.length > 0 && (
-        <CardContent className="px-3 mt-1">
+      {/* Tags Content Area - acts as a buffer layer */}
+      <CardContent className="px-4 py-2 flex-grow-0 mt-auto">
+        {tags && tags.length > 0 ? (
           <div className="flex flex-wrap gap-1">
             {tags.map((tag) => (
               <Badge
                 key={tag}
-                className="px-2 py-0.5 text-[9px] sm:text-[10px] rounded-full"
+                className="px-2 py-0.5 text-[9px] sm:text-[10px] rounded-full font-normal pointer-events-none"
                 variant="secondary"
               >
                 {tag}
               </Badge>
             ))}
           </div>
-        </CardContent>
-      )}
+        ) : (
+          /* Empty spacer keeping vertical rhythm identical if tags are missing */
+          <div className="h-4" />
+        )}
+      </CardContent>
 
-      {/* Links */}
+      {/* Footer Links - cleanly pinned to the absolute bottom */}
       {links && links.length > 0 && (
-        <CardFooter className="px-3 pb-3 flex flex-wrap gap-1 sm:gap-2">
+        <CardFooter className="px-4 pt-2 pb-4 flex flex-wrap gap-1.5 mt-auto">
           {links.map((link, idx) => (
             <a
               key={idx}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
+              className="inline-flex"
             >
               <Badge
                 className={cn(
-                  "flex gap-1 px-2 sm:px-3 py-1 text-[9px] sm:text-[11px] font-medium rounded-full transition-colors",
-                  "bg-white text-gray-800 hover:bg-gray-200",
-                  "dark:bg-black dark:text-white dark:hover:bg-gray-800",
+                  "flex items-center gap-1.5 px-2.5 sm:px-3 py-1 text-[10px] sm:text-[11px] font-medium rounded-full transition-colors border",
+                  "bg-background text-foreground border-border hover:bg-muted",
+                  "dark:bg-secondary dark:text-secondary-foreground dark:hover:bg-secondary/80",
                 )}
               >
                 {link.icon}
-                {link.type}
+                <span>{link.type}</span>
               </Badge>
             </a>
           ))}
