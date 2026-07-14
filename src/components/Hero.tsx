@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin } from "lucide-react";
+import { SiLeetcode } from "react-icons/si";
+import { SiCodeforces } from "react-icons/si";
+import { FaXTwitter } from "react-icons/fa6";
 
 export const Hero = () => {
   return (
@@ -36,23 +39,50 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex gap-4 mt-2"
+            className="flex gap-6 mt-2"
           >
             <a
               href="https://www.linkedin.com/in/anurag-bhonsle/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground hover:text-primary transition-colors"
+              className="text-foreground hover:scale-110 hover:text-[#0A66C2] transition-all duration-200"
             >
               <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
+
             <a
               href="https://github.com/anuragbhonsle"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground hover:text-primary transition-colors"
+              className="text-foreground hover:text-[#1F8ACB] hover:scale-110 transition-all duration-200"
             >
               <Github className="w-5 h-5 sm:w-6 sm:h-6" />
+            </a>
+
+            <a
+              href="https://leetcode.com/u/AnuragBhonsle/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:scale-110 hover:text-[#1F8ACB] transition-all duration-200"
+            >
+              <SiLeetcode className="w-5 h-5 sm:w-6 sm:h-6" />
+            </a>
+            <a
+              href="https://codeforces.com/profile/Anurag2510"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:text-[#1F8ACB] transition-all duration-200 hover:scale-110"
+            >
+              <SiCodeforces className="w-5 h-5 sm:w-6 sm:h-6" />
+            </a>
+            <a
+              href="https://x.com/Anuraaaag7"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X (Twitter)"
+              className="text-foreground hover:text-[#1F8ACB] hover:scale-110 transition-all duration-200"
+            >
+              <FaXTwitter className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
           </motion.div>
         </motion.div>
