@@ -16,6 +16,8 @@ import {
   SiJavascript,
   SiExpress,
   SiSupabase,
+  SiPrisma,
+  SiAxios,
 } from "react-icons/si";
 
 interface TechItem {
@@ -35,10 +37,12 @@ const techStack: TechItem[] = [
   { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-[#06B6D4]" },
   { name: "PostgreSQL", icon: SiPostgresql, color: "text-[#336791]" },
   { name: "MongoDB", icon: SiMongodb, color: "text-[#47A248]" },
+  { name: "Prisma", icon: SiPrisma, color: "text-[#2D3748]" },
+  { name: "Axios", icon: SiAxios, color: "text-[#5A29E4]" },
   { name: "Docker", icon: SiDocker, color: "text-[#2496ED]" },
   { name: "Git", icon: SiGit, color: "text-[#F05032]" },
   { name: "C++", icon: SiCplusplus, color: "text-[#00599C]" },
-  { name: "Firebase", icon: SiFirebase, color: "text-[#00D4FF]" },
+  { name: "Firebase", icon: SiFirebase, color: "text-[#FFCA28]" },
 ];
 
 export const TechStack = () => {

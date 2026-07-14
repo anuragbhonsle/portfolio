@@ -25,6 +25,7 @@ const projects: Project[] = [
     demo: "https://eclipz.vercel.app/",
     video: "eclipzvideo.mp4",
   },
+
   {
     title: "AnimeVerse",
     tagline: "Your anime world, neatly organized.",
@@ -34,16 +35,6 @@ const projects: Project[] = [
     github: "https://github.com/anuragbhonsle/animeverse",
     demo: "https://anime-verse-xi.vercel.app/",
     video: "animeversevideo.mp4",
-  },
-  {
-    title: "LeetScape",
-    tagline: "Your DSA mastery hub.",
-    description:
-      "A minimalist platform to help developers master algorithms and ace coding interviews — with smart tracking and note-taking.",
-    tech: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Firebase"],
-    github: "https://github.com/anuragbhonsle/leetscape",
-    demo: "https://leetscape-app.vercel.app/",
-    video: "leetscape.mp4",
   },
   {
     title: "Starune",
@@ -66,12 +57,36 @@ const projects: Project[] = [
     video: "taskly.mp4",
   },
   {
+    title: "WeatherVerse",
+    tagline: "Real-time weather for any city, beautifully presented.",
+    description:
+      "A modern, responsive weather application built with React, Redux Toolkit, Express.js, and the OpenWeather API. Search for any city around the world to view real-time weather conditions with a clean, animated user interface.",
+    tech: [
+      "React",
+      "Redux Toolkit",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "OpenWeather API",
+    ],
+    github: "https://github.com/anuragbhonsle/weather-app",
+    demo: "https://weather-verse-app.vercel.app/",
+    video: "weather.mp4",
+  },
+  {
     title: "ReactQuiz",
     tagline:
       "Test your React knowledge with multiple choice questions and have fun!",
     description:
       "A simple, clean, and interactive Quiz Application built with React to practice core React concepts like state, props, hooks, and component-driven UI.",
-    tech: ["React", "Node.js", "Tailwind CSS", "Vite"],
+    tech: [
+      "React",
+      "Node.js",
+      "Tailwind CSS",
+      "Vite",
+      "React Router",
+      "Redux Toolkit",
+    ],
     github: "https://github.com/anuragbhonsle/Quiz",
     demo: "https://reactjsquizapp.vercel.app/",
     video: "quiz.mp4",
@@ -86,17 +101,6 @@ const projects: Project[] = [
     github: "https://github.com/anuragbhonsle/countdown_game",
     demo: "https://countdown-gamee.vercel.app/",
     video: "countdown.mp4",
-  },
-  {
-    title: "InvestMate",
-    tagline:
-      "Visualize your money growth with compound interest and smart planning",
-    description:
-      "InvestMate is an interactive investment calculator built with React that helps users track how their initial and yearly contributions can grow over time. With customizable presets, detailed results, and a sleek UI, it makes financial planning simple and visually engaging.",
-    tech: ["React", "Node.js", "Tailwind CSS", "Vite"],
-    github: "https://github.com/anuragbhonsle/InvestMate",
-    demo: "https://invest-matee.vercel.app/",
-    video: "invest2.mp4",
   },
 ];
 
