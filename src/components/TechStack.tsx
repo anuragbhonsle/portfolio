@@ -18,6 +18,8 @@ import {
   SiSupabase,
   SiPrisma,
   SiAxios,
+  SiVercel,
+  SiRender,
 } from "react-icons/si";
 
 interface TechItem {
@@ -43,6 +45,8 @@ const techStack: TechItem[] = [
   { name: "Git", icon: SiGit, color: "text-[#F05032]" },
   { name: "C++", icon: SiCplusplus, color: "text-[#00599C]" },
   { name: "Firebase", icon: SiFirebase, color: "text-[#FFCA28]" },
+  { name: "Vercel", icon: SiVercel, color: "text-[#000000]" },
+  { name: "Render", icon: SiRender, color: "text-[#46E3B7]" },
 ];
 
 export const TechStack = () => {
