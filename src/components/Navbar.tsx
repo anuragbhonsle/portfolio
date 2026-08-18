@@ -26,7 +26,7 @@ const navItems = [
     icon: FileText,
     section: "resume",
     label: "View Resume",
-    href: "/AnuragResume.pdf",
+    href: "/Anurag_Bhonsle_Full_Stack_Developer.pdf",
   },
 ];
 const Navbar = () => {
