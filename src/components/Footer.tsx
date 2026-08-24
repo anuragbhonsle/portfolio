@@ -23,7 +23,7 @@ export const Footer = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await axios.post(`${VITE_RENDER_URL}`, {
+      const response = await axios.post(`${VITE_RENDER_URL}/api/contact`, {
         email,
         message,
       });

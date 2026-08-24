@@ -7,6 +7,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (_req, res) => {
+  res.send("Portfolio API is running 🚀");
+});
+
 app.post("/api/contact", async (req: Request, res: Response) => {
   try {
     const { email, message } = req.body;
