@@ -16,14 +16,25 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Eclipz",
-    tagline: "Anonymous. Clean. Mysterious.",
+    title: "ComicsAI",
+    tagline: "Find your next favorite webcomic.",
     description:
-      "Eclipz blends anonymity, a clean UI, and just a hint of mystery. A space where you can say anything while staying anonymous.",
-    tech: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Firebase"],
-    github: "https://github.com/anuragbhonsle/eclipz",
-    demo: "https://eclipz.vercel.app/",
-    video: "eclipzvideo.mp4",
+      "An AI-powered webcomic recommendation engine that analyzes genre, tone, length, and status — plus custom prompts — to deliver personalized picks using Google's Gemini AI.",
+    tech: ["React", "Node.js", "Express", "PostgreSQL", "Prisma", "Gemini API"],
+    github: "https://github.com/anuragbhonsle/comics-ai",
+    demo: "https://comicsai.vercel.app/",
+    video:
+      "https://ik.imagekit.io/anurag25102002/comicsai.mp4?updatedAt=1787579462993",
+  },
+  {
+    title: "Clipz",
+    tagline: "Short clips. Endless scroll.",
+    description:
+      "Clipz is a short-video sharing platform where you can explore an endless feed of reels or create and upload your own — built for quick, effortless content discovery.",
+    tech: ["Next.js", "TypeScript", "MongoDB", "Auth.js", "Tailwind CSS"],
+    github: "https://github.com/anuragbhonsle/clipz",
+    demo: "https://clipz.vercel.app/",
+    video: "https://ik.imagekit.io/anurag25102002/clipz.mp4",
   },
 
   {
@@ -34,7 +45,7 @@ const projects: Project[] = [
     tech: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Supabase"],
     github: "https://github.com/anuragbhonsle/animeverse",
     demo: "https://anime-verse-xi.vercel.app/",
-    video: "animeversevideo.mp4",
+    video: "https://ik.imagekit.io/anurag25102002/animeverse.mp4",
   },
   {
     title: "Starune",
@@ -44,7 +55,8 @@ const projects: Project[] = [
     tech: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Express.js"],
     github: "https://github.com/anuragbhonsle/starune",
     demo: "https://starune.vercel.app/",
-    video: "starunevideo.mp4",
+    video:
+      "https://ik.imagekit.io/anurag25102002/star.mp4?updatedAt=1787579912852",
   },
   {
     title: "Taskly",
@@ -54,8 +66,9 @@ const projects: Project[] = [
     tech: ["React", "Node.js", "Tailwind CSS", "Supabase"],
     github: "https://github.com/anuragbhonsle/Taskly",
     demo: "https://tasklycloud.vercel.app/",
-    video: "taskly.mp4",
+    video: "https://ik.imagekit.io/anurag25102002/taskly%20(1).mp4",
   },
+
   {
     title: "WeatherVerse",
     tagline: "Real-time weather for any city, beautifully presented.",
@@ -71,7 +84,18 @@ const projects: Project[] = [
     ],
     github: "https://github.com/anuragbhonsle/weather-app",
     demo: "https://weather-verse-app.vercel.app/",
-    video: "weather.mp4",
+    video:
+      "https://ik.imagekit.io/anurag25102002/weather.mp4?updatedAt=1787580153533",
+  },
+  {
+    title: "Eclipz",
+    tagline: "Anonymous. Clean. Mysterious.",
+    description:
+      "Eclipz blends anonymity, a clean UI, and just a hint of mystery. A space where you can say anything while staying anonymous.",
+    tech: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Firebase"],
+    github: "https://github.com/anuragbhonsle/eclipz",
+    demo: "https://eclipz.vercel.app/",
+    video: "https://ik.imagekit.io/anurag25102002/eclipzvideo.mp4",
   },
   {
     title: "ReactQuiz",
@@ -89,7 +113,8 @@ const projects: Project[] = [
     ],
     github: "https://github.com/anuragbhonsle/Quiz",
     demo: "https://reactjsquizapp.vercel.app/",
-    video: "quiz.mp4",
+    video:
+      "https://ik.imagekit.io/anurag25102002/quiz.mp4?updatedAt=1787580291277",
   },
   {
     title: "Countdown Game",
@@ -100,7 +125,7 @@ const projects: Project[] = [
     tech: ["React", "Node.js", "Tailwind CSS", "Vite"],
     github: "https://github.com/anuragbhonsle/countdown_game",
     demo: "https://countdown-gamee.vercel.app/",
-    video: "countdown.mp4",
+    video: "https://ik.imagekit.io/anurag25102002/countdown.mp4",
   },
 ];
 

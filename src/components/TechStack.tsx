@@ -3,7 +3,6 @@ import { cn } from "@/lib/utils";
 import {
   SiReact,
   SiTypescript,
-  SiNextdotjs,
   SiNodedotjs,
   SiPython,
   SiTailwindcss,
@@ -20,6 +19,7 @@ import {
   SiAxios,
   SiVercel,
   SiRender,
+  SiNextdotjs,
 } from "react-icons/si";
 
 interface TechItem {
@@ -27,26 +27,26 @@ interface TechItem {
   icon: React.ComponentType<{ className?: string }>;
   color: string;
 }
-
 const techStack: TechItem[] = [
   { name: "React", icon: SiReact, color: "text-[#61DAFB]" },
+  { name: "Next.js", icon: SiNextdotjs, color: "text-[#000000]" },
   { name: "TypeScript", icon: SiTypescript, color: "text-[#3178C6]" },
+  { name: "JavaScript", icon: SiJavascript, color: "text-[#F7DF1E]" },
   { name: "Node.js", icon: SiNodedotjs, color: "text-[#339933]" },
   { name: "Express", icon: SiExpress, color: "text-[#000000]" },
-  { name: "Supabase", icon: SiSupabase, color: "text-[#3ECF8E]" },
-  { name: "Python", icon: SiPython, color: "text-[#3776AB]" },
-  { name: "JavaScript", icon: SiJavascript, color: "text-[#F7DF1E]" },
   { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-[#06B6D4]" },
   { name: "PostgreSQL", icon: SiPostgresql, color: "text-[#336791]" },
   { name: "MongoDB", icon: SiMongodb, color: "text-[#47A248]" },
-  { name: "Prisma", icon: SiPrisma, color: "text-[#2D3748]" },
-  { name: "Axios", icon: SiAxios, color: "text-[#5A29E4]" },
+  { name: "Supabase", icon: SiSupabase, color: "text-[#3ECF8E]" },
+  { name: "Prisma", icon: SiPrisma, color: "text-[#000000]" },
+  { name: "Python", icon: SiPython, color: "text-[#3776AB]" },
+  { name: "C++", icon: SiCplusplus, color: "text-[#00599C]" },
   { name: "Docker", icon: SiDocker, color: "text-[#2496ED]" },
   { name: "Git", icon: SiGit, color: "text-[#F05032]" },
-  { name: "C++", icon: SiCplusplus, color: "text-[#00599C]" },
   { name: "Firebase", icon: SiFirebase, color: "text-[#FFCA28]" },
   { name: "Vercel", icon: SiVercel, color: "text-[#000000]" },
   { name: "Render", icon: SiRender, color: "text-[#46E3B7]" },
+  { name: "Axios", icon: SiAxios, color: "text-[#5A29E4]" },
 ];
 
 export const TechStack = () => {

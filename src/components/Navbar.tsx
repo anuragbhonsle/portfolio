@@ -12,6 +12,7 @@ import {
   Clipboard,
   Terminal,
   BookOpen,
+  User2Icon,
 } from "lucide-react";
 import CLI from "./cli";
 
@@ -22,6 +23,11 @@ const navItems = [
   { icon: Clipboard, section: "experience", label: "Experience" },
   { icon: Briefcase, section: "projects", label: "Projects" },
   { icon: BookOpen, section: "blogs", label: "Blogs" },
+  {
+    icon: User2Icon,
+    section: "footer",
+    label: "Contact",
+  },
   {
     icon: FileText,
     section: "resume",
@@ -35,9 +41,9 @@ const Navbar = () => {
   const [theme, setTheme] = useState<"light" | "dark">(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("theme");
-      return saved === "light" || saved === "dark" ? saved : "light";
+      return saved === "light" || saved === "dark" ? saved : "dark";
     }
-    return "light";
+    return "dark";
   });
 
   const [cliOpen, setCliOpen] = useState(false);
@@ -92,7 +98,7 @@ const Navbar = () => {
           <div
             className="flex items-center justify-center space-x-2 px-4 py-2 rounded-full shadow-lg border transition-colors 
   backdrop-blur-sm bg-white/70 dark:bg-black/70 text-black dark:text-white border-gray-200 dark:border-gray-800
-  scale-[0.8] sm:scale-95 md:scale-100 transition-transform duration-300"
+  scale-[0.8] sm:scale-95 md:scale-100 duration-300"
           >
             {visibleNavItems.map((item, index) => {
               const content = item.href ? (

@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin } from "lucide-react";
 import { SiLeetcode } from "react-icons/si";
 import { SiCodeforces } from "react-icons/si";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaXTwitter, FaFileLines } from "react-icons/fa6";
+import { FileText } from "lucide-react";
 
 export const Hero = () => {
   return (
@@ -47,18 +47,16 @@ export const Hero = () => {
               rel="noopener noreferrer"
               className="text-foreground hover:scale-110 hover:text-[#0A66C2] transition-all duration-200"
             >
-              <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
+              <FaLinkedin className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
-
             <a
               href="https://github.com/anuragbhonsle"
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground hover:text-[#1F8ACB] hover:scale-110 transition-all duration-200"
             >
-              <Github className="w-5 h-5 sm:w-6 sm:h-6" />
+              <FaGithub className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
-
             <a
               href="https://leetcode.com/u/AnuragBhonsle/"
               target="_blank"
@@ -84,6 +82,14 @@ export const Hero = () => {
             >
               <FaXTwitter className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
+            <a
+              href="/Anurag_Bhonsle_Full_Stack_Developer.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground hover:scale-110 hover:text-[#0A66C2] transition-all duration-200"
+            >
+              <FileText className="w-5 h-5 sm:w-6 sm:h-6" />
+            </a>
           </motion.div>
         </motion.div>
 
@@ -94,7 +100,7 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="w-16 sm:w-28 md:w-36 lg:w-40 mt-0"
         >
-          <motion.div className="relative group cursor-pointer overflow-hidden p-1 sm:p-2 md:p-3 rounded-full">
+          <motion.div className="relative group cursor-pointer overflow-hidden p-1 sm:p-2 md:p-1 rounded-full">
             <motion.img
               src="/anurag.png"
               alt="Anurag profile"

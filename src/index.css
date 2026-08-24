@@ -199,3 +199,63 @@ body {
     z-index: 1;
   }
 }
+/* Modern Scrollbar */
+@layer base {
+  /* Firefox - dark (default) */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(0 0% 100% / 0.3) transparent;
+  }
+
+  /* Firefox - light */
+  html.light,
+  html.light *,
+  body.light,
+  body.light * {
+    scrollbar-color: hsl(0 0% 0% / 0.25) transparent;
+  }
+
+  /* WebKit (Chrome, Safari, Edge) - dark default */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(0 0% 100% / 0.3);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    transition: background 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(0 0% 100% / 0.5);
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  /* WebKit - light mode override (covers .light on <html> OR <body>) */
+  html.light::-webkit-scrollbar-thumb,
+  body.light::-webkit-scrollbar-thumb,
+  html.light ::-webkit-scrollbar-thumb,
+  body.light ::-webkit-scrollbar-thumb {
+    background: hsl(0 0% 0% / 0.35) !important;
+    background-clip: padding-box;
+  }
+
+  html.light::-webkit-scrollbar-thumb:hover,
+  body.light::-webkit-scrollbar-thumb:hover,
+  html.light ::-webkit-scrollbar-thumb:hover,
+  body.light ::-webkit-scrollbar-thumb:hover {
+    background: hsl(0 0% 0% / 0.5) !important;
+    background-clip: padding-box;
+  }
+}
