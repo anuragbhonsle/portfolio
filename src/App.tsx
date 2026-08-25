@@ -8,10 +8,9 @@ import NotFound from "./pages/NotFound";
 import Navbar from "@/components/Navbar";
 import { MeteorShower } from "@/components/MeteorShower";
 import BlogPage from "./components/BlogPage";
+import { Analytics } from "@vercel/analytics/react";
 
 const queryClient = new QueryClient();
-const pageWrapperClasses =
-  "relative z-10 w-full max-w-full sm:max-w-5xl mx-auto px-4 sm:px-6 lg:px-16 py-0 sm:py-6 flex flex-col items-center"; // <-- items-center instead of items-start
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -47,6 +46,7 @@ const App = () => (
             }
           />
         </Routes>
+        <Analytics />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
