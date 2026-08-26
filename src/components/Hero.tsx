@@ -45,7 +45,7 @@ export const Hero = () => {
               href="https://www.linkedin.com/in/anurag-bhonsle/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground hover:scale-110 hover:text-[#0A66C2] transition-all duration-200"
+              className="text-foreground hover:scale-110 hover:text-violet-600 transition-all duration-200"
             >
               <FaLinkedin className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
@@ -53,7 +53,7 @@ export const Hero = () => {
               href="https://github.com/anuragbhonsle"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground hover:text-[#1F8ACB] hover:scale-110 transition-all duration-200"
+              className="text-foreground hover:text-violet-600 hover:scale-110 transition-all duration-200"
             >
               <FaGithub className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
@@ -61,7 +61,7 @@ export const Hero = () => {
               href="https://leetcode.com/u/AnuragBhonsle/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground hover:scale-110 hover:text-[#1F8ACB] transition-all duration-200"
+              className="text-foreground hover:scale-110 hover:text-violet-600 transition-all duration-200"
             >
               <SiLeetcode className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
@@ -69,7 +69,7 @@ export const Hero = () => {
               href="https://codeforces.com/profile/Anurag2510"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground hover:text-[#1F8ACB] transition-all duration-200 hover:scale-110"
+              className="text-foreground hover:text-violet-600 transition-all duration-200 hover:scale-110"
             >
               <SiCodeforces className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
@@ -78,7 +78,7 @@ export const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="X (Twitter)"
-              className="text-foreground hover:text-[#1F8ACB] hover:scale-110 transition-all duration-200"
+              className="text-foreground hover:text-violet-600 hover:scale-110 transition-all duration-200"
             >
               <FaXTwitter className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
@@ -86,7 +86,7 @@ export const Hero = () => {
               href="/Anurag_Bhonsle_Full_Stack_Developer.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground hover:scale-110 hover:text-[#0A66C2] transition-all duration-200"
+              className="text-foreground hover:scale-110 hover:text-violet-600 transition-all duration-200"
             >
               <FileText className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>

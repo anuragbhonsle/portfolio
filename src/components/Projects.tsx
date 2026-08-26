@@ -20,7 +20,7 @@ const projects: Project[] = [
     tagline: "Find your next favorite webcomic.",
     description:
       "An AI-powered webcomic recommendation engine that analyzes genre, tone, length, and status — plus custom prompts — to deliver personalized picks using Google's Gemini AI.",
-    tech: ["React", "Node.js", "Express", "PostgreSQL", "Prisma", "Gemini API"],
+    tech: ["React", "Node.js", "Express", "PostgreSQL", "Prisma", "Gemini AI"],
     github: "https://github.com/anuragbhonsle/comics-ai",
     demo: "https://comicsai.vercel.app/",
     video:
@@ -33,7 +33,7 @@ const projects: Project[] = [
       "Clipz is a short-video sharing platform where you can explore an endless feed of reels or create and upload your own — built for quick, effortless content discovery.",
     tech: ["Next.js", "TypeScript", "MongoDB", "Auth.js", "Tailwind CSS"],
     github: "https://github.com/anuragbhonsle/clipz",
-    demo: "https://clipz.vercel.app/",
+    demo: "https://clipzapp.vercel.app/",
     video: "https://ik.imagekit.io/anurag25102002/clipz.mp4",
   },
 

@@ -9,25 +9,24 @@ import {
   User,
   FileText,
   Briefcase,
-  Clipboard,
   Terminal,
   BookOpen,
-  User2Icon,
+  FolderKanban,
+  Mail,
+  Cpu,
+  Code, // Added for Tech Stack
 } from "lucide-react";
 import CLI from "./cli";
 
-// Nav items with distinct icons
+// Nav items aligned with the page structure
 const navItems = [
   { icon: Home, section: "hero", label: "Home" },
   { icon: User, section: "about", label: "About" },
-  { icon: Clipboard, section: "experience", label: "Experience" },
-  { icon: Briefcase, section: "projects", label: "Projects" },
+  { icon: Code, section: "techstack", label: "Skills" },
+  { icon: FolderKanban, section: "projects", label: "Projects" },
+  { icon: Briefcase, section: "experience", label: "Experience" },
   { icon: BookOpen, section: "blogs", label: "Blogs" },
-  {
-    icon: User2Icon,
-    section: "footer",
-    label: "Contact",
-  },
+  { icon: Mail, section: "footer", label: "Contact" },
   {
     icon: FileText,
     section: "resume",
@@ -97,7 +96,7 @@ const Navbar = () => {
           {/* Dock */}
           <div
             className="flex items-center justify-center space-x-2 px-4 py-2 rounded-full shadow-lg border transition-colors 
-  backdrop-blur-sm bg-white/70 dark:bg-black/70 text-black dark:text-white border-gray-200 dark:border-gray-800
+  backdrop-blur-sm bg-white/50 dark:bg-black/50 text-black dark:text-white border-gray-200 dark:border-gray-800
   scale-[0.8] sm:scale-95 md:scale-100 duration-300"
           >
             {visibleNavItems.map((item, index) => {
@@ -109,7 +108,7 @@ const Navbar = () => {
                   rel="noopener noreferrer"
                   onMouseEnter={() => setHovered(index)}
                   onMouseLeave={() => setHovered(null)}
-                  className="flex items-center justify-center w-10 h-10 rounded-full cursor-pointer bg-transparent transition-colors hover:bg-blue-500/20 dark:hover:bg-blue-400/20"
+                  className="flex items-center justify-center w-10 h-10 rounded-full cursor-pointer bg-transparent transition-colors"
                 >
                   <motion.div
                     animate={{

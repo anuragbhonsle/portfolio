@@ -34,7 +34,7 @@ Supabase feels less like a toy and more like a real backend you can grow with. I
     title: "AI-Powered Features in React",
     excerpt:
       "How to integrate AI into React apps using APIs, prompts, and smart UI patterns.",
-    content: `AI is no longer just a backend thing. With modern APIs, you can build powerful AI-driven features directly into React applications. This article walks through practical ways to combine React and AI without overengineering.
+    content: `With modern APIs, you can build powerful AI-driven features directly into React applications. This article walks through practical ways to combine React and AI without overengineering.
 
 1. Choosing an AI Integration Approach  
    Most React apps integrate AI through APIs rather than running models locally. Common options include:  
