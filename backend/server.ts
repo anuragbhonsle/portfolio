@@ -7,31 +7,48 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (_req, res) => {
-  res.send("Portfolio API is running 🚀");
-});
-
 app.post("/api/contact", async (req: Request, res: Response) => {
   try {
     const { email, message } = req.body;
 
     if (!email || !message) {
-      return res.json({ error: "Email and Message are required" });
+      return res.status(400).json({
+        success: false,
+        error: "Email and message are required",
+      });
     }
-    const response = await Contact.create({ email, message });
 
-    res.json({ message: "Message Sent Successfully", data: response });
+    const response = await Contact.create({
+      email,
+      message,
+    });
+
+    return res.status(201).json({
+      success: true,
+      message: "Message sent successfully",
+      data: response,
+    });
   } catch (error) {
-    return res.json({ error: "Error while sending contact information" });
+    console.error("Contact form error:", error);
+
+    return res.status(500).json({
+      success: false,
+      error: "Error while sending contact information",
+    });
   }
 });
 
-app.listen(8000, async () => {
-  console.log(`App is running on port 8000`);
-
+const startServer = async () => {
   try {
     await connectDB();
+
+    app.listen(8000, () => {
+      console.log("App is running on port 8000");
+    });
   } catch (error) {
     console.error("Database connection failed:", error);
+    process.exit(1);
   }
-});
+};
+
+startServer();
