@@ -1,7 +1,135 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import axios from "axios";
-import { Loader2 } from "lucide-react";
+import { Check, Loader2 } from "lucide-react";
+
+const MAX_MESSAGE = 600;
+
+function Field({
+  id,
+  label,
+  value,
+  onChange,
+  type = "text",
+  required,
+  isTextarea,
+  rows,
+}) {
+  const [focused, setFocused] = useState(false);
+  const inputRef = useRef(null);
+  const active = focused || (value && value.length > 0);
+
+  // Synchronize browser autofill with React state cleanly
+  useEffect(() => {
+    const element = inputRef.current;
+    if (!element) return;
+
+    // Check periodically on mount/focus for autofill values inserted without React events
+    const checkAutofill = () => {
+      if (element.value !== value) {
+        onChange({ target: { value: element.value } });
+      }
+    };
+
+    // Browsers issue a native 'change' or trigger pseudo-classes on autofill
+    element.addEventListener("change", checkAutofill);
+    element.addEventListener("animationstart", checkAutofill);
+
+    // Initial check in case browser autofills on page load immediately
+    const timer = setTimeout(checkAutofill, 100);
+
+    return () => {
+      element.removeEventListener("change", checkAutofill);
+      element.removeEventListener("animationstart", checkAutofill);
+      clearTimeout(timer);
+    };
+  }, [value, onChange]);
+
+  const sharedClassName =
+    "peer w-full bg-transparent border-0 border-b-2 border-black/15 dark:border-white/15 px-0 pt-7 pb-2 text-base text-black dark:text-white outline-none transition-colors duration-300" +
+    (isTextarea ? " resize-none leading-relaxed" : " autofill-transparent");
+
+  return (
+    <div className="relative w-full text-left">
+      {!isTextarea && (
+        <style>{`
+    @keyframes onAutoFillStart {
+      from { opacity: 0.99; }
+      to { opacity: 1; }
+    }
+    .autofill-transparent:-webkit-autofill,
+    .autofill-transparent:-webkit-autofill:hover,
+    .autofill-transparent:-webkit-autofill:focus,
+    .autofill-transparent:-webkit-autofill:active {
+      /* Prevent the browser's default yellow/blue autofill background */
+      transition: background-color 9999s ease-in-out 0s;
+      animation-name: onAutoFillStart;
+    }
+
+    /* Standard Light Mode Autofill Text */
+    .autofill-transparent:-webkit-autofill {
+      -webkit-text-fill-color: #000000 !important;
+      caret-color: #000000 !important;
+    }
+
+    /* Dark Mode Autofill Text */
+    .dark .autofill-transparent:-webkit-autofill {
+      -webkit-text-fill-color: #ffffff !important;
+      caret-color: #ffffff !important;
+    }
+  `}</style>
+      )}
+      {isTextarea ? (
+        <textarea
+          ref={inputRef}
+          id={id}
+          value={value}
+          onChange={onChange}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+          rows={rows}
+          maxLength={MAX_MESSAGE}
+          className={sharedClassName}
+        />
+      ) : (
+        <input
+          ref={inputRef}
+          id={id}
+          type={type}
+          value={value}
+          onChange={onChange}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+          required={required}
+          className={sharedClassName}
+        />
+      )}
+
+      <label
+        htmlFor={id}
+        className={`pointer-events-none absolute left-0 transition-all duration-300 ease-out motion-reduce:transition-none ${
+          active
+            ? "top-0 text-xs font-medium tracking-wide text-black/45 dark:text-white/45"
+            : "top-7 text-base text-black/35 dark:text-white/35"
+        }`}
+      >
+        {label}
+      </label>
+
+      {isTextarea && (
+        <div
+          className={`mt-1.5 text-right text-xs transition-colors ${
+            value.length > MAX_MESSAGE * 0.9
+              ? "text-rose-800 dark:text-rose-300"
+              : "text-black/30 dark:text-white/30"
+          }`}
+        >
+          {value.length}/{MAX_MESSAGE}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export const Footer = () => {
   const [email, setEmail] = useState("");
@@ -11,8 +139,11 @@ export const Footer = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const VITE_RENDER_URL = import.meta.env.VITE_RENDER_URL;
+  const sent = resp !== "" && !isSubmitting;
 
-  async function handleSubmit() {
+  async function handleSubmit(e) {
+    e.preventDefault();
+
     if (email.trim() === "") {
       setError("Please enter your email.");
       return;
@@ -43,9 +174,9 @@ export const Footer = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="py-12 px-4 lg:px-20 bg-transparent mb-20"
+      className="py-6 px-4 lg:px-20 bg-transparent mb-12"
     >
-      <div className="mx-auto max-w-3xl text-center space-y-6 ">
+      <div className="mx-auto max-w-3xl text-center space-y-6">
         <motion.h2
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -60,79 +191,63 @@ export const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-text-dim text-sm lg:text-lg sm:text-sm leading-relaxed text-left "
+          className=" text-sm lg:text-lg sm:text-sm leading-relaxed text-left"
         >
           I am always open to discussing new projects, creative ideas, or
           opportunities to be a part of your inspiring visions. Please feel free
           to reach out anytime to start a conversation.
         </motion.p>
-        <form
-          className="flex w-full flex-col gap-5"
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleSubmit();
-          }}
-        >
-          <div className="group flex w-full flex-col gap-2">
-            <label
-              htmlFor="Email"
-              className="text-left text-sm font-medium text-foreground sm:text-base"
-            >
-              Email
-            </label>
 
-            <input
-              id="Email"
-              type="email"
-              placeholder="name@example.com"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setEmail(e.target.value)
-              }
-              value={email}
-              required
-              className="h-12 w-full rounded-2xl border-2 border-black/20 bg-transparent px-4 text-sm text-black outline-none transition-all duration-300 placeholder:text-black/40 hover:border-black/40 focus:border-black focus:ring-2 focus:ring-black/10 dark:border-white/20 dark:text-white dark:placeholder:text-white/40 dark:hover:border-white/40 dark:focus:border-white dark:focus:ring-white/10 sm:text-base"
-            />
-          </div>
+        <form onSubmit={handleSubmit} className="flex w-full flex-col gap-8">
+          <Field
+            id="email"
+            label="Email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            isTextarea={undefined}
+            rows={undefined}
+          />
 
-          <div className="group flex w-full flex-col gap-2">
-            <label
-              htmlFor="Message"
-              className="text-left text-sm font-medium text-foreground sm:text-base"
-            >
-              Message
-            </label>
+          <Field
+            id="message"
+            label="Message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            isTextarea
+            rows={4}
+            required={undefined}
+          />
 
-            <textarea
-              id="Message"
-              placeholder="Type your message here..."
-              rows={4}
-              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-                setMessage(e.target.value)
-              }
-              value={message}
-              className="w-full resize-none rounded-2xl border-2 border-black/20 bg-transparent px-4 py-3 text-sm text-black outline-none transition-all duration-300 placeholder:text-black/40 hover:border-black/40 focus:border-black focus:ring-2 focus:ring-black/10 dark:border-white/20 dark:text-white dark:placeholder:text-white/40 dark:hover:border-white/40 dark:focus:border-white dark:focus:ring-white/10 sm:text-base "
-            />
-          </div>
-
-          <div className="flex justify-center pt-2 w-full ">
+          <div className="flex w-full justify-center pt-2">
             <button
               type="submit"
               disabled={isSubmitting}
-              className="rounded-full border border-black/40 bg-transparent px-7 py-2.5 text-sm font-semibold text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-black hover:text-white hover:shadow-lg dark:border-white/40 dark:text-white dark:hover:bg-white dark:hover:text-black w-full disabled:cursor-not-allowed disabled:opacity-60"
+              className="flex w-full items-center justify-center gap-2.5 rounded-full border border-black/40 bg-transparent px-7 py-2.5 text-sm font-semibold text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-black hover:text-white hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70 motion-reduce:hover:translate-y-0 motion-reduce:transition-none dark:border-white/40 dark:text-white dark:hover:bg-white dark:hover:text-black"
             >
               {isSubmitting ? (
-                <span className="flex items-center justify-center gap-2">
-                  Sending...
+                <>
+                  Sending
                   <Loader2 className="h-4 w-4 animate-spin" />
-                </span>
+                </>
+              ) : sent ? (
+                <>
+                  Sent
+                  <Check className="h-4 w-4" />
+                </>
               ) : (
-                <span>Send</span>
+                <>Send</>
               )}
             </button>
           </div>
 
-          {resp && <p className="text-md text-green-500/90">{resp}</p>}
-          {error && <p className="text-md text-red-500/90">{error}</p>}
+          <div className="min-h-5 text-center text-sm" aria-live="polite">
+            {sent && <p className="text-black/60 dark:text-white/60">{resp}</p>}
+            {error !== "" && (
+              <p className="text-rose-800 dark:text-rose-300">{error}</p>
+            )}
+          </div>
         </form>
       </div>
     </motion.footer>

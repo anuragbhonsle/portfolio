@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { SiLeetcode } from "react-icons/si";
 import { SiCodeforces } from "react-icons/si";
-import { FaGithub, FaLinkedin, FaXTwitter, FaFileLines } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { FileText } from "lucide-react";
+import { TextRevealCard } from "./ui/text-reveal-card";
 
 export const Hero = () => {
   return (
@@ -30,8 +31,10 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-[0.55rem] sm:text-base md:text-base lg:text-base text-foreground/95 font-light leading-relaxed max-w-prose mx-auto lg:mx-0"
           >
-            A developer from Pune. I build web apps, solve problems, and create
-            experiences people love.
+            <TextRevealCard
+              text="Turning ideas into web experiences that people actually enjoy using"
+              revealText="A full-stack developer from Pune, building everything from interface to backend"
+            />
           </motion.p>
 
           {/* Social Icons */}
@@ -45,7 +48,7 @@ export const Hero = () => {
               href="https://www.linkedin.com/in/anurag-bhonsle/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground hover:scale-110 hover:text-violet-600 transition-all duration-200"
+              className="text-foreground hover:scale-110 hover:text-violet-800 transition-all duration-200"
             >
               <FaLinkedin className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
@@ -53,7 +56,7 @@ export const Hero = () => {
               href="https://github.com/anuragbhonsle"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground hover:text-violet-600 hover:scale-110 transition-all duration-200"
+              className="text-foreground hover:text-violet-800  hover:scale-110 transition-all duration-200"
             >
               <FaGithub className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
@@ -61,7 +64,7 @@ export const Hero = () => {
               href="https://leetcode.com/u/AnuragBhonsle/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground hover:scale-110 hover:text-violet-600 transition-all duration-200"
+              className="text-foreground hover:scale-110 hover:text-violet-800 transition-all duration-200"
             >
               <SiLeetcode className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
@@ -69,7 +72,7 @@ export const Hero = () => {
               href="https://codeforces.com/profile/Anurag2510"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground hover:text-violet-600 transition-all duration-200 hover:scale-110"
+              className="text-foreground hover:text-violet-800 transition-all duration-200 hover:scale-110"
             >
               <SiCodeforces className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
@@ -78,7 +81,7 @@ export const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="X (Twitter)"
-              className="text-foreground hover:text-violet-600 hover:scale-110 transition-all duration-200"
+              className="text-foreground hover:text-violet-800  hover:scale-110 transition-all duration-200"
             >
               <FaXTwitter className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
@@ -86,7 +89,7 @@ export const Hero = () => {
               href="/Anurag_Bhonsle_Full_Stack_Developer.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground hover:scale-110 hover:text-violet-600 transition-all duration-200"
+              className="text-foreground hover:scale-110 hover:text-violet-800 transition-all duration-200"
             >
               <FileText className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
@@ -100,13 +103,11 @@ export const Hero = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="w-16 sm:w-28 md:w-36 lg:w-40 mt-0"
         >
-          <motion.div className="relative group cursor-pointer overflow-hidden p-1 sm:p-2 md:p-1 rounded-full">
-            <motion.img
-              src="/anurag.png"
-              alt="Anurag profile"
-              className="relative z-10 w-full rounded-full object-cover shadow-card group-hover:shadow-glow transition-all duration-300"
-            />
-          </motion.div>
+          <motion.img
+            src="https://ik.imagekit.io/anurag25102002/Pics/anurag.png"
+            alt="Anurag profile"
+            className="relative z-10 w-full rounded-full object-cover shadow-card group-hover:shadow-glow transition-all duration-300"
+          />
         </motion.div>
       </div>
     </section>

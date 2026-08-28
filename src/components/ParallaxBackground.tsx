@@ -17,8 +17,8 @@ const blobs = [
     rotateRange: -4,
     yRange: 40,
     size: 400,
-    colorDark: "200,150,255",
-    colorLight: "180,200,255",
+    colorDark: "220,180,255",
+    colorLight: "140,160,220",
   },
   {
     top: "50%",
@@ -36,7 +36,7 @@ export const ParallaxBackground = () => {
   const [blobSize, setBlobSize] = useState(400);
   const [isDark, setIsDark] = useState(
     typeof window !== "undefined" &&
-      document.documentElement.classList.contains("dark")
+      document.documentElement.classList.contains("dark"),
   );
 
   useEffect(() => {
@@ -63,7 +63,7 @@ export const ParallaxBackground = () => {
         // Twinkle effect as alpha value
         const alpha = useSpring(
           useTransform(scrollY, [0, 1000], [0.08 + i * 0.01, 0.12 + i * 0.01]),
-          { damping: 10, stiffness: 50 }
+          { damping: 10, stiffness: 50 },
         );
 
         return (

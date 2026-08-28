@@ -31,7 +31,6 @@ const Index = () => {
           <Element name="about">
             <About />
           </Element>
-          {/* Moved TechStack here for quick scanning */}
           <Element name="techstack">
             <TechStack />
           </Element>

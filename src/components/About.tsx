@@ -29,7 +29,7 @@ export const About = () => {
               viewport={{ once: true }}
             >
               I turn ideas into clean web apps that not only work, but feel
-              intuitive and enjoyable to use.
+              intuitive and genuinely enjoyable to use.
             </motion.p>
 
             <motion.p
@@ -39,7 +39,7 @@ export const About = () => {
               viewport={{ once: true }}
             >
               Always curious about new tools, I learn by building and
-              experimenting to truly understand them.
+              experimenting with them to truly understand how they work.
             </motion.p>
 
             <motion.p
@@ -49,7 +49,7 @@ export const About = () => {
               viewport={{ once: true }}
             >
               You’ll usually find me tackling competitive programming challenges
-              or planning my next project.
+              or planning out my next project.
             </motion.p>
           </div>
         </motion.div>
