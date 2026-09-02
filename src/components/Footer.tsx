@@ -109,8 +109,8 @@ function Field({
         htmlFor={id}
         className={`pointer-events-none absolute left-0 transition-all duration-300 ease-out motion-reduce:transition-none ${
           active
-            ? "top-0 text-xs font-medium tracking-wide text-black/45 dark:text-white/45"
-            : "top-7 text-base text-black/35 dark:text-white/35"
+            ? "top-0 text-xs font-medium tracking-wide text-black/65 dark:text-white/65"
+            : "top-7 text-base text-black/75 dark:text-white/75"
         }`}
       >
         {label}
@@ -191,7 +191,7 @@ export const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className=" text-sm lg:text-lg sm:text-sm leading-relaxed text-left"
+          className="text-sm lg:text-[1rem] sm:text-sm leading-relaxed text-left"
         >
           I am always open to discussing new projects, creative ideas, or
           opportunities to be a part of your inspiring visions. Please feel free
@@ -216,7 +216,7 @@ export const Footer = () => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             isTextarea
-            rows={4}
+            rows={2}
             required={undefined}
           />
 

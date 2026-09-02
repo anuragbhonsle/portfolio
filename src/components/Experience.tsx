@@ -33,7 +33,7 @@ export const Experience = () => {
           viewport={{ once: true }}
           className="text-lg sm:text-2xl font-bold text-foreground mb-3 tracking-tight"
         >
-          Cool places I worked at
+          Places I worked at
         </motion.h2>
 
         <div className="flex flex-col gap-4">

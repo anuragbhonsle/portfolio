@@ -19,113 +19,74 @@ const projects: Project[] = [
     title: "ComicsAI",
     tagline: "Find your next favorite webcomic.",
     description:
-      "An AI-powered webcomic recommendation engine that analyzes genre, tone, length, and status — plus custom prompts — to deliver personalized picks using Google's Gemini AI.",
+      "An AI-powered webcomic recommendation engine that analyzes genre, tone, length, custom prompts, to deliver comics using AI.",
     tech: ["React", "Node.js", "Express", "PostgreSQL", "Prisma", "Gemini AI"],
     github: "https://github.com/anuragbhonsle/comics-ai",
     demo: "https://comicsai.vercel.app/",
-    video:
-      "https://ik.imagekit.io/anurag25102002/comicsai.mp4?updatedAt=1787579462993",
+    video: "https://ik.imagekit.io/anurag25102002/comicsas.mp4",
   },
   {
     title: "Clipz",
     tagline: "Short clips. Endless scroll.",
     description:
-      "Clipz is a short-video sharing platform where you can explore an endless feed of reels or create and upload your own — built for quick, effortless content discovery.",
+      "Clipz is a short-video sharing platform where you can explore an feed of reels or create and upload your own.",
     tech: ["Next.js", "TypeScript", "MongoDB", "Auth.js", "Tailwind CSS"],
     github: "https://github.com/anuragbhonsle/clipz",
     demo: "https://clipzapp.vercel.app/",
-    video: "https://ik.imagekit.io/anurag25102002/clipz.mp4",
+    video: "https://ik.imagekit.io/anurag25102002/clipzapp.mp4",
   },
 
   {
     title: "AnimeVerse",
     tagline: "Your anime world, neatly organized.",
     description:
-      "Track what you watch, discover what's next, and dive deep into your anime universe — minimal, fast, and built for fans.",
+      "Track what you watch, discover what's next, and dive deep into your anime universe, minimal, fast, and built for fans.",
     tech: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Supabase"],
     github: "https://github.com/anuragbhonsle/animeverse",
     demo: "https://anime-verse-xi.vercel.app/",
-    video: "https://ik.imagekit.io/anurag25102002/animeverse.mp4",
+    video:
+      "https://ik.imagekit.io/anurag25102002/animeverse.mp4?updatedAt=1788356646809",
   },
   {
     title: "Starune",
     tagline: "Stargazing, perfectly timed.",
     description:
       "Real-time stargazing forecasts based on cloud cover, visibility, humidity, and light pollution for your exact location.",
-    tech: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Express.js"],
+    tech: ["React", "TypeScript", "Node.js", "Express", "Tailwind CSS"],
     github: "https://github.com/anuragbhonsle/starune",
     demo: "https://starune.vercel.app/",
     video:
-      "https://ik.imagekit.io/anurag25102002/star.mp4?updatedAt=1787579912852",
+      "https://ik.imagekit.io/anurag25102002/starune.mp4?updatedAt=1788361594762",
   },
   {
     title: "Taskly",
     tagline: "Keep your projects in check and crush your tasks daily.",
     description:
-      "A React + Supabase project manager app to organize your projects and tasks. Supports user authentication, project/task management, and user-specific data.",
-    tech: ["React", "Node.js", "Tailwind CSS", "Supabase"],
+      "A vibe project manager app to organize your projects and tasks. Supports user authentication, project management.",
+    tech: ["React", "Node.js", "Express", "Tailwind CSS", "Supabase"],
     github: "https://github.com/anuragbhonsle/Taskly",
     demo: "https://tasklycloud.vercel.app/",
-    video: "https://ik.imagekit.io/anurag25102002/taskly%20(1).mp4",
+    video: "https://ik.imagekit.io/anurag25102002/taskly.mp4",
   },
 
   {
-    title: "WeatherVerse",
+    title: "Skyly",
     tagline: "Real-time weather for any city, beautifully presented.",
     description:
-      "A modern, responsive weather application built with React, Redux Toolkit, Express.js, and the OpenWeather API. Search for any city around the world to view real-time weather conditions with a clean, animated user interface.",
+      "Search any city and country to get real-time conditions. It generates a short summary of the day's conditions using Google Gemini.",
     tech: [
       "React",
       "Redux Toolkit",
-      "Tailwind CSS",
       "Node.js",
-      "Express.js",
+      "Express",
+      "Tailwind CSS",
       "OpenWeather API",
+      "Gemini AI",
     ],
-    github: "https://github.com/anuragbhonsle/weather-app",
-    demo: "https://weather-verse-app.vercel.app/",
+    github: "https://github.com/anuragbhonsle/skyly",
+    demo: "https://skyly-app.vercel.app/",
     video:
-      "https://ik.imagekit.io/anurag25102002/weather.mp4?updatedAt=1787580153533",
-  },
-  {
-    title: "Eclipz",
-    tagline: "Anonymous. Clean. Mysterious.",
-    description:
-      "Eclipz blends anonymity, a clean UI, and just a hint of mystery. A space where you can say anything while staying anonymous.",
-    tech: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Firebase"],
-    github: "https://github.com/anuragbhonsle/eclipz",
-    demo: "https://eclipz.vercel.app/",
-    video: "https://ik.imagekit.io/anurag25102002/eclipzvideo.mp4",
-  },
-  {
-    title: "ReactQuiz",
-    tagline:
-      "Test your React knowledge with multiple choice questions and have fun!",
-    description:
-      "A simple, clean, and interactive Quiz Application built with React to practice core React concepts like state, props, hooks, and component-driven UI.",
-    tech: [
-      "React",
-      "Node.js",
-      "Tailwind CSS",
-      "Vite",
-      "React Router",
-      "Redux Toolkit",
-    ],
-    github: "https://github.com/anuragbhonsle/Quiz",
-    demo: "https://reactjsquizapp.vercel.app/",
-    video:
-      "https://ik.imagekit.io/anurag25102002/quiz.mp4?updatedAt=1787580291277",
-  },
-  {
-    title: "Countdown Game",
-    tagline:
-      "A timing-based reflex game where you have to stop the timer at a set time",
-    description:
-      "A fast-paced timing game built with React where precision matters. Players must rely on intuition and focus to stop the timer as close as possible to the target time, making it a fun way to practice state management, hooks, and component-driven UI architecture.",
-    tech: ["React", "Node.js", "Tailwind CSS", "Vite"],
-    github: "https://github.com/anuragbhonsle/countdown_game",
-    demo: "https://countdown-gamee.vercel.app/",
-    video: "https://ik.imagekit.io/anurag25102002/countdown.mp4",
+      "https://ik.imagekit.io/anurag25102002/skyly.mp4?updatedAt=1788362741731",
   },
 ];
 
@@ -189,7 +150,7 @@ export const Projects = () => {
             </motion.div>
           ))}
         </div>
-        {projects.length > 2 && (
+        {projects.length > 6 && (
           <motion.button
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

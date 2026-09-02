@@ -34,64 +34,39 @@ import {
   SiGooglegemini,
 } from "react-icons/si";
 
-// Map tag names (case-insensitive) to their brand icons and colors
+// Map tag names (case-insensitive) to their brand icons
 const TAG_ICONS: Record<
   string,
   {
     name: string;
     icon: React.ComponentType<{ className?: string }>;
-    color?: string;
   }
 > = {
-  react: { name: "React", icon: SiReact, color: "text-[#61DAFB]" },
+  react: { name: "React", icon: SiReact },
   "next.js": { name: "Next.js", icon: SiNextdotjs },
   nextjs: { name: "Next.js", icon: SiNextdotjs },
-  typescript: {
-    name: "TypeScript",
-    icon: SiTypescript,
-    color: "text-[#3178C6]",
-  },
-  javascript: {
-    name: "JavaScript",
-    icon: SiJavascript,
-    color: "text-[#F7DF1E]",
-  },
-  "node.js": { name: "Node.js", icon: SiNodedotjs, color: "text-[#339933]" },
-  nodejs: { name: "Node.js", icon: SiNodedotjs, color: "text-[#339933]" },
+  typescript: { name: "TypeScript", icon: SiTypescript },
+  javascript: { name: "JavaScript", icon: SiJavascript },
+  "node.js": { name: "Node.js", icon: SiNodedotjs },
+  nodejs: { name: "Node.js", icon: SiNodedotjs },
   express: { name: "Express", icon: SiExpress },
-  "tailwind css": {
-    name: "Tailwind CSS",
-    icon: SiTailwindcss,
-    color: "text-[#06B6D4]",
-  },
-  tailwind: {
-    name: "Tailwind CSS",
-    icon: SiTailwindcss,
-    color: "text-[#06B6D4]",
-  },
-  postgresql: {
-    name: "PostgreSQL",
-    icon: SiPostgresql,
-    color: "text-[#336791]",
-  },
-  postgres: { name: "PostgreSQL", icon: SiPostgresql, color: "text-[#336791]" },
-  mongodb: { name: "MongoDB", icon: SiMongodb, color: "text-[#47A248]" },
-  supabase: { name: "Supabase", icon: SiSupabase, color: "text-[#3ECF8E]" },
+  "tailwind css": { name: "Tailwind CSS", icon: SiTailwindcss },
+  tailwind: { name: "Tailwind CSS", icon: SiTailwindcss },
+  postgresql: { name: "PostgreSQL", icon: SiPostgresql },
+  postgres: { name: "PostgreSQL", icon: SiPostgresql },
+  mongodb: { name: "MongoDB", icon: SiMongodb },
+  supabase: { name: "Supabase", icon: SiSupabase },
   prisma: { name: "Prisma", icon: SiPrisma },
-  python: { name: "Python", icon: SiPython, color: "text-[#3776AB]" },
-  "c++": { name: "C++", icon: SiCplusplus, color: "text-[#00599C]" },
-  docker: { name: "Docker", icon: SiDocker, color: "text-[#2496ED]" },
-  git: { name: "Git", icon: SiGit, color: "text-[#F05032]" },
-  firebase: { name: "Firebase", icon: SiFirebase, color: "text-[#FFCA28]" },
+  python: { name: "Python", icon: SiPython },
+  "c++": { name: "C++", icon: SiCplusplus },
+  docker: { name: "Docker", icon: SiDocker },
+  git: { name: "Git", icon: SiGit },
+  firebase: { name: "Firebase", icon: SiFirebase },
   vercel: { name: "Vercel", icon: SiVercel },
-  render: { name: "Render", icon: SiRender, color: "text-[#46E3B7]" },
-  axios: { name: "Axios", icon: SiAxios, color: "text-[#5A29E4]" },
-  postman: { name: "Postman", icon: SiPostman, color: "text-[#FF6C37]" },
-  "react router": {
-    name: "React Router",
-    icon: SiReactrouter,
-    color: "text-[#CA4245]",
-  },
+  render: { name: "Render", icon: SiRender },
+  axios: { name: "Axios", icon: SiAxios },
+  postman: { name: "Postman", icon: SiPostman },
+  "react router": { name: "React Router", icon: SiReactrouter },
 };
 
 const SiShadcnui = ({ className }: { className?: string }) => (
@@ -112,21 +87,9 @@ const SiShadcnui = ({ className }: { className?: string }) => (
 
 TAG_ICONS["shadcn/ui"] = { name: "shadcn/ui", icon: SiShadcnui };
 TAG_ICONS["shadcn"] = { name: "shadcn/ui", icon: SiShadcnui };
-TAG_ICONS["gemini"] = {
-  name: "Gemini AI",
-  icon: SiGooglegemini,
-  color: "text-[#8E75FF]",
-};
-TAG_ICONS["google gemini"] = {
-  name: "Gemini AI",
-  icon: SiGooglegemini,
-  color: "text-[#8E75FF]",
-};
-TAG_ICONS["gemini ai"] = {
-  name: "Gemini AI",
-  icon: SiGooglegemini,
-  color: "text-[#8E75FF]",
-};
+TAG_ICONS["gemini"] = { name: "Gemini AI", icon: SiGooglegemini };
+TAG_ICONS["google gemini"] = { name: "Gemini AI", icon: SiGooglegemini };
+TAG_ICONS["gemini ai"] = { name: "Gemini AI", icon: SiGooglegemini };
 interface Props {
   title: string;
   href?: string;
@@ -257,9 +220,7 @@ export function ProjectCard({
                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                     className="flex items-center justify-center p-1 rounded-lg  hover:bg-muted transition-colors cursor-pointer"
                   >
-                    <Icon
-                      className={cn("w-4 h-4 sm:w-5 sm:h-5", tagMeta.color)}
-                    />
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-black dark:text-white" />
                   </motion.div>
                 </div>
               );

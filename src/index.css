@@ -14,8 +14,8 @@
 /* Theme Design System */
 @layer base {
   :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 2%;
+    --foreground: 0 0% 99%;
     --card: 0 0% 2%;
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 2%;
@@ -59,8 +59,8 @@
   }
 
   .light {
-    --background: 0 0% 98%;
-    --foreground: 0 0% 5%;
+    --background: 0 0% 99%;
+    --foreground: 0 0% 4%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 5%;
     --popover: 0 0% 100%;
@@ -259,12 +259,24 @@ body {
     background-clip: padding-box;
   }
 }
+/* Light mode: Semi-transparent dark overlay with standard text color */
 ::selection {
-  background-color: rgba(124, 58, 237, 0.4);
+  background-color: rgba(24, 24, 27, 0.25); /* Subtle dark tint */
   color: inherit;
 }
 
 ::-moz-selection {
-  background-color: rgba(124, 58, 237, 0.4);
+  background-color: rgba(24, 24, 27, 0.25);
+  color: inherit;
+}
+
+/* Dark mode: Semi-transparent white overlay with standard text color */
+.dark ::selection {
+  background-color: rgba(255, 255, 255, 0.2); /* Soft white glow */
+  color: inherit;
+}
+
+.dark ::-moz-selection {
+  background-color: rgba(255, 255, 255, 0.2);
   color: inherit;
 }

@@ -67,7 +67,9 @@
     <script>
       (function () {
         const saved = localStorage.getItem("theme");
-        if (saved === "light") {
+        if (saved === "dark") {
+          document.documentElement.classList.add("dark");
+        } else {
           document.documentElement.classList.add("light");
         }
       })();
