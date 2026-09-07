@@ -187,7 +187,9 @@ export const Footer = () => {
       setQuote(fallbackQuote);
     }
   }
-
+  useEffect(() => {
+    getQuote();
+  }, []);
   return (
     <motion.footer
       initial={{ opacity: 0, y: 50 }}
