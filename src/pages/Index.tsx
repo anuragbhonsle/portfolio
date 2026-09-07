@@ -51,7 +51,6 @@ const Index = () => {
           </Element>
         </div>
       </main>
-      <ParallaxBackground />
     </div>
   );
 };

@@ -13,7 +13,6 @@ import {
   BookOpen,
   FolderKanban,
   Mail,
-  Cpu,
   Code, // Added for Tech Stack
 } from "lucide-react";
 import CLI from "./cli";
@@ -97,7 +96,7 @@ const Navbar = () => {
           <div
             className="flex items-center justify-center space-x-2 px-4 py-2 rounded-full shadow-lg border transition-colors 
   backdrop-blur-sm bg-white/50 dark:bg-black/50 text-black dark:text-white border-gray-200 dark:border-gray-800
-  scale-[0.8] sm:scale-95 md:scale-100 duration-300"
+  scale-[0.8] sm:scale-90 md:scale-100 duration-300"
           >
             {visibleNavItems.map((item, index) => {
               const content = item.href ? (

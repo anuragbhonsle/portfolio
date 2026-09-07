@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { SiLeetcode } from "react-icons/si";
+import { SiLeetcode, SiMaildotcom } from "react-icons/si";
 import { SiCodeforces } from "react-icons/si";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
-import { FileText } from "lucide-react";
+import { FileText, Mail } from "lucide-react";
 import { TextRevealCard } from "./ui/text-reveal-card";
 
 export const Hero = () => {
@@ -23,16 +23,16 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight whitespace-nowrap"
+            className="text-xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight tracking-wide whitespace-nowrap"
           >
-            Hi, I'm <span>Anurag</span>
+            Hi, I'm <span className="font-semibold">Anurag</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-[0.55rem] sm:text-base md:text-base lg:text-base text-foreground/95 font-light leading-relaxed max-w-prose mx-auto lg:mx-0"
+            className="text-[0.55rem] sm:text-base md:text-base lg:text-base text-foreground/95 font-light leading-relaxed max-w-prose mx-auto lg:mx-0 tracking-wide"
           >
             <TextRevealCard
               text="A full-stack developer from Pune, building everything from interface to backend"
@@ -225,6 +225,35 @@ export const Hero = () => {
                 className="text-foreground hover:scale-110 hover:text-violet-600 transition-all duration-200 block"
               >
                 <FileText className="w-5 h-5 sm:w-6 sm:h-6" />
+              </a>
+            </div>
+            <div
+              className="relative flex items-center justify-center"
+              onMouseEnter={() => setHoveredLink("anuragkbhonsle@gmail.com")}
+              onMouseLeave={() => setHoveredLink(null)}
+            >
+              <AnimatePresence>
+                {hoveredLink === "anuragkbhonsle@gmail.com" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 4, x: "-50%", scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, x: "-50%", scale: 1 }}
+                    exit={{ opacity: 0, y: 4, x: "-50%", scale: 0.9 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute bottom-full left-1/2 mb-2.5 whitespace-nowrap px-2 py-0.5 rounded-full text-[10px] font-medium bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-md pointer-events-none z-20"
+                  >
+                    anuragkbhonsle@gmail.com
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-zinc-900 dark:border-t-white" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              <a
+                href="mailto:anuragkbhonsle@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Email"
+                className="text-foreground hover:text-violet-600 hover:scale-110 transition-all duration-200 block"
+              >
+                <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
             </div>
           </motion.div>

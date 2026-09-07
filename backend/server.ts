@@ -2,10 +2,23 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import connectDB from "./db";
 import { Contact } from "./models/Contact";
+import { Spotify } from "./models/Spotify";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+app.get("/api/spotify", async (req: Request, res: Response) => {
+  try {
+    const response = await Spotify.findOne();
+    return res.status(200).json(response);
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      error: "Error while getting spotify information",
+    });
+  }
+});
 
 app.post("/api/contact", async (req: Request, res: Response) => {
   try {

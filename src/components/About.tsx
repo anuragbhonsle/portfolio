@@ -1,6 +1,33 @@
+import axios from "axios";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { SiSpotify } from "react-icons/si";
+
+interface Song {
+  _id: string;
+  song_name: string;
+  song_artist: string;
+  song_url: string;
+}
+const VITE_RENDER_URL = import.meta.env.VITE_RENDER_URL;
 
 export const About = () => {
+  const [spotify, setSpotify] = useState<Song>();
+
+  async function getSpotify() {
+    try {
+      const response = await axios.get(`${VITE_RENDER_URL}/api/spotify`);
+      setSpotify(response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getSpotify();
+  }, []);
+
   return (
     <motion.section
       initial={{ opacity: 0, y: 40 }}
@@ -21,7 +48,7 @@ export const About = () => {
             About
           </h2>
 
-          <div className="space-y-4 text-[0.6rem] sm:text-base text-foreground/95 leading-relaxed">
+          <div className="space-y-4 text-[0.6rem] sm:text-base text-foreground/95 leading-relaxed ">
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -50,6 +77,32 @@ export const About = () => {
             >
               You’ll find me tackling programming challenges or planning out my
               next project.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              viewport={{ once: true }}
+            >
+              {spotify && (
+                <p className="text-xs sm:text-sm text-muted-foreground">
+                  <a
+                    href={spotify.song_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 hover:text-foreground hover:underline hover:underline-offset-4 transition-colors"
+                  >
+                    <SiSpotify className="w-4 h-4 shrink-0 text-[#1DB954]" />
+                    <span>
+                      Last Played —{" "}
+                      <strong className="font-medium text-foreground">
+                        “{spotify.song_name}”
+                      </strong>{" "}
+                      by {spotify.song_artist}
+                    </span>
+                  </a>
+                </p>
+              )}
             </motion.p>
           </div>
         </motion.div>

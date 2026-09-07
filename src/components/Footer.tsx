@@ -19,23 +19,19 @@ function Field({
   const inputRef = useRef(null);
   const active = focused || (value && value.length > 0);
 
-  // Synchronize browser autofill with React state cleanly
   useEffect(() => {
     const element = inputRef.current;
     if (!element) return;
 
-    // Check periodically on mount/focus for autofill values inserted without React events
     const checkAutofill = () => {
       if (element.value !== value) {
         onChange({ target: { value: element.value } });
       }
     };
 
-    // Browsers issue a native 'change' or trigger pseudo-classes on autofill
     element.addEventListener("change", checkAutofill);
     element.addEventListener("animationstart", checkAutofill);
 
-    // Initial check in case browser autofills on page load immediately
     const timer = setTimeout(checkAutofill, 100);
 
     return () => {
@@ -137,6 +133,7 @@ export const Footer = () => {
   const [resp, setResp] = useState("");
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [quote, setQuote] = useState<any>();
 
   const VITE_RENDER_URL = import.meta.env.VITE_RENDER_URL;
   const sent = resp !== "" && !isSubmitting;
@@ -167,6 +164,29 @@ export const Footer = () => {
       setIsSubmitting(false);
     }
   }
+  async function getQuote() {
+    try {
+      const randomIndex = Math.floor(Math.random() * 29);
+      const response = await axios.get(
+        `https://my-json-server.typicode.com/eren2510/quotes-api/quotes/${randomIndex}`,
+      );
+      const data = response.data;
+
+      setQuote(data);
+    } catch (error) {
+      console.error("Error fetching quotes:", error);
+
+      const fallbackQuote = {
+        quote:
+          "Talk to yourself like a cherished friend. Treat yourself with love and care. You are perfect, just as you are.",
+        author: "Amy Leigh Mercree",
+        work: "The Compassion Revolution: 30 Days of Living from the Heart",
+        categories: ["love", "inspirational", "wisdom", "happiness"],
+      };
+
+      setQuote(fallbackQuote);
+    }
+  }
 
   return (
     <motion.footer
@@ -174,7 +194,7 @@ export const Footer = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="py-6 px-4 lg:px-20 bg-transparent mb-12"
+      className="py-6 px-4 lg:px-20 bg-transparent mb-20"
     >
       <div className="mx-auto max-w-3xl text-center space-y-6">
         <motion.h2
@@ -191,14 +211,14 @@ export const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-sm lg:text-[1rem] sm:text-sm leading-relaxed text-left"
+          className="text-sm lg:text-[1rem] sm:text-sm leading-relaxed text-left tracking-wide"
         >
           I am always open to discussing new projects, creative ideas, or
           opportunities to be a part of your inspiring visions. Please feel free
           to reach out anytime to start a conversation.
         </motion.p>
 
-        <form onSubmit={handleSubmit} className="flex w-full flex-col gap-8">
+        <form onSubmit={handleSubmit} className="flex w-full flex-col gap-6">
           <Field
             id="email"
             label="Email"
@@ -209,46 +229,64 @@ export const Footer = () => {
             isTextarea={undefined}
             rows={undefined}
           />
-
           <Field
             id="message"
             label="Message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             isTextarea
-            rows={2}
-            required={undefined}
+            rows={1}
+            required
           />
+          {email && email.length > 0 && message && message.length > 0 && (
+            <div className="flex w-full justify-center pt-1">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="flex w-full items-center justify-center gap-2.5 rounded-full border border-black/30 bg-transparent py-2.5 text-sm font-semibold text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-black hover:text-white hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70 motion-reduce:hover:translate-y-0 motion-reduce:transition-none dark:border-white/30 dark:text-white dark:hover:bg-white dark:hover:text-black mb-2"
+              >
+                {isSubmitting ? (
+                  <>
+                    Sending
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  </>
+                ) : sent ? (
+                  <>
+                    Sent
+                    <Check className="h-4 w-4" />
+                  </>
+                ) : (
+                  <>Send</>
+                )}
+              </button>
+            </div>
+          )}
 
-          <div className="flex w-full justify-center pt-2">
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="flex w-full items-center justify-center gap-2.5 rounded-full border border-black/40 bg-transparent px-7 py-2.5 text-sm font-semibold text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-black hover:text-white hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70 motion-reduce:hover:translate-y-0 motion-reduce:transition-none dark:border-white/40 dark:text-white dark:hover:bg-white dark:hover:text-black"
-            >
-              {isSubmitting ? (
-                <>
-                  Sending
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                </>
-              ) : sent ? (
-                <>
-                  Sent
-                  <Check className="h-4 w-4" />
-                </>
-              ) : (
-                <>Send</>
+          {(sent || (error && error.length > 0)) && (
+            <div className="text-center text-sm" aria-live="polite">
+              {sent && (
+                <p className="text-black/60 dark:text-white/60">{resp}</p>
               )}
-            </button>
-          </div>
-
-          <div className="min-h-5 text-center text-sm" aria-live="polite">
-            {sent && <p className="text-black/60 dark:text-white/60">{resp}</p>}
-            {error !== "" && (
-              <p className="text-rose-800 dark:text-rose-300">{error}</p>
-            )}
-          </div>
+              {error !== "" && (
+                <p className="text-rose-800 dark:text-rose-300">{error}</p>
+              )}
+            </div>
+          )}
         </form>
+        <div className="relative max-w-full p-4 border rounded-xl mt-8">
+          {quote && (
+            <div className="space-y-2">
+              <p className="text-sm lg:text-[1rem] sm:text-sm tracking-wide text-left leading-relaxed pb-2">
+                “{quote.quote}”
+              </p>
+
+              <p className="text-sm text-right text-muted-foreground">
+                — {quote.author}
+                {quote.work && `, ${quote.work}`}
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     </motion.footer>
   );
