@@ -40,9 +40,9 @@ const Navbar = () => {
   const [theme, setTheme] = useState<"light" | "dark">(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("theme");
-      return saved === "light" || saved === "dark" ? saved : "dark";
+      return saved === "light" || saved === "dark" ? saved : "light";
     }
-    return "dark";
+    return "light";
   });
 
   const [cliOpen, setCliOpen] = useState(false);
