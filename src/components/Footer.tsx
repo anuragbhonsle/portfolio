@@ -196,7 +196,7 @@ export const Footer = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="py-6 px-4 lg:px-20 bg-transparent mb-20"
+      className="py-6 px-2 sm:px-4 lg:px-20  bg-transparent mb-20"
     >
       <div className="mx-auto max-w-3xl text-center space-y-6">
         <motion.h2
@@ -213,7 +213,7 @@ export const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-sm lg:text-[1rem] sm:text-sm leading-relaxed text-left tracking-wide"
+          className="text-xs lg:text-[1rem] sm:text-sm leading-relaxed text-left tracking-wide"
         >
           I am always open to discussing new projects, creative ideas, or
           opportunities to be a part of your inspiring visions. Please feel free
@@ -278,11 +278,11 @@ export const Footer = () => {
         <div className="relative max-w-full p-4 border rounded-xl mt-8">
           {quote && (
             <div className="space-y-2">
-              <p className="text-sm lg:text-[1rem] sm:text-sm tracking-wide text-left leading-relaxed pb-2">
+              <p className="text-xs lg:text-[1rem] sm:text-sm tracking-wide text-left leading-relaxed pb-2">
                 “{quote.quote}”
               </p>
 
-              <p className="text-sm text-right text-muted-foreground">
+              <p className="text-xs lg:text-sm text-right text-muted-foreground">
                 — {quote.author}
                 {quote.work && `, ${quote.work}`}
               </p>

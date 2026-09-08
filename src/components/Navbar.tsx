@@ -69,7 +69,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 flex justify-center w-full">
+      <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 flex justify-center w-full ">
         <div className="flex flex-col items-center px-2 sm:px-4 md:px-6 lg:px-8">
           {/* Tooltip */}
           <div className="mb-2 min-h-[24px]">
@@ -96,7 +96,7 @@ const Navbar = () => {
           <div
             className="flex items-center justify-center space-x-2 px-4 py-2 rounded-full shadow-lg border transition-colors 
   backdrop-blur-sm bg-white/50 dark:bg-black/50 text-black dark:text-white border-gray-200 dark:border-gray-800
-  scale-[0.8] sm:scale-90 md:scale-100 duration-300"
+  scale-[0.65] sm:scale-90 md:scale-100 duration-300"
           >
             {visibleNavItems.map((item, index) => {
               const content = item.href ? (

@@ -67,7 +67,7 @@ export const TechStack = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="px-4 lg:px-20 pt-2 lg:pt-4 pb-6 lg:pb-8"
+      className="px-2 sm:px-4 lg:px-20 pt-2 lg:pt-4 pb-6 lg:pb-8"
     >
       <div className="mx-auto max-w-3xl">
         <motion.h2
@@ -126,7 +126,7 @@ export const TechStack = () => {
                 className="flex items-center justify-center"
               >
                 <tech.icon
-                  className={cn("w-7 h-7 lg:w-8 lg:h-8", tech.color)}
+                  className={cn("w-6 h-6 lg:w-8 lg:h-8", tech.color)}
                 />
               </motion.div>
             </motion.div>

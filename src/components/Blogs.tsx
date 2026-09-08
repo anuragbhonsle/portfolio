@@ -2,15 +2,14 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-export type BlogItem = {
+export interface BlogItem {
   title: string;
   excerpt: string;
-  content: string; // full blog content
+  content: string;
   date: string;
   slug: string;
-};
+}
 
-// Blogs array
 export const blogs: BlogItem[] = [
   {
     title: "Why I Chose Supabase for My React Projects",
@@ -27,32 +26,31 @@ Realtime features are where Supabase really shines. Subscriptions make apps feel
 That said, Supabase isn’t something you can just set and forget. You still need to understand SQL, indexes and security rules. Row Level Security will humble you if you skip the docs, but once it clicks, it becomes a serious advantage.
 
 Supabase feels less like a toy and more like a real backend you can grow with. If you’re serious about React and want control without building everything from scratch, Supabase is absolutely worth your time.`,
-    date: "Jan 20, 2025",
+    date: "Jan 20, 2026",
     slug: "why-i-use-supabase-with-react",
   },
   {
     title: "AI-Powered Features in React",
     excerpt:
       "How to integrate AI into React apps using APIs, prompts, and smart UI patterns.",
-    content: `With modern APIs, you can build powerful AI-driven features directly into React applications. This article walks through practical ways to combine React and AI without overengineering.
+    content: `Adding AI features to a React app isn't as complex as it sounds—you don't need to train models locally or rewrite your entire frontend. Modern APIs make it fairly straightforward, but getting the UX and security right requires careful thought.
 
-1. Choosing an AI Integration Approach  
-   Most React apps integrate AI through APIs rather than running models locally. Common options include:  
-   1. REST APIs (OpenAI, Gemini, Claude, etc.)  
-   2. Serverless functions that wrap AI calls  
-   3. Backend services (Node.js / NestJS) that handle prompts securely  
+1. Choosing an Integration Approach  
+Most React apps interface with AI via APIs wrapper functions. The three main setups are:  
+- REST APIs (OpenAI, Gemini, Claude) directly from a server context  
+- Serverless functions wrapping your AI logic  
+- A dedicated backend (Node.js / NestJS) handling prompt construction  
 
-   Never expose API keys directly in the frontend.
+Rule #1: Never expose your API keys directly in client-side React code. Always proxy requests through a serverless function or backend.
 
-2. Designing AI-Friendly UI  
-   AI features work best with clear user intent. Common UI patterns include:  
-   1. Text input + submit button (chat or prompt-based tools)  
-   2. Streaming responses for better UX  
-   3. Loading states and partial responses  
-   4. Clear error handling for failed requests  
+2. Designing for AI User Interfaces  
+Unlike typical REST endpoints that respond in 100ms, AI models take time. Good AI UIs account for this latency:  
+- Use streaming responses instead of making users stare at a static spinner.  
+- Add explicit loading states, skeletons, and disable re-submissions while pending.  
+- Gracefully handle API rate limits and failures with clear user feedback.
 
-3. Example: Calling an AI API from React  
-   Below is a simple example using fetch to send a prompt to an AI-powered backend:
+3. Example: Fetching from an AI Endpoint  
+Here’s a clean pattern for passing prompts to a backend route:
 
 \`\`\`ts
 async function askAI(prompt: string) {
@@ -70,39 +68,19 @@ async function askAI(prompt: string) {
 }
 \`\`\`
 
-4. Managing State for AI Responses  
-   AI responses can be large or streamed. Use:  
-   1. useState for simple responses  
-   2. useReducer for chat-like conversations  
-   3. useEffect carefully to avoid duplicate requests  
+4. State Management & Inputs  
+Handling AI data often requires custom state logic. Standard \`useState\` works fine for single-prompt responses, but for conversational UIs, \`useReducer\` keeps history clean. Also, remember to debounce text inputs if you're triggering auto-suggestions on keypresses.
 
-   Always debounce user input if requests are frequent.
+5. Treat Prompts Like Code  
+The output quality depends entirely on how you instruct the model. Be explicit about expected JSON formats, set boundaries on output length, and provide system context upfront. Refine your prompts in code just like any other function.
 
-5. Prompt Engineering in React Apps  
-   The quality of AI output depends heavily on prompts. Good practices:  
-   1. Be explicit about output format  
-   2. Limit response length  
-   3. Provide context and examples  
-   4. Avoid vague instructions  
+6. Real-World Applications  
+When implemented thoughtfully, AI fits naturally into features like:  
+- Interactive chatbots and context-aware help assistants  
+- In-app text summarization and content generation  
+- Smart form auto-fill and document processing  
 
-   Treat prompts like code and refine over time.
-
-6. Performance & UX Considerations  
-   AI calls are slower than normal APIs. Improve UX by:  
-   1. Showing skeleton loaders  
-   2. Streaming text word-by-word  
-   3. Caching previous responses  
-   4. Preventing duplicate submissions  
-
-7. Real-World Use Cases  
-   AI in React is commonly used for:  
-   1. Chatbots and assistants  
-   2. Code or content generation tools  
-   3. Resume and form auto-fill  
-   4. Search and summarization  
-   5. Learning and tutoring platforms  
-
-AI doesn’t replace frontend skills, it amplifies them. A well-designed React UI combined with thoughtful AI integration can create experiences that feel genuinely intelligent rather than gimmicky.`,
+Focus on solving a specific UX problem rather than adding AI just for the hype. When paired with responsive UI patterns, it feels like a natural upgrade to your product.`,
     date: "Oct 15, 2025",
     slug: "react-ai-integration",
   },
@@ -119,7 +97,7 @@ export const Blogs = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="px-4 lg:px-20 pt-4 lg:pt-6 pb-8 lg:pb-10"
+      className="px-2 sm:px-4 lg:px-20 pt-4 lg:pt-6 pb-8 lg:pb-10"
     >
       <div className="mx-auto max-w-3xl flex flex-col gap-6 w-full">
         {/* Section Title */}

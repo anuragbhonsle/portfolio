@@ -18,7 +18,6 @@ export const About = () => {
     try {
       const response = await axios.get(`${VITE_RENDER_URL}/api/spotify`);
       setSpotify(response.data);
-      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -85,7 +84,7 @@ export const About = () => {
               viewport={{ once: true }}
             >
               {spotify && (
-                <p className="text-xs sm:text-sm text-muted-foreground">
+                <p className="text-[0.6rem] sm:text-sm text-muted-foreground">
                   <a
                     href={spotify.song_url}
                     target="_blank"

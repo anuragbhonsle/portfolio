@@ -12,7 +12,7 @@ const experiences: ExperienceItem[] = [
     company: "Yhills",
     role: "Frontend Developer Intern",
     period: "March 2024 – May 2024",
-    icon: "/yhills_logo.jpeg",
+    icon: "/yhills.jpg",
   },
 ];
 
