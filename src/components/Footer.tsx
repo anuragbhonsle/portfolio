@@ -278,11 +278,11 @@ export const Footer = () => {
         <div className="relative max-w-full p-4 border rounded-xl mt-8">
           {quote && (
             <div className="space-y-2">
-              <p className="text-xs lg:text-[1rem] sm:text-sm tracking-wide text-left leading-relaxed pb-2">
+              <p className="text-xs sm:text-sm lg:text-[1rem] tracking-wide text-left leading-relaxed pb-2">
                 “{quote.quote}”
               </p>
 
-              <p className="text-xs lg:text-sm text-right text-muted-foreground">
+              <p className="text-xs sm:text-sm text-right text-muted-foreground">
                 — {quote.author}
                 {quote.work && `, ${quote.work}`}
               </p>
