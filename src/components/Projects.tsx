@@ -23,7 +23,7 @@ const projects: Project[] = [
     tech: ["React", "Node.js", "Express", "PostgreSQL", "Prisma", "Gemini AI"],
     github: "https://github.com/anuragbhonsle/comics-ai",
     demo: "https://comicsai.vercel.app/",
-    video: "https://ik.imagekit.io/anurag25102002/comicsas.mp4",
+    video: "https://ik.imagekit.io/anurag25102002/comics.mp4",
   },
   {
     title: "Clipz",
@@ -44,8 +44,7 @@ const projects: Project[] = [
     tech: ["React", "TypeScript", "Node.js", "Tailwind CSS", "Supabase"],
     github: "https://github.com/anuragbhonsle/animeverse",
     demo: "https://anime-verse-xi.vercel.app/",
-    video:
-      "https://ik.imagekit.io/anurag25102002/animeverse.mp4?updatedAt=1788356646809",
+    video: "https://ik.imagekit.io/anurag25102002/animeverse1.mp4",
   },
   {
     title: "Starune",
@@ -55,8 +54,7 @@ const projects: Project[] = [
     tech: ["React", "TypeScript", "Node.js", "Express", "Tailwind CSS"],
     github: "https://github.com/anuragbhonsle/starune",
     demo: "https://starune.vercel.app/",
-    video:
-      "https://ik.imagekit.io/anurag25102002/starune.mp4?updatedAt=1788361594762",
+    video: "https://ik.imagekit.io/anurag25102002/starune.mp4",
   },
   {
     title: "Taskly",
@@ -85,8 +83,7 @@ const projects: Project[] = [
     ],
     github: "https://github.com/anuragbhonsle/skyly",
     demo: "https://skyly-app.vercel.app/",
-    video:
-      "https://ik.imagekit.io/anurag25102002/skyly.mp4?updatedAt=1788362741731",
+    video: "https://ik.imagekit.io/anurag25102002/skyly.mp4",
   },
 ];
 

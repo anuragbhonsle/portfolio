@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { SiLeetcode, SiMaildotcom } from "react-icons/si";
+import { SiLeetcode } from "react-icons/si";
 import { SiCodeforces } from "react-icons/si";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
-import { FileText, Mail } from "lucide-react";
+import { FileText } from "lucide-react";
 import { TextRevealCard } from "./ui/text-reveal-card";
 
 export const Hero = () => {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   return (
-    <section className="relative px-2 sm:px-6 lg:px-20 pt-8 sm:pt-12 lg:pt-16 pb-8 sm:pb-12 lg:pb-16 bg-transparent">
+    <section className="relative px-2 sm:px-6 lg:px-20 pt-12 sm:pt-12 lg:pt-16 pb-6 sm:pb-8 lg:pb-10 bg-transparent mt-5">
       <div className="w-full sm:max-w-5xl mx-auto flex flex-row flex-wrap items-start justify-between gap-4 sm:gap-8 lg:gap-16">
         {/* Left: Text */}
         <motion.div
@@ -23,9 +23,9 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight tracking-wide whitespace-nowrap"
+            className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight tracking-wide whitespace-nowrap"
           >
-            Hi, I'm <span className="font-semibold">Anurag</span>
+            Hi, I'm <span className="font-bold">Anurag</span>
           </motion.h1>
 
           <motion.p
@@ -35,7 +35,7 @@ export const Hero = () => {
             className="text-[0.55rem] sm:text-base md:text-base lg:text-base text-foreground/95 font-light leading-relaxed max-w-prose mx-auto lg:mx-0 tracking-wide"
           >
             <TextRevealCard
-              text="A full-stack developer from Pune, building everything from interface to backend"
+              text="A full-stack developer, building everything from interface to backend"
               revealText="Connecting every layer of the stack to build web apps that feel complete from end to end"
             />
           </motion.p>
@@ -56,9 +56,24 @@ export const Hero = () => {
               <AnimatePresence>
                 {hoveredLink === "LinkedIn" && (
                   <motion.div
-                    initial={{ opacity: 0, y: 4, x: "-50%", scale: 0.9 }}
-                    animate={{ opacity: 1, y: 0, x: "-50%", scale: 1 }}
-                    exit={{ opacity: 0, y: 4, x: "-50%", scale: 0.9 }}
+                    initial={{
+                      opacity: 0,
+                      y: 4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      x: "-50%",
+                      scale: 1,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      y: 4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
                     transition={{ duration: 0.15 }}
                     className="absolute bottom-full left-1/2 mb-2.5 whitespace-nowrap px-2 py-0.5 rounded-full text-[10px] font-medium bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-md pointer-events-none z-20"
                   >
@@ -67,11 +82,13 @@ export const Hero = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
+
               <a
                 href="https://www.linkedin.com/in/anurag-bhonsle/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground hover:scale-110 hover:text-violet-600 transition-all duration-200 block"
+                aria-label="LinkedIn"
+                className="text-foreground/60 hover:text-foreground hover:scale-110 transition-all duration-200 block"
               >
                 <FaLinkedin className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
@@ -86,9 +103,24 @@ export const Hero = () => {
               <AnimatePresence>
                 {hoveredLink === "GitHub" && (
                   <motion.div
-                    initial={{ opacity: 0, y: 4, x: "-50%", scale: 0.9 }}
-                    animate={{ opacity: 1, y: 0, x: "-50%", scale: 1 }}
-                    exit={{ opacity: 0, y: 4, x: "-50%", scale: 0.9 }}
+                    initial={{
+                      opacity: 0,
+                      y: 4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      x: "-50%",
+                      scale: 1,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      y: 4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
                     transition={{ duration: 0.15 }}
                     className="absolute bottom-full left-1/2 mb-2.5 whitespace-nowrap px-2 py-0.5 rounded-full text-[10px] font-medium bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-md pointer-events-none z-20"
                   >
@@ -97,11 +129,13 @@ export const Hero = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
+
               <a
                 href="https://github.com/anuragbhonsle"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground hover:text-violet-600 hover:scale-110 transition-all duration-200 block"
+                aria-label="GitHub"
+                className="text-foreground/60 hover:text-foreground hover:scale-110 transition-all duration-200 block"
               >
                 <FaGithub className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
@@ -116,9 +150,24 @@ export const Hero = () => {
               <AnimatePresence>
                 {hoveredLink === "LeetCode" && (
                   <motion.div
-                    initial={{ opacity: 0, y: 4, x: "-50%", scale: 0.9 }}
-                    animate={{ opacity: 1, y: 0, x: "-50%", scale: 1 }}
-                    exit={{ opacity: 0, y: 4, x: "-50%", scale: 0.9 }}
+                    initial={{
+                      opacity: 0,
+                      y: 4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      x: "-50%",
+                      scale: 1,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      y: 4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
                     transition={{ duration: 0.15 }}
                     className="absolute bottom-full left-1/2 mb-2.5 whitespace-nowrap px-2 py-0.5 rounded-full text-[10px] font-medium bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-md pointer-events-none z-20"
                   >
@@ -127,11 +176,13 @@ export const Hero = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
+
               <a
                 href="https://leetcode.com/u/AnuragBhonsle/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground hover:scale-110 hover:text-violet-600 transition-all duration-200 block"
+                aria-label="LeetCode"
+                className="text-foreground/60 hover:text-foreground hover:scale-110 transition-all duration-200 block"
               >
                 <SiLeetcode className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
@@ -146,9 +197,24 @@ export const Hero = () => {
               <AnimatePresence>
                 {hoveredLink === "Codeforces" && (
                   <motion.div
-                    initial={{ opacity: 0, y: 4, x: "-50%", scale: 0.9 }}
-                    animate={{ opacity: 1, y: 0, x: "-50%", scale: 1 }}
-                    exit={{ opacity: 0, y: 4, x: "-50%", scale: 0.9 }}
+                    initial={{
+                      opacity: 0,
+                      y: 4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      x: "-50%",
+                      scale: 1,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      y: 4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
                     transition={{ duration: 0.15 }}
                     className="absolute bottom-full left-1/2 mb-2.5 whitespace-nowrap px-2 py-0.5 rounded-full text-[10px] font-medium bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-md pointer-events-none z-20"
                   >
@@ -157,11 +223,13 @@ export const Hero = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
+
               <a
                 href="https://codeforces.com/profile/Anurag2510"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground hover:text-violet-600 transition-all duration-200 hover:scale-110 block"
+                aria-label="Codeforces"
+                className="text-foreground/60 hover:text-foreground hover:scale-110 transition-all duration-200 block"
               >
                 <SiCodeforces className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
@@ -176,9 +244,24 @@ export const Hero = () => {
               <AnimatePresence>
                 {hoveredLink === "X" && (
                   <motion.div
-                    initial={{ opacity: 0, y: 4, x: "-50%", scale: 0.9 }}
-                    animate={{ opacity: 1, y: 0, x: "-50%", scale: 1 }}
-                    exit={{ opacity: 0, y: 4, x: "-50%", scale: 0.9 }}
+                    initial={{
+                      opacity: 0,
+                      y: 4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      x: "-50%",
+                      scale: 1,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      y: 4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
                     transition={{ duration: 0.15 }}
                     className="absolute bottom-full left-1/2 mb-2.5 whitespace-nowrap px-2 py-0.5 rounded-full text-[10px] font-medium bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-md pointer-events-none z-20"
                   >
@@ -187,12 +270,13 @@ export const Hero = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
+
               <a
                 href="https://x.com/Anuraaaag7"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="X (Twitter)"
-                className="text-foreground hover:text-violet-600 hover:scale-110 transition-all duration-200 block"
+                className="text-foreground/60 hover:text-foreground hover:scale-110 transition-all duration-200 block"
               >
                 <FaXTwitter className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
@@ -207,9 +291,24 @@ export const Hero = () => {
               <AnimatePresence>
                 {hoveredLink === "Resume" && (
                   <motion.div
-                    initial={{ opacity: 0, y: 4, x: "-50%", scale: 0.9 }}
-                    animate={{ opacity: 1, y: 0, x: "-50%", scale: 1 }}
-                    exit={{ opacity: 0, y: 4, x: "-50%", scale: 0.9 }}
+                    initial={{
+                      opacity: 0,
+                      y: 4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      x: "-50%",
+                      scale: 1,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      y: 4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
                     transition={{ duration: 0.15 }}
                     className="absolute bottom-full left-1/2 mb-2.5 whitespace-nowrap px-2 py-0.5 rounded-full text-[10px] font-medium bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-md pointer-events-none z-20"
                   >
@@ -218,42 +317,15 @@ export const Hero = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
+
               <a
                 href="/Anurag_Bhonsle_Full_Stack_Developer.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground hover:scale-110 hover:text-violet-600 transition-all duration-200 block"
+                aria-label="Resume"
+                className="text-foreground/60 hover:text-foreground hover:scale-110 transition-all duration-200 block"
               >
                 <FileText className="w-5 h-5 sm:w-6 sm:h-6" />
-              </a>
-            </div>
-            <div
-              className="relative flex items-center justify-center"
-              onMouseEnter={() => setHoveredLink("anuragkbhonsle@gmail.com")}
-              onMouseLeave={() => setHoveredLink(null)}
-            >
-              <AnimatePresence>
-                {hoveredLink === "anuragkbhonsle@gmail.com" && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 4, x: "-50%", scale: 0.9 }}
-                    animate={{ opacity: 1, y: 0, x: "-50%", scale: 1 }}
-                    exit={{ opacity: 0, y: 4, x: "-50%", scale: 0.9 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute bottom-full left-1/2 mb-2.5 whitespace-nowrap px-2 py-0.5 rounded-full text-[10px] font-medium bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-md pointer-events-none z-20"
-                  >
-                    anuragkbhonsle@gmail.com
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-zinc-900 dark:border-t-white" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-              <a
-                href="mailto:anuragkbhonsle@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Email"
-                className="text-foreground hover:text-violet-600 hover:scale-110 transition-all duration-200 block"
-              >
-                <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
             </div>
           </motion.div>

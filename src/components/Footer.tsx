@@ -1,7 +1,12 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
-import { Check, Loader2 } from "lucide-react";
+
+import { Check, Loader2, MailIcon } from "lucide-react";
+
+import { SiLeetcode, SiCodeforces } from "react-icons/si";
+
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 const MAX_MESSAGE = 600;
 
@@ -128,6 +133,7 @@ function Field({
 }
 
 export const Footer = () => {
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [resp, setResp] = useState("");
@@ -196,7 +202,7 @@ export const Footer = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="py-6 px-2 sm:px-4 lg:px-20  bg-transparent mb-20"
+      className="py-6 px-2 sm:px-4 lg:px-20 bg-transparent mb-10"
     >
       <div className="mx-auto max-w-3xl text-center space-y-6">
         <motion.h2
@@ -288,6 +294,311 @@ export const Footer = () => {
               </p>
             </div>
           )}
+        </div>
+
+        {/* Social Links + Back to top */}
+        <div className="mt-2 flex w-full flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-0">
+          {/* Social Links */}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-6">
+            {/* X */}
+            <div
+              className="relative flex items-center justify-center"
+              onMouseEnter={() => setHoveredLink("X")}
+              onMouseLeave={() => setHoveredLink(null)}
+            >
+              <AnimatePresence>
+                {hoveredLink === "X" && (
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      y: -4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      x: "-50%",
+                      scale: 1,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      y: -4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
+                    transition={{ duration: 0.15 }}
+                    className="pointer-events-none absolute left-1/2 top-full z-20 mt-2.5 whitespace-nowrap rounded-full bg-zinc-900 px-2 py-0.5 text-[10px] font-medium text-white shadow-md dark:bg-white dark:text-zinc-900"
+                  >
+                    X
+                    <div className="absolute bottom-full left-1/2 h-0 w-0 -translate-x-1/2 border-l-4 border-r-4 border-b-4 border-transparent border-b-zinc-900 dark:border-b-white" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <a
+                href="https://x.com/Anuraaaag7"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X"
+                className="flex h-9 w-9 items-center justify-center rounded-xl text-foreground/60 transition-all duration-200 hover:bg-foreground/10 hover:text-foreground"
+              >
+                <FaXTwitter className="h-5 w-5" />
+              </a>
+            </div>
+
+            {/* LinkedIn */}
+            <div
+              className="relative flex items-center justify-center"
+              onMouseEnter={() => setHoveredLink("LinkedIn")}
+              onMouseLeave={() => setHoveredLink(null)}
+            >
+              <AnimatePresence>
+                {hoveredLink === "LinkedIn" && (
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      y: -4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      x: "-50%",
+                      scale: 1,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      y: -4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
+                    transition={{ duration: 0.15 }}
+                    className="pointer-events-none absolute left-1/2 top-full z-20 mt-2.5 whitespace-nowrap rounded-full bg-zinc-900 px-2 py-0.5 text-[10px] font-medium text-white shadow-md dark:bg-white dark:text-zinc-900"
+                  >
+                    LinkedIn
+                    <div className="absolute bottom-full left-1/2 h-0 w-0 -translate-x-1/2 border-l-4 border-r-4 border-b-4 border-transparent border-b-zinc-900 dark:border-b-white" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <a
+                href="https://www.linkedin.com/in/anurag-bhonsle/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="flex h-9 w-9 items-center justify-center rounded-xl text-foreground/60 transition-all duration-200 hover:bg-foreground/10 hover:text-foreground"
+              >
+                <FaLinkedin className="h-5 w-5" />
+              </a>
+            </div>
+
+            {/* GitHub */}
+            <div
+              className="relative flex items-center justify-center"
+              onMouseEnter={() => setHoveredLink("GitHub")}
+              onMouseLeave={() => setHoveredLink(null)}
+            >
+              <AnimatePresence>
+                {hoveredLink === "GitHub" && (
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      y: -4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      x: "-50%",
+                      scale: 1,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      y: -4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
+                    transition={{ duration: 0.15 }}
+                    className="pointer-events-none absolute left-1/2 top-full z-20 mt-2.5 whitespace-nowrap rounded-full bg-zinc-900 px-2 py-0.5 text-[10px] font-medium text-white shadow-md dark:bg-white dark:text-zinc-900"
+                  >
+                    GitHub
+                    <div className="absolute bottom-full left-1/2 h-0 w-0 -translate-x-1/2 border-l-4 border-r-4 border-b-4 border-transparent border-b-zinc-900 dark:border-b-white" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <a
+                href="https://github.com/anuragbhonsle"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="flex h-9 w-9 items-center justify-center rounded-xl text-foreground/60 transition-all duration-200 hover:bg-foreground/10 hover:text-foreground"
+              >
+                <FaGithub className="h-5 w-5" />
+              </a>
+            </div>
+
+            {/* Email */}
+            <div
+              className="relative flex items-center justify-center"
+              onMouseEnter={() => setHoveredLink("Email")}
+              onMouseLeave={() => setHoveredLink(null)}
+            >
+              <AnimatePresence>
+                {hoveredLink === "Email" && (
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      y: -4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      x: "-50%",
+                      scale: 1,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      y: -4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
+                    transition={{ duration: 0.15 }}
+                    className="pointer-events-none absolute left-1/2 top-full z-20 mt-2.5 whitespace-nowrap rounded-full bg-zinc-900 px-2 py-0.5 text-[10px] font-medium text-white shadow-md dark:bg-white dark:text-zinc-900"
+                  >
+                    Email
+                    <div className="absolute bottom-full left-1/2 h-0 w-0 -translate-x-1/2 border-l-4 border-r-4 border-b-4 border-transparent border-b-zinc-900 dark:border-b-white" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <a
+                href="mailto:anuragkbhonsle@gmail.com"
+                aria-label="Email"
+                className="flex h-9 w-9 items-center justify-center rounded-xl text-foreground/60 transition-all duration-200 hover:bg-foreground/10 hover:text-foreground"
+              >
+                <span className="text-lg font-semibold">
+                  <MailIcon />
+                </span>
+              </a>
+            </div>
+
+            {/* LeetCode */}
+            <div
+              className="relative flex items-center justify-center"
+              onMouseEnter={() => setHoveredLink("LeetCode")}
+              onMouseLeave={() => setHoveredLink(null)}
+            >
+              <AnimatePresence>
+                {hoveredLink === "LeetCode" && (
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      y: -4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      x: "-50%",
+                      scale: 1,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      y: -4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
+                    transition={{ duration: 0.15 }}
+                    className="pointer-events-none absolute left-1/2 top-full z-20 mt-2.5 whitespace-nowrap rounded-full bg-zinc-900 px-2 py-0.5 text-[10px] font-medium text-white shadow-md dark:bg-white dark:text-zinc-900"
+                  >
+                    LeetCode
+                    <div className="absolute bottom-full left-1/2 h-0 w-0 -translate-x-1/2 border-l-4 border-r-4 border-b-4 border-transparent border-b-zinc-900 dark:border-b-white" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <a
+                href="https://leetcode.com/u/AnuragBhonsle/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LeetCode"
+                className="flex h-9 w-9 items-center justify-center rounded-xl text-foreground/60 transition-all duration-200 hover:bg-foreground/10 hover:text-foreground"
+              >
+                <SiLeetcode className="h-5 w-5" />
+              </a>
+            </div>
+
+            {/* Codeforces */}
+            <div
+              className="relative flex items-center justify-center"
+              onMouseEnter={() => setHoveredLink("Codeforces")}
+              onMouseLeave={() => setHoveredLink(null)}
+            >
+              <AnimatePresence>
+                {hoveredLink === "Codeforces" && (
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      y: -4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      x: "-50%",
+                      scale: 1,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      y: -4,
+                      x: "-50%",
+                      scale: 0.9,
+                    }}
+                    transition={{ duration: 0.15 }}
+                    className="pointer-events-none absolute left-1/2 top-full z-20 mt-2.5 whitespace-nowrap rounded-full bg-zinc-900 px-2 py-0.5 text-[10px] font-medium text-white shadow-md dark:bg-white dark:text-zinc-900"
+                  >
+                    Codeforces
+                    <div className="absolute bottom-full left-1/2 h-0 w-0 -translate-x-1/2 border-l-4 border-r-4 border-b-4 border-transparent border-b-zinc-900 dark:border-b-white" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <a
+                href="https://codeforces.com/profile/Anurag2510"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Codeforces"
+                className="flex h-9 w-9 items-center justify-center rounded-xl text-foreground/60 transition-all duration-200 hover:bg-foreground/10 hover:text-foreground"
+              >
+                <SiCodeforces className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Back to top */}
+          <button
+            type="button"
+            onClick={() =>
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              })
+            }
+            className="group flex shrink-0 items-center gap-1.5 self-start text-sm text-foreground/60 transition-all duration-200 hover:text-foreground sm:self-auto"
+          >
+            Back to top
+            <span className="inline-block transition-transform duration-200 group-hover:-translate-y-0.5">
+              ↑
+            </span>
+          </button>
         </div>
       </div>
     </motion.footer>

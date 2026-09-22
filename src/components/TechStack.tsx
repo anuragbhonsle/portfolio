@@ -80,7 +80,7 @@ export const TechStack = () => {
           Skills
         </motion.h2>
 
-        <div className="flex flex-wrap gap-3 justify-start">
+        <div className="flex flex-wrap gap-3 justify-between">
           {techStack.map((tech, index) => (
             <motion.div
               key={tech.name}

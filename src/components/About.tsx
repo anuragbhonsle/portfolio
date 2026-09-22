@@ -11,6 +11,13 @@ interface Song {
 }
 const VITE_RENDER_URL = import.meta.env.VITE_RENDER_URL;
 
+const points = [
+  "I turn ideas into clean apps that not only work, but feel intuitive and enjoyable to use.",
+  "Always curious about new tools, I learn by building, adapting, and trying them out.",
+
+  "As an SDE (Web) Intern, I build web apps while learning and growing with a team.",
+];
+
 export const About = () => {
   const [spotify, setSpotify] = useState<Song>();
 
@@ -33,7 +40,7 @@ export const About = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7 }}
       viewport={{ once: true }}
-      className="px-2 sm:px-4 lg:px-20 pt-1 lg:pt-2 pb-4 lg:pb-6"
+      className="px-2 sm:px-4 lg:px-20 pt-1 lg:pt-2 pb-6 lg:pb-8"
     >
       <div className="w-full sm:max-w-5xl mx-auto flex flex-col gap-4">
         <motion.div
@@ -47,63 +54,45 @@ export const About = () => {
             About
           </h2>
 
-          <div className="space-y-4 text-[0.6rem] sm:text-base text-foreground/95 leading-relaxed ">
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.25 }}
-              viewport={{ once: true }}
-            >
-              I turn ideas into clean apps that not only work, but feel
-              intuitive and enjoyable.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.35 }}
-              viewport={{ once: true }}
-            >
-              Always curious about new tools, I learn by building and
-              experimenting with them.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.45 }}
-              viewport={{ once: true }}
-            >
-              You’ll find me tackling programming challenges or planning out my
-              next project.
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.25 }}
-              viewport={{ once: true }}
-            >
-              {spotify && (
-                <p className="text-[0.6rem] sm:text-sm text-muted-foreground">
-                  <a
-                    href={spotify.song_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 hover:text-foreground hover:underline hover:underline-offset-4 transition-colors"
-                  >
-                    <SiSpotify className="w-4 h-4 shrink-0 text-[#1DB954]" />
-                    <span>
-                      Last Played —{" "}
-                      <strong className="font-medium text-foreground">
-                        “{spotify.song_name}”
-                      </strong>{" "}
-                      by {spotify.song_artist}
-                    </span>
-                  </a>
-                </p>
-              )}
-            </motion.p>
+          <div className="flex flex-col gap-3 text-[0.6rem] sm:text-base text-foreground/90 leading-relaxed sm:leading-7 max-w-2xl">
+            {points.map((point, index) => (
+              <motion.p
+                key={point}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.25 + index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                {point}
+              </motion.p>
+            ))}
           </div>
+
+          {/* Spotify */}
+          {spotify && (
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 + points.length * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <a
+                href={spotify.song_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1.5 text-[0.6rem] sm:text-sm text-text-dim hover:text-foreground transition-colors"
+              >
+                <SiSpotify className="w-4 h-4 shrink-0 text-[#1DB954]" />
+                <span>
+                  Last Played —{" "}
+                  <strong className="font-medium text-foreground group-hover:underline underline-offset-4">
+                    “{spotify.song_name}”
+                  </strong>{" "}
+                  by {spotify.song_artist}
+                </span>
+              </a>
+            </motion.div>
+          )}
         </motion.div>
       </div>
     </motion.section>

@@ -24,7 +24,7 @@ const App = () => (
           <Route
             path="/"
             element={
-              <div className="relative z-10 w-full sm:max-w-5xl mx-auto px-4 sm:px-6 lg:px-16 py-0 sm:py-6 flex flex-col items-center justify-center">
+              <div className="relative z-10 w-full sm:max-w-5xl mx-auto px-4 sm:px-2 lg:px-16 py-0 sm:py-6 flex flex-col items-center justify-center ">
                 <Index />
               </div>
             }
