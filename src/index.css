@@ -14,7 +14,7 @@
 /* Theme Design System */
 @layer base {
   :root {
-    --background: 0 0% 2%;
+    --background: 0 0% 3%;
     --foreground: 0 0% 99%;
     --card: 0 0% 2%;
     --card-foreground: 0 0% 98%;
@@ -59,7 +59,7 @@
   }
 
   .light {
-    --background: 0 0% 97%;
+    --background: 0 0% 96%;
     --foreground: 0 0% 4%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 5%;
