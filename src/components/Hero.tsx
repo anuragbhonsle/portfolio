@@ -339,7 +339,7 @@ export const Hero = () => {
           className="w-16 sm:w-28 md:w-36 lg:w-40 mt-0"
         >
           <motion.img
-            src="/anurag.png"
+            src="/anurag3.png"
             alt="Anurag profile"
             className="relative z-10 w-full rounded-full object-cover shadow-card group-hover:shadow-glow transition-all duration-300"
           />

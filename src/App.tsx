@@ -19,7 +19,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Navbar />
-        <MeteorShower />
+
         <Routes>
           <Route
             path="/"
