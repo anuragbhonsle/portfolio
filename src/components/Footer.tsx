@@ -183,18 +183,25 @@ export const Footer = () => {
       console.error("Error fetching quotes:", error);
 
       const fallbackQuote = {
-        quote:
-          "Talk to yourself like a cherished friend. Treat yourself with love and care. You are perfect, just as you are.",
-        author: "Amy Leigh Mercree",
-        work: "The Compassion Revolution: 30 Days of Living from the Heart",
-        categories: ["love", "inspirational", "wisdom", "happiness"],
+        quote: "The art of programming is the art of organizing complexity.",
+        author: "Edsger W. Dijkstra",
+        work: "“Notes on Structured Programming” (EWD249), 1970",
+        categories: ["progress", "programming", "computer"],
       };
 
       setQuote(fallbackQuote);
     }
   }
   useEffect(() => {
-    getQuote();
+    // getQuote();
+    const fallbackQuote = {
+      quote: "The art of programming is the art of organizing complexity.",
+      author: "Edsger W. Dijkstra",
+      work: "“Notes on Structured Programming” (EWD249), 1970",
+      categories: ["progress", "programming", "computer"],
+    };
+
+    setQuote(fallbackQuote);
   }, []);
   return (
     <motion.footer
